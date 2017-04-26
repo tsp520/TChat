@@ -1,4 +1,4 @@
-## 编码不易，求star！如有帮助，可以打赏 ##
+## 编码不易，求star！如有帮助，可以打赏。 ##
 
 ![avatar](https://github.com/WZTENG/TChat/blob/master/screenshots/WECHATPAY.png)&nbsp;&nbsp;&nbsp;&nbsp;
 ![avatar](https://github.com/WZTENG/TChat/blob/master/screenshots/ALIPAY.png)
