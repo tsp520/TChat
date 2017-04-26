@@ -60,6 +60,8 @@ https://github.com/koral--/android-gif-drawable/<br/>
 ![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075148.png)
 ![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075155.png)
 ![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075301.png)
+![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170426-133027.png)
+![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170426-133039.png)
 
 未完待续2017-04-26 13:30
 
