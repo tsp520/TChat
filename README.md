@@ -22,5 +22,5 @@ https://github.com/koral--/android-gif-drawable/<br/>
 
 截图
 
-![avatar](https://github.com/WZTENG/TChat/screenshot/WECHATPAY.png)
-![avatar](https://github.com/WZTENG/TChat/screenshot/ALIPAY.png)
+![avatar](https://github.com/WZTENG/TChat/blob/master/screenshot/WECHATPAY.png)
+![avatar](https://github.com/WZTENG/TChat/blob/master/screenshot/ALIPAY.png)
