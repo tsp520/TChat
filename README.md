@@ -1,4 +1,4 @@
-## 编码不易，求star！如果觉得本项目对您有用，请随意打赏，鼓励我继续创作，谢谢。 ##
+## 编码不易，求star！如果觉得本项目对您有用，请随意打赏，谢谢。 ##
 
 ![wechatpay](https://github.com/WZTENG/TChat/blob/master/screenshots/WECHATPAY.png)&nbsp;&nbsp;&nbsp;&nbsp;
 ![alipay](https://github.com/WZTENG/TChat/blob/master/screenshots/ALIPAY.png)
