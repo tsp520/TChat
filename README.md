@@ -3,7 +3,8 @@
 ![wechatpay](https://github.com/WZTENG/TChat/blob/master/screenshots/WECHATPAY.png)&nbsp;&nbsp;&nbsp;&nbsp;
 ![alipay](https://github.com/WZTENG/TChat/blob/master/screenshots/ALIPAY.png)
 
-**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本工程使用网易云信基本框架加上网上开源项目组合而成，自己编写30%-40%的代码（附上使用的开源地址，如有侵权或遗漏马上修改）。**
+**&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本工程使用网易云信基本框架加上网上开源项目组合而成，
+自己编写30%-40%的代码（附上使用的开源地址，如有侵权或遗漏马上修改）。**
 
 ### 使用以下开源项目并修改了部分内容 ###
 
@@ -61,3 +62,6 @@ https://github.com/koral--/android-gif-drawable/<br/>
 ![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075301.png)
 
 未完待续2017-04-26 13:30
+
+
+
