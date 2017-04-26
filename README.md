@@ -30,9 +30,9 @@ https://github.com/koral--/android-gif-drawable/<br/>
 
 截图<br/>
 
-<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133335.png"/>
-<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133340.png"/>
-<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170314-151150.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133335.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133340.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170314-151150.png"/>
 <img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133350.png"/>
 <img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-132948.png"/>
 <img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170310-101434.png"/>
