@@ -1,0 +1,74 @@
+[
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_right.xml",
+        "source": "E:\\IDEAWorkspace\\nim_demo\\swipebackhelper\\build\\intermediates\\bundles\\default\\res\\anim\\slide_in_right.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_enter.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_popup_enter.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_out.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\2008cda148fd74668151baf6f275b62553d9b2dc\\output\\res\\anim\\design_snackbar_out.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_in.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\2008cda148fd74668151baf6f275b62553d9b2dc\\output\\res\\anim\\design_bottom_sheet_slide_in.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_bottom.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_slide_in_bottom.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\slide_out_right.xml",
+        "source": "E:\\IDEAWorkspace\\nim_demo\\swipebackhelper\\build\\intermediates\\bundles\\default\\res\\anim\\slide_out_right.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_bottom.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_out_top.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_slide_out_top.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_popup_exit.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_popup_exit.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_slide_in_top.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_slide_in_top.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_in.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\2008cda148fd74668151baf6f275b62553d9b2dc\\output\\res\\anim\\design_fab_in.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_shrink_fade_out_from_bottom.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\2008cda148fd74668151baf6f275b62553d9b2dc\\output\\res\\anim\\design_fab_out.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\design_snackbar_in.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\2008cda148fd74668151baf6f275b62553d9b2dc\\output\\res\\anim\\design_snackbar_in.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_in.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_fade_in.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_fade_out.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\abc_grow_fade_in_from_bottom.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\anim\\abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
+        "source": "C:\\Users\\TURI156\\.android\\build-cache\\2008cda148fd74668151baf6f275b62553d9b2dc\\output\\res\\anim\\design_bottom_sheet_slide_out.xml"
+    }
+]

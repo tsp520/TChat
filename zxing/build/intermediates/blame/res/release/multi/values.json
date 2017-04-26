@@ -1,0 +1,19 @@
+[
+    {
+        "outputFile": "E:\\IDEAWorkspace\\nim_demo\\zxing\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 1993,
+                    "endColumn": 53,
+                    "endOffset": 2042
+                },
+                "from": {
+                    "file": "E:\\IDEAWorkspace\\nim_demo\\zxing\\src\\main\\res\\values\\ids.xml"
+                }
+            }
+        ]
+    }
+]
