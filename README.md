@@ -29,39 +29,40 @@ https://github.com/koral--/android-gif-drawable/<br/>
 密码：123456<br/>
 
 截图<br/>
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133335.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133340.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170314-151150.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133350.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-132948.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170310-101434.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170310-101618.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170310-101902.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170320-104011.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170322-154439.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-141033.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151113.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151211.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151222.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151249.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151457.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151527.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-154807.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-154834.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170413-105031.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170413-105042.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170413-105052.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170414-174236.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075030.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075050.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075101.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075133.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075140.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075148.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075155.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075301.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170426-133027.png)
-![screenshot](https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170426-133039.png)
+
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133335.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133340.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170314-151150.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133350.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-132948.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170310-101434.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170310-101618.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170310-101902.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170320-104011.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170322-154439.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-141033.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151113.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151211.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151222.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151249.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151457.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-151527.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-154807.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170412-154834.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170413-105031.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170413-105042.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170413-105052.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170414-174236.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075030.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075050.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075101.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075133.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075140.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075148.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075155.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170420-075301.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170426-133027.png"/>
+<img width="360" height="640" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170426-133039.png"/>
 
 未完待续2017-04-26 13:30
 
