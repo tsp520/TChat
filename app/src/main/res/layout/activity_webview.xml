@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--<com.netease.nim.demo.wzteng.others.design.SlidingLayout-->
+        <!--<com.netease.nim.demo.wzteng.others.webdowninfo.SlidingLayout-->
             <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
             <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
             <!--android:id="@+id/slidingLayout"-->
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-        <!--</com.netease.nim.demo.wzteng.others.design.SlidingLayout>-->
+        <!--</com.netease.nim.demo.wzteng.others.webdowninfo.SlidingLayout>-->
 
         <ProgressBar
             android:id="@+id/pb_progressbar"
