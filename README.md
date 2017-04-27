@@ -19,7 +19,7 @@ https://github.com/koral--/android-gif-drawable/<br/>
 当前编辑版本与编译环境：
 
 - Android Studio 2.3
-- Gradle-3.3-all.zip
+- Gradle 2.3.0
 - Android SDK Platform-Tools 25.0.1
 - Android 7.1.1 API25
 - 真机原生7.1.1
