@@ -15,6 +15,7 @@ https://github.com/CJT2325/CameraView<br/>
 https://github.com/bingoogolapple/BGAQRCode-Android<br/>
 https://github.com/Naoki2015/CircleDemo<br/>
 https://github.com/koral--/android-gif-drawable/<br/>
+https://github.com/Sunzxyong/Recovery<br/>
 
 当前编辑版本与编译环境：
 
