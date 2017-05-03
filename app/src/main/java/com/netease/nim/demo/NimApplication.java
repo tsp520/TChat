@@ -19,10 +19,12 @@ import com.netease.nim.demo.config.ExtraOptions;
 import com.netease.nim.demo.config.preference.Preferences;
 import com.netease.nim.demo.config.preference.UserPreferences;
 import com.netease.nim.demo.contact.ContactHelper;
+import com.netease.nim.demo.main.activity.MainActivity;
 import com.netease.nim.demo.main.activity.WelcomeActivity;
 import com.netease.nim.demo.rts.activity.RTSActivity;
 import com.netease.nim.demo.session.NimDemoLocationProvider;
 import com.netease.nim.demo.session.SessionHelper;
+import com.netease.nim.demo.wzteng.crashrecovery.MyCrashHandler;
 import com.netease.nim.uikit.custom.DefalutUserInfoProvider;
 import com.netease.nim.uikit.NimUIKit;
 import com.netease.nim.uikit.contact.core.query.PinYin;
@@ -45,18 +47,25 @@ import com.netease.nimlib.sdk.rts.model.RTSData;
 import com.netease.nimlib.sdk.team.constant.TeamFieldEnum;
 import com.netease.nimlib.sdk.team.model.IMMessageFilter;
 import com.netease.nimlib.sdk.team.model.UpdateTeamAttachment;
+import com.zxy.recovery.callback.RecoveryCallback;
+import com.zxy.recovery.core.Recovery;
 
 import java.util.Map;
 
 public class NimApplication extends Application {
 
+    @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(newBase);
         MultiDex.install(this);
     }
 
+    @Override
     public void onCreate() {
         super.onCreate();
+
+        Log.e("wzt", "Recovery: init");
+        initRecovery();
 
         DemoCache.setContext(this);
         // 注册小米推送appID 、appKey 以及在云信管理后台添加的小米推送证书名称，该逻辑放在 NIMClient init 之前
@@ -313,4 +322,45 @@ public class NimApplication extends Application {
             return null; // 采用SDK默认文案
         }
     };
+
+    private void initRecovery() {
+        Recovery.getInstance()
+                .debug(true)
+                .recoverInBackground(false)
+                .recoverStack(true)
+                .mainPage(MainActivity.class)
+                .recoverEnabled(true)
+                .callback(new MyCrashCallback())
+                .silent(false, Recovery.SilentMode.RECOVER_ACTIVITY_STACK)
+//                .skip(TestActivity.class)
+                .init(this);
+
+        MyCrashHandler.register();
+    }
+
+    static final class MyCrashCallback implements RecoveryCallback {
+        @Override
+        public void stackTrace(String exceptionMessage) {
+            Log.e("wzt", "exceptionMessage:" + exceptionMessage);
+        }
+
+        @Override
+        public void cause(String cause) {
+            Log.e("wzt", "cause:" + cause);
+        }
+
+        @Override
+        public void exception(String exceptionType, String throwClassName, String throwMethodName, int throwLineNumber) {
+            Log.e("wzt", "exceptionClassName:" + exceptionType);
+            Log.e("wzt", "throwClassName:" + throwClassName);
+            Log.e("wzt", "throwMethodName:" + throwMethodName);
+            Log.e("wzt", "throwLineNumber:" + throwLineNumber);
+        }
+
+        @Override
+        public void throwable(Throwable throwable) {
+
+        }
+    }
+
 }
