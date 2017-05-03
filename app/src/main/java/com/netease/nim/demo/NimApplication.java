@@ -47,6 +47,10 @@ import com.netease.nimlib.sdk.rts.model.RTSData;
 import com.netease.nimlib.sdk.team.constant.TeamFieldEnum;
 import com.netease.nimlib.sdk.team.model.IMMessageFilter;
 import com.netease.nimlib.sdk.team.model.UpdateTeamAttachment;
+import com.wenming.library.LogReport;
+import com.wenming.library.save.imp.CrashWriter;
+import com.wenming.library.upload.email.EmailReporter;
+import com.wenming.library.upload.http.HttpReporter;
 import com.zxy.recovery.callback.RecoveryCallback;
 import com.zxy.recovery.core.Recovery;
 
@@ -66,6 +70,17 @@ public class NimApplication extends Application {
 
         Log.e("wzt", "Recovery: init");
         initRecovery();
+
+        //*******************logreport************************
+        //记录日志并上传到邮箱或服务器
+//        initCrashReport();//日志
+//        LogReport.getInstance().upload(this);//当之前发生崩溃后会自动在wifi下日志上传
+
+        //打印日志方法
+//        LogWriter.writeLog("wzt", "打Log测试！！！！");
+        //清空本地log
+//        FileUtil.deleteDir(new File(LogReport.getInstance().getROOT()));
+        //*******************logreport************************
 
         DemoCache.setContext(this);
         // 注册小米推送appID 、appKey 以及在云信管理后台添加的小米推送证书名称，该逻辑放在 NIMClient init 之前
@@ -361,6 +376,49 @@ public class NimApplication extends Application {
         public void throwable(Throwable throwable) {
 
         }
+    }
+
+    //日志保存上报
+
+    /**
+     * 初始化日志
+     */
+    private void initCrashReport() {
+        LogReport.getInstance()
+                .setCacheSize(10 * 1024 * 1024)//支持设置缓存大小，超出后清空
+                .setLogDir(getApplicationContext(), "sdcard/" + this.getString(this.getApplicationInfo().labelRes) + "/")//定义路径为：sdcard/[app name]/
+                .setWifiOnly(true)//设置只在Wifi状态下上传，设置为false为Wifi和移动网络都上传
+                .setLogSaver(new CrashWriter(getApplicationContext()))//支持自定义保存崩溃信息的样式
+                //.setEncryption(new AESEncode()) //支持日志到AES加密或者DES加密，默认不开启
+                .init(getApplicationContext());
+        initEmailReporter();
+    }
+
+    /**
+     * 使用EMAIL发送日志
+     */
+    private void initEmailReporter() {
+        EmailReporter email = new EmailReporter(this);
+        email.setReceiver("ascode@qq.com");//收件人
+        email.setSender("wenmingvs@163.com");//发送人邮箱
+        email.setSendPassword("apptest1234");//邮箱密码
+        email.setSMTPHost("smtp.163.com");//SMTP地址
+        email.setPort("465");//SMTP 端口
+        LogReport.getInstance().setUploadType(email);
+    }
+
+    /**
+     * 使用HTTP发送日志
+     */
+    private void initHttpReporter() {
+        HttpReporter http = new HttpReporter(this);
+        http.setUrl("http://crashreport.jd-app.com/your_receiver");//发送请求的地址
+        http.setFileParam("fileName");//文件的参数名
+        http.setToParam("to");//收件人参数名
+        http.setTo("你的接收邮箱");//收件人
+        http.setTitleParam("subject");//标题
+        http.setBodyParam("message");//内容
+        LogReport.getInstance().setUploadType(http);
     }
 
 }
