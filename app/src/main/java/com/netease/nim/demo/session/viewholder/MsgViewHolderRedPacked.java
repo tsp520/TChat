@@ -93,11 +93,11 @@ public class MsgViewHolderRedPacked extends MsgViewHolderBase {
 
     @Override
     protected int leftBackground() {
-        return R.drawable.c2c_chatfrom_bg_normal;
+        return R.drawable.wzt_message_item_redpacked_left_selector;
     }
 
     @Override
     protected int rightBackground() {
-        return R.drawable.c2c_chatto_bg_normal;
+        return R.drawable.wzt_message_item_redpacked_right_selector;
     }
 }
