@@ -36,7 +36,7 @@ public class RedPackedAction extends BaseAction {
         redPackedAttachment.setRedPackedMoney(100);
         redPackedAttachment.setRedPackedNameLabel("恭喜发财，大吉大利");
         redPackedAttachment.setRedPackedFromLabel("藤信红包");
-        IMMessage message = MessageBuilder.createCustomMessage(getAccount(), getSessionType(), "red", redPackedAttachment);
+        IMMessage message = MessageBuilder.createCustomMessage(getAccount(), getSessionType(), "红包", redPackedAttachment);
         sendMessage(message);
     }
 
@@ -45,7 +45,7 @@ public class RedPackedAction extends BaseAction {
         if (requestCode == RequestCode.GET_LOCAL_FILE) {
             String path = data.getStringExtra(FileBrowserActivity.EXTRA_DATA_PATH);
             File file = new File(path);
-            IMMessage message = MessageBuilder.createCustomMessage(getAccount(), getSessionType(), "", new RedPackedAttachment());
+            IMMessage message = MessageBuilder.createCustomMessage(getAccount(), getSessionType(), "红包", new RedPackedAttachment());
             sendMessage(message);
         }
     }
