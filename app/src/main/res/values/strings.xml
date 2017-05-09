@@ -87,6 +87,7 @@
     <string name="input_panel_audio_call">语音通话</string>
     <string name="input_panel_video_call">视频通话</string>
     <string name="input_panel_file">发送文件</string>
+    <string name="input_panel_redpacked">红 包</string><!--wzteng-->
     <string name="input_panel_RTS">白 板</string>
     <string name="input_panel_snapchat">阅后即焚</string>
     <string name="input_panel_tip">Tip</string>
