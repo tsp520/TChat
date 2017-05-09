@@ -32,6 +32,9 @@ public class CustomAttachParser implements MsgAttachmentParser {
                 case CustomAttachmentType.RTS:
                     attachment = new RTSAttachment();
                     break;
+                case CustomAttachmentType.RED:
+                    attachment = new RedPackedAttachment();
+                    break;
                 default:
                     attachment = new DefaultCustomAttachment();
                     break;
