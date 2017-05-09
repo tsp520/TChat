@@ -1,5 +1,6 @@
 package com.netease.nim.demo.session.viewholder;
 
+import android.os.Message;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -10,6 +11,8 @@ import com.netease.nim.demo.session.extension.RedPackedAttachment;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.util.sys.ScreenUtil;
 import com.netease.nim.uikit.session.viewholder.MsgViewHolderBase;
+import com.netease.nimlib.sdk.NIMClient;
+import com.netease.nimlib.sdk.msg.MsgService;
 import com.netease.nimlib.sdk.msg.constant.AttachStatusEnum;
 
 /**
@@ -89,6 +92,15 @@ public class MsgViewHolderRedPacked extends MsgViewHolderBase {
 
     @Override
     protected void onItemClick() {
+        if (msgAttachment.getFlag() == 0) {
+            //弹出红包对话框
+            msgAttachment.setFlag((byte) 1);
+            message.setAttachment(msgAttachment);
+            NIMClient.getService(MsgService.class).updateIMMessageStatus(message);
+            updateRedPackedStatusLabel();
+        } else {
+            //直接进入红包Activity
+        }
     }
 
     @Override
