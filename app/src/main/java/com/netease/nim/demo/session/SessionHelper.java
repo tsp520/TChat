@@ -15,6 +15,7 @@ import com.netease.nim.demo.session.action.AVChatAction;
 import com.netease.nim.demo.session.action.FileAction;
 import com.netease.nim.demo.session.action.GuessAction;
 import com.netease.nim.demo.session.action.RTSAction;
+import com.netease.nim.demo.session.action.RedPackedAction;
 import com.netease.nim.demo.session.action.SnapChatAction;
 import com.netease.nim.demo.session.action.TipAction;
 import com.netease.nim.demo.session.activity.MessageHistoryActivity;
@@ -23,6 +24,7 @@ import com.netease.nim.demo.session.extension.CustomAttachParser;
 import com.netease.nim.demo.session.extension.CustomAttachment;
 import com.netease.nim.demo.session.extension.GuessAttachment;
 import com.netease.nim.demo.session.extension.RTSAttachment;
+import com.netease.nim.demo.session.extension.RedPackedAttachment;
 import com.netease.nim.demo.session.extension.SnapChatAttachment;
 import com.netease.nim.demo.session.extension.StickerAttachment;
 import com.netease.nim.demo.session.search.SearchMessageActivity;
@@ -31,6 +33,7 @@ import com.netease.nim.demo.session.viewholder.MsgViewHolderDefCustom;
 import com.netease.nim.demo.session.viewholder.MsgViewHolderFile;
 import com.netease.nim.demo.session.viewholder.MsgViewHolderGuess;
 import com.netease.nim.demo.session.viewholder.MsgViewHolderRTS;
+import com.netease.nim.demo.session.viewholder.MsgViewHolderRedPacked;
 import com.netease.nim.demo.session.viewholder.MsgViewHolderSnapChat;
 import com.netease.nim.demo.session.viewholder.MsgViewHolderSticker;
 import com.netease.nim.demo.session.viewholder.MsgViewHolderTip;
@@ -165,6 +168,7 @@ public class SessionHelper {
             actions.add(new GuessAction());
             actions.add(new FileAction());
             actions.add(new TipAction());
+            actions.add(new RedPackedAction());//wzteng
             p2pCustomization.actions = actions;
             p2pCustomization.withSticker = true;
 
@@ -325,6 +329,7 @@ public class SessionHelper {
         NimUIKit.registerMsgItemViewHolder(SnapChatAttachment.class, MsgViewHolderSnapChat.class);
         NimUIKit.registerMsgItemViewHolder(RTSAttachment.class, MsgViewHolderRTS.class);
         NimUIKit.registerTipMsgViewHolder(MsgViewHolderTip.class);
+        NimUIKit.registerMsgItemViewHolder(RedPackedAttachment.class, MsgViewHolderRedPacked.class);//wzteng
     }
 
     private static void setSessionListener() {
