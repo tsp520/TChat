@@ -33,7 +33,7 @@
         android:textSize="16sp" />
 
     <TextView
-        android:id="@+id/message_item_redpacked_tip_label"
+        android:id="@+id/message_item_redpacked_status_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="false"
