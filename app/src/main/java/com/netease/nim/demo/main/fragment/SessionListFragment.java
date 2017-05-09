@@ -15,6 +15,7 @@ import com.netease.nim.demo.main.reminder.ReminderManager;
 import com.netease.nim.demo.session.SessionHelper;
 import com.netease.nim.demo.session.extension.GuessAttachment;
 import com.netease.nim.demo.session.extension.RTSAttachment;
+import com.netease.nim.demo.session.extension.RedPackedAttachment;
 import com.netease.nim.demo.session.extension.SnapChatAttachment;
 import com.netease.nim.demo.session.extension.StickerAttachment;
 import com.netease.nim.uikit.common.activity.UI;
@@ -226,6 +227,8 @@ public class SessionListFragment extends MainTabFragment {
                     return "[贴图]";
                 } else if (attachment instanceof SnapChatAttachment) {
                     return "[阅后即焚]";
+                } else if (attachment instanceof RedPackedAttachment) {
+                    return "[红包]";
                 }
 
                 return null;
