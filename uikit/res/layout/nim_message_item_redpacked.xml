@@ -5,15 +5,14 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="left|top"
-    android:background="@drawable/nim_message_item_round_bg"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp">
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp">
 
     <ImageView
         android:id="@+id/message_item_redpacked_icon_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="false"
         android:layout_marginRight="12dp"/>
@@ -53,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="false"
         android:layout_below="@id/message_item_redpacked_icon_image"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="1dp"
         android:layout_marginTop="5dp"
         android:autoLink="none"
         android:maxLines="1"
