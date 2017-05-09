@@ -25,11 +25,11 @@
         android:layout_marginBottom="2dp"
         android:layout_toRightOf="@id/message_item_redpacked_icon_image"
         android:autoLink="none"
-        android:maxLines="2"
+        android:maxLines="1"
         android:maxWidth="160dp"
         android:text=""
         android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/message_item_redpacked_status_label"
@@ -44,7 +44,7 @@
         android:maxWidth="160dp"
         android:text=""
         android:textColor="@android:color/white"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/message_item_redpacked_from_label"
@@ -53,7 +53,7 @@
         android:layout_alignParentBottom="false"
         android:layout_below="@id/message_item_redpacked_icon_image"
         android:layout_marginBottom="1dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="6dp"
         android:autoLink="none"
         android:maxLines="1"
         android:maxWidth="160dp"
