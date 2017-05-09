@@ -7,12 +7,12 @@
     android:layout_gravity="left|top"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
-    android:paddingTop="0dp">
+    android:paddingTop="3dp">
 
     <ImageView
         android:id="@+id/message_item_redpacked_icon_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="false"
         android:layout_marginRight="12dp"/>
