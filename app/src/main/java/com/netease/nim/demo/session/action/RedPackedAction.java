@@ -22,15 +22,15 @@ public class RedPackedAction extends BaseAction {
     }
 
     /**
-     * **********************文件************************
+     * **********************红包************************
      */
-    private void chooseFile() {
+    private void sendRedPacked() {
         FileBrowserActivity.startActivityForResult(getActivity(), makeRequestCode(RequestCode.GET_LOCAL_FILE));
     }
 
     @Override
     public void onClick() {
-//        chooseFile();
+//        sendRedPacked();
         RedPackedAttachment redPackedAttachment = new RedPackedAttachment();
         redPackedAttachment.setFlag((byte) 0);
         redPackedAttachment.setRedPackedMoney(100);
