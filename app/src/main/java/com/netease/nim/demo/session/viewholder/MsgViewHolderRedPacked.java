@@ -89,7 +89,6 @@ public class MsgViewHolderRedPacked extends MsgViewHolderBase {
 
     @Override
     protected void onItemClick() {
-//        FileDownloadActivity.start(context, message);
     }
 
     @Override
