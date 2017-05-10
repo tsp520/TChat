@@ -8,6 +8,7 @@ import com.netease.nim.demo.R;
 import com.netease.nim.demo.main.model.MainTab;
 import com.netease.nim.demo.wzteng.GlobalConfig;
 import com.netease.nim.demo.wzteng.friends.activity.FriendsActivity;
+import com.netease.nim.demo.wzteng.qrcode.QrCodeActivity;
 import com.netease.nim.demo.wzteng.webview.WebViewActivity;
 
 
@@ -17,6 +18,7 @@ import com.netease.nim.demo.wzteng.webview.WebViewActivity;
 
 public class FindListFragment extends MainTabFragment {
     private RelativeLayout reFriends;
+    private RelativeLayout reScan;
     private RelativeLayout reGame;
     private RelativeLayout reShopping;
 
@@ -43,6 +45,13 @@ public class FindListFragment extends MainTabFragment {
             @Override
             public void onClick(View v) {
                 FriendsActivity.start(getContext(), null);
+            }
+        });
+        reScan = findView(R.id.re_scan);
+        reScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QrCodeActivity.start(getContext());
             }
         });
         reGame = findView(R.id.re_game);
