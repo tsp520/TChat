@@ -26,8 +26,8 @@
                 android:id="@+id/iv_red_close"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:src="@drawable/webview_close_alpha" />
+                android:padding="10dp"
+                android:src="@drawable/lucky_money_dark_gold_close_btn" />
 
             <!--<ImageView-->
                 <!--android:id="@+id/iv_red_avatar"-->
