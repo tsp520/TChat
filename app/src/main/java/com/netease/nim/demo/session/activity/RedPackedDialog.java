@@ -24,6 +24,7 @@ import com.netease.nimlib.sdk.msg.model.IMMessage;
  */
 
 public class RedPackedDialog extends Dialog {
+    public static DialogCallback dialogCallback;
 
     public RedPackedDialog(Context context) {
         super(context);
@@ -42,14 +43,15 @@ public class RedPackedDialog extends Dialog {
         private TextView tvName;
         private TextView tvTip;
         private TextView tvSay;
+        private TextView tvMoney;
         private ImageView ivOpen;
+        private Button btnDetial;
 
-
-        public Builder(Context context, IMMessage message) {
+        public Builder(Context context, IMMessage message, DialogCallback dialogCallbackx) {
             this.context = context;
             this.message = message;
+            dialogCallback = dialogCallbackx;
         }
-
 
         public RedPackedDialog create() {
             LayoutInflater inflater = (LayoutInflater) context
@@ -67,6 +69,8 @@ public class RedPackedDialog extends Dialog {
                 @Override
                 public void onClick(View v) {
                     dialog.dismiss();
+                    //这里刷新一下红包的信息
+                    dialogCallback.updateRedPackedMessage();
                 }
             });
             ivAvatar = (HeadImageView) layout.findViewById(R.id.iv_red_avatar);
@@ -76,18 +80,47 @@ public class RedPackedDialog extends Dialog {
             tvTip = (TextView) layout.findViewById(R.id.tv_red_tip);
             tvSay = (TextView) layout.findViewById(R.id.tv_red_say);
             tvSay.setText(msgAttachment.getRedPackedNameLabel());
+            tvMoney = (TextView) layout.findViewById(R.id.tv_red_money);
             ivOpen = (ImageView) layout.findViewById(R.id.iv_red_open);
-            ivOpen.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    msgAttachment.setFlag((byte) 1);
-                    message.setAttachment(msgAttachment);
-                    NIMClient.getService(MsgService.class).updateIMMessageStatus(message);
-                }
-            });
+            btnDetial = (Button) layout.findViewById(R.id.btn_red_detial);
+            if (msgAttachment.getFlag() == 0) {
+                //未领取，显示打开图片
+                ivOpen.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        msgAttachment.setFlag((byte) 1);
+                        message.setAttachment(msgAttachment);
+                        NIMClient.getService(MsgService.class).updateIMMessageStatus(message);
+                        //领取，查看金额
+                        ivOpen.setVisibility(View.INVISIBLE);
+                        btnDetial.setVisibility(View.VISIBLE);
+                        tvMoney.setVisibility(View.VISIBLE);
+                        tvMoney.setText(msgAttachment.getRedPackedMoney() + " 元");
+                    }
+                });
+            } else {
+                //已领取，直接查看金额
+                ivOpen.setVisibility(View.INVISIBLE);
+                btnDetial.setVisibility(View.VISIBLE);
+                tvMoney.setVisibility(View.VISIBLE);
+                tvMoney.setText(msgAttachment.getRedPackedMoney() + " 元");
+            }
             dialog.setContentView(layout);
             dialog.setCanceledOnTouchOutside(false);
             return dialog;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        dialogCallback.updateRedPackedMessage();
+    }
+
+    /**
+     * 回调刷新红包
+     */
+    public interface DialogCallback {
+        public void updateRedPackedMessage();
     }
 }
