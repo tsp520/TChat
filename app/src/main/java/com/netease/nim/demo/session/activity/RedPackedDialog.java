@@ -81,9 +81,11 @@ public class RedPackedDialog extends Dialog {
                 }
             });
             ivAvatar = (HeadImageView) layout.findViewById(R.id.iv_red_avatar);
-            ivAvatar.loadBuddyAvatar(DemoCache.getAccount());
+//            ivAvatar.loadBuddyAvatar(DemoCache.getAccount());
+            ivAvatar.loadBuddyAvatar(message.getFromAccount());
             tvName = (TextView) layout.findViewById(R.id.tv_red_name);
-            tvName.setText(DemoCache.getAccount());
+//            tvName.setText(DemoCache.getAccount());
+            tvName.setText(message.getFromAccount());
             tvTip = (TextView) layout.findViewById(R.id.tv_red_tip);
             tvSay = (TextView) layout.findViewById(R.id.tv_red_say);
             tvSay.setText(msgAttachment.getRedPackedNameLabel());
@@ -117,10 +119,6 @@ public class RedPackedDialog extends Dialog {
                                 rHandler.sendMessage(message);
                             }
                         }, duration);
-//                        ivOpen.setVisibility(View.INVISIBLE);
-//                        btnDetial.setVisibility(View.VISIBLE);
-//                        tvMoney.setVisibility(View.VISIBLE);
-//                        tvMoney.setText(msgAttachment.getRedPackedMoney() + " 元");
                     }
                 });
             } else {
@@ -136,7 +134,7 @@ public class RedPackedDialog extends Dialog {
         }
 
         /**
-         * 使用 Handler来创建对话框
+         * 使用 Handler来修改对话框
          */
         private class RHandler extends Handler {
             @Override
@@ -149,8 +147,6 @@ public class RedPackedDialog extends Dialog {
             }
         }
     }
-
-
 
     @Override
     public void onBackPressed() {
