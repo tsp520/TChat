@@ -11,7 +11,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.netease.nim.demo.DemoCache;
 import com.netease.nim.demo.R;
+import com.netease.nim.demo.session.extension.RedPackedAttachment;
+import com.netease.nim.uikit.common.ui.imageview.HeadImageView;
+import com.netease.nimlib.sdk.NIMClient;
+import com.netease.nimlib.sdk.msg.MsgService;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 /**
@@ -31,8 +36,9 @@ public class RedPackedDialog extends Dialog {
     public static class Builder {
         private Context context;
         private IMMessage message;
+        private RedPackedAttachment msgAttachment;
         private ImageView ivClose;
-        private ImageView ivAvatar;
+        private HeadImageView ivAvatar;
         private TextView tvName;
         private TextView tvTip;
         private TextView tvSay;
@@ -54,9 +60,31 @@ public class RedPackedDialog extends Dialog {
             dialog.addContentView(layout, new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
+            msgAttachment = (RedPackedAttachment) message.getAttachment();
 
-
-
+            ivClose = (ImageView) layout.findViewById(R.id.iv_red_close);
+            ivClose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+            ivAvatar = (HeadImageView) layout.findViewById(R.id.iv_red_avatar);
+            ivAvatar.loadBuddyAvatar(DemoCache.getAccount());
+            tvName = (TextView) layout.findViewById(R.id.tv_red_name);
+            tvName.setText(DemoCache.getAccount());
+            tvTip = (TextView) layout.findViewById(R.id.tv_red_tip);
+            tvSay = (TextView) layout.findViewById(R.id.tv_red_say);
+            tvSay.setText(msgAttachment.getRedPackedNameLabel());
+            ivOpen = (ImageView) layout.findViewById(R.id.iv_red_open);
+            ivOpen.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    msgAttachment.setFlag((byte) 1);
+                    message.setAttachment(msgAttachment);
+                    NIMClient.getService(MsgService.class).updateIMMessageStatus(message);
+                }
+            });
             dialog.setContentView(layout);
             dialog.setCanceledOnTouchOutside(false);
             return dialog;
