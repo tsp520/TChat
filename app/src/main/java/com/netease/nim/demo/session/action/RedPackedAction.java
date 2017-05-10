@@ -34,7 +34,7 @@ public class RedPackedAction extends BaseAction {
         RedPackedAttachment redPackedAttachment = new RedPackedAttachment();
         redPackedAttachment.setFlag((byte) 0);
         redPackedAttachment.setRedPackedMoney(100);
-        redPackedAttachment.setRedPackedNameLabel("恭喜发财，大吉大利");
+        redPackedAttachment.setRedPackedNameLabel("恭喜发财，大吉大利！");
         redPackedAttachment.setRedPackedFromLabel("藤信红包");
         IMMessage message = MessageBuilder.createCustomMessage(getAccount(), getSessionType(), "红包", redPackedAttachment);
         sendMessage(message);
