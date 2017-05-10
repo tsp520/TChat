@@ -48,7 +48,7 @@ public class RedPackedDialog extends Dialog {
         public RedPackedDialog create() {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            // instantiate the dialog with the custom Theme
+
             final RedPackedDialog dialog = new RedPackedDialog(context);
             View layout = inflater.inflate(R.layout.wzt_redpacked_dialog, null);
             dialog.addContentView(layout, new ViewGroup.LayoutParams(
