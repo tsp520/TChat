@@ -75,7 +75,7 @@
                             android:layout_centerVertical="true"
                             android:background="@drawable/edittext_bg"
                             android:hint="手机号码"
-                            android:inputType="phone"
+                            android:inputType="none"
                             android:paddingLeft="90dp"
                             android:singleLine="true"
                             android:textColorHint="#DDDDDD"
