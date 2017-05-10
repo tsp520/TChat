@@ -176,17 +176,17 @@ public class P2PMessageActivity extends BaseMessageActivity {
 //                Toast.makeText(P2PMessageActivity.this, "正在输入", Toast.LENGTH_LONG).show();
 
                 //3秒后没有有收到消息就显示名称teng
-//                final Handler sHandler = new SHandler();
-//                setTitle("正在输入");
-//                sHandler.postDelayed(new Runnable() {
-//                    public void run() {
-//                        //发送消息出去
-//                        Message message = new Message();
-//                        message.what = 0;
-//                        message.obj = "time";
-//                        sHandler.sendMessage(message);
-//                    }
-//                }, 3000);
+                final Handler sHandler = new SHandler();
+                setTitle("对方正在输入");
+                sHandler.postDelayed(new Runnable() {
+                    public void run() {
+                        //发送消息出去
+                        Message message = new Message();
+                        message.what = 0;
+                        message.obj = "time";
+                        sHandler.sendMessage(message);
+                    }
+                }, 3000);
 
             } else {
 //                Toast.makeText(P2PMessageActivity.this, "command: " + content, Toast.LENGTH_SHORT).show();
