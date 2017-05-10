@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/lucky_money_envelop_bg"
+    android:background="@color/transparent"
     android:orientation="vertical">
 
     <FrameLayout
@@ -12,7 +12,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/lucky_money_envelop_bg">
 
             <ImageView
                 android:id="@+id/iv_red_top_backgroup"
