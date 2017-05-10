@@ -3,6 +3,9 @@ package com.netease.nim.demo.session.activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.drawable.AnimationDrawable;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +28,7 @@ import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 public class RedPackedDialog extends Dialog {
     public static DialogCallback dialogCallback;
+    private static AnimationDrawable animationDrawable;
 
     public RedPackedDialog(Context context) {
         super(context);
@@ -71,6 +75,9 @@ public class RedPackedDialog extends Dialog {
                     dialog.dismiss();
                     //这里刷新一下红包的信息
                     dialogCallback.updateRedPackedMessage();
+                    if (animationDrawable != null) {
+                        animationDrawable.stop();
+                    }
                 }
             });
             ivAvatar = (HeadImageView) layout.findViewById(R.id.iv_red_avatar);
@@ -92,10 +99,28 @@ public class RedPackedDialog extends Dialog {
                         message.setAttachment(msgAttachment);
                         NIMClient.getService(MsgService.class).updateIMMessageStatus(message);
                         //领取，查看金额
-                        ivOpen.setVisibility(View.INVISIBLE);
-                        btnDetial.setVisibility(View.VISIBLE);
-                        tvMoney.setVisibility(View.VISIBLE);
-                        tvMoney.setText(msgAttachment.getRedPackedMoney() + " 元");
+                        ivOpen.setImageResource(R.drawable.wzt_redpacked_openbtn_animallist);
+                        animationDrawable = (AnimationDrawable) ivOpen.getDrawable();
+                        animationDrawable.start();
+
+                        int duration = 0;
+                        for (int i = 0; i < animationDrawable.getNumberOfFrames(); i++) {
+                            duration += animationDrawable.getDuration(i);
+                        }
+                        final Handler rHandler = new RHandler();
+                        rHandler.postDelayed(new Runnable() {
+                            public void run() {
+                                //发送消息出去
+                                Message message = new Message();
+                                message.what = 0;
+                                message.obj = "over";
+                                rHandler.sendMessage(message);
+                            }
+                        }, duration);
+//                        ivOpen.setVisibility(View.INVISIBLE);
+//                        btnDetial.setVisibility(View.VISIBLE);
+//                        tvMoney.setVisibility(View.VISIBLE);
+//                        tvMoney.setText(msgAttachment.getRedPackedMoney() + " 元");
                     }
                 });
             } else {
@@ -109,12 +134,31 @@ public class RedPackedDialog extends Dialog {
             dialog.setCanceledOnTouchOutside(false);
             return dialog;
         }
+
+        /**
+         * 使用 Handler来创建对话框
+         */
+        private class RHandler extends Handler {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                ivOpen.setVisibility(View.INVISIBLE);
+                btnDetial.setVisibility(View.VISIBLE);
+                tvMoney.setVisibility(View.VISIBLE);
+                tvMoney.setText(msgAttachment.getRedPackedMoney() + " 元");
+            }
+        }
     }
+
+
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         dialogCallback.updateRedPackedMessage();
+        if (animationDrawable != null) {
+            animationDrawable.stop();
+        }
     }
 
     /**
