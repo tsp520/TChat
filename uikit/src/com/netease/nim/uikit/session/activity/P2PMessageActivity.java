@@ -162,15 +162,15 @@ public class P2PMessageActivity extends BaseMessageActivity {
 //                Toast.makeText(P2PMessageActivity.this, "正在输入", Toast.LENGTH_LONG).show();
 
                 //3秒后没有有收到消息就显示名称teng
-                setTitle("正在输入");
-                Timer timer = new Timer("P2PMessageActivity_inputtip");
-                TimerTask timerTask = new TimerTask() {
-                    public void run() {
-                        //每次需要执行的代码放到这里面
-                        setTitle(UserInfoHelper.getUserTitleName(sessionId, SessionTypeEnum.P2P));
-                    }
-                };
-                timer.schedule(timerTask, 3000);
+//                setTitle("正在输入");
+//                Timer timer = new Timer("P2PMessageActivity_inputtip");
+//                TimerTask timerTask = new TimerTask() {
+//                    public void run() {
+//                        //每次需要执行的代码放到这里面
+//                        setTitle(UserInfoHelper.getUserTitleName(sessionId, SessionTypeEnum.P2P));
+//                    }
+//                };
+//                timer.schedule(timerTask, 3000);
 
             } else {
 //                Toast.makeText(P2PMessageActivity.this, "command: " + content, Toast.LENGTH_SHORT).show();
