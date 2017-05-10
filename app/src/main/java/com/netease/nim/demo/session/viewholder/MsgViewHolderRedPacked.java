@@ -7,6 +7,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.netease.nim.demo.R;
+import com.netease.nim.demo.session.activity.RedPackedDialog;
 import com.netease.nim.demo.session.extension.RedPackedAttachment;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.util.sys.ScreenUtil;
@@ -94,13 +95,22 @@ public class MsgViewHolderRedPacked extends MsgViewHolderBase {
     protected void onItemClick() {
         if (msgAttachment.getFlag() == 0) {
             //弹出红包对话框
-            msgAttachment.setFlag((byte) 1);
-            message.setAttachment(msgAttachment);
-            NIMClient.getService(MsgService.class).updateIMMessageStatus(message);
-            updateRedPackedStatusLabel();
+
+            RedPackedDialog.Builder builder = new RedPackedDialog.Builder(context, message);
+            builder.create().show();
+
+//            msgAttachment.setFlag((byte) 1);
+//            message.setAttachment(msgAttachment);
+//            NIMClient.getService(MsgService.class).updateIMMessageStatus(message);
+//            updateRedPackedStatusLabel();
         } else {
             //直接进入红包Activity
         }
+    }
+
+    @Override
+    protected boolean onItemLongClick() {
+        return true;
     }
 
     @Override
