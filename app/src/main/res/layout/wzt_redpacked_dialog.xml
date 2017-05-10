@@ -78,7 +78,9 @@
                 android:layout_below="@id/tv_red_say"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/c2c_newyear_chatfrom_btn_normal" />
+                android:src="@drawable/c2c_newyear_chatfrom_btn_normal"
+                android:layout_marginBottom="30dp"
+                />
 
         </RelativeLayout>
 
