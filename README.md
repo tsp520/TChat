@@ -31,6 +31,8 @@ https://github.com/wenmingvs/LogReport<br/>
 账号：dawa<br/>
 密码：123456<br/>
 
+2017/05/10 修复低版本提示jar包错误
+
 截图<br/>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133335.png"/>
