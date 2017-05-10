@@ -3,6 +3,9 @@ package com.netease.nim.uikit.session.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
@@ -148,6 +151,17 @@ public class P2PMessageActivity extends BaseMessageActivity {
         }
     };
 
+    /**
+     * 使用 Handler来修改标题
+     */
+    private class SHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            setTitle(UserInfoHelper.getUserTitleName(sessionId, SessionTypeEnum.P2P));
+        }
+    }
+
     protected void showCommandMessage(CustomNotification message) {
         if (!isResume) {
             return;
@@ -162,15 +176,17 @@ public class P2PMessageActivity extends BaseMessageActivity {
 //                Toast.makeText(P2PMessageActivity.this, "正在输入", Toast.LENGTH_LONG).show();
 
                 //3秒后没有有收到消息就显示名称teng
+//                final Handler sHandler = new SHandler();
 //                setTitle("正在输入");
-//                Timer timer = new Timer("P2PMessageActivity_inputtip");
-//                TimerTask timerTask = new TimerTask() {
+//                sHandler.postDelayed(new Runnable() {
 //                    public void run() {
-//                        //每次需要执行的代码放到这里面
-//                        setTitle(UserInfoHelper.getUserTitleName(sessionId, SessionTypeEnum.P2P));
+//                        //发送消息出去
+//                        Message message = new Message();
+//                        message.what = 0;
+//                        message.obj = "time";
+//                        sHandler.sendMessage(message);
 //                    }
-//                };
-//                timer.schedule(timerTask, 3000);
+//                }, 3000);
 
             } else {
 //                Toast.makeText(P2PMessageActivity.this, "command: " + content, Toast.LENGTH_SHORT).show();
