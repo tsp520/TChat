@@ -90,18 +90,27 @@ public class MsgViewHolderRedPacked extends MsgViewHolderBase {
 
     @Override
     protected void onItemClick() {
-        if (msgAttachment.getFlag() == 0) {
+//        if (msgAttachment.getFlag() == 0) {
             //弹出红包对话框
-            RedPackedDialog.Builder builder = new RedPackedDialog.Builder(context, message);
+            RedPackedDialog.Builder builder = new RedPackedDialog.Builder(
+                    context,
+                    message,
+                    new RedPackedDialog.DialogCallback() {
+                        @Override
+                        public void updateRedPackedMessage() {
+                            updateRedPackedStatusLabel();
+                        }
+                    });
             builder.create().show();
-
-//            msgAttachment.setFlag((byte) 1);
-//            message.setAttachment(msgAttachment);
-//            NIMClient.getService(MsgService.class).updateIMMessageStatus(message);
-//            updateRedPackedStatusLabel();
-        } else {
-            //直接进入红包Activity
-        }
+/*
+            msgAttachment.setFlag((byte) 1);
+            message.setAttachment(msgAttachment);
+            NIMClient.getService(MsgService.class).updateIMMessageStatus(message);
+            updateRedPackedStatusLabel();
+*/
+//        } else {
+//            //直接进入红包Activity
+//        }
     }
 
     @Override
