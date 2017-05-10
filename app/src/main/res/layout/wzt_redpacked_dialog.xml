@@ -77,9 +77,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:singleLine="true"
-                android:text="恭喜发财，大吉大利"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:text="恭喜发财，大吉大利！"
+                android:textColor="#F3C967"
+                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/iv_red_open"
