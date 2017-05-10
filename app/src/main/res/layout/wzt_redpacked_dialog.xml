@@ -39,46 +39,46 @@
                 android:id="@+id/tv_red_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@id/iv_red_avatar"
-                android:singleLine="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:text="名称"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:text="名称"/>
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tv_red_tip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@id/tv_red_name"
-                android:singleLine="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
+                android:singleLine="true"
+                android:text="给你发了一个红包"
                 android:textColor="@color/gray_dark"
-                android:textSize="14sp"
-                android:text="给你发了一个红包"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/tv_red_say"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@id/tv_red_tip"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:singleLine="true"
+                android:text="恭喜发财，大吉大利"
                 android:textColor="@color/white"
-                android:textSize="15sp"
-                android:text="恭喜发财，大吉大利"/>
+                android:textSize="15sp" />
 
             <ImageView
                 android:id="@+id/iv_red_open"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/c2c_newyear_chatfrom_btn_normal"
-                android:layout_centerHorizontal="true"
                 android:layout_below="@id/tv_red_say"
-                android:layout_marginTop="20dp"/>
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/c2c_newyear_chatfrom_btn_normal" />
 
         </RelativeLayout>
 
