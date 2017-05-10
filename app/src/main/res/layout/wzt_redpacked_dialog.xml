@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/lucky_money_envelop_bg"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_red_top_backgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@drawable/lucky_money_envelop_cap" />
+
+            <ImageView
+                android:id="@+id/iv_red_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:src="@drawable/webview_close_alpha" />
+
+            <ImageView
+                android:id="@+id/iv_red_avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="35dp"
+                android:src="@drawable/avatar_def" />
+
+            <TextView
+                android:id="@+id/tv_red_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/iv_red_avatar"
+                android:singleLine="true"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="名称"/>
+
+            <TextView
+                android:id="@+id/tv_red_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/tv_red_name"
+                android:singleLine="true"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/gray_dark"
+                android:textSize="14sp"
+                android:text="给你发了一个红包"/>
+
+            <TextView
+                android:id="@+id/tv_red_say"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/tv_red_tip"
+                android:layout_marginTop="15dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:text="恭喜发财，大吉大利"/>
+
+            <ImageView
+                android:id="@+id/iv_red_open"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/c2c_newyear_chatfrom_btn_normal"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/tv_red_say"
+                android:layout_marginTop="20dp"/>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
