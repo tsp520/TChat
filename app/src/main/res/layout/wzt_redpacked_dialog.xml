@@ -28,7 +28,15 @@
                 android:padding="5dp"
                 android:src="@drawable/webview_close_alpha" />
 
-            <ImageView
+            <!--<ImageView-->
+                <!--android:id="@+id/iv_red_avatar"-->
+                <!--android:layout_width="70dp"-->
+                <!--android:layout_height="70dp"-->
+                <!--android:layout_centerHorizontal="true"-->
+                <!--android:layout_marginTop="35dp"-->
+                <!--android:src="@drawable/avatar_def" />-->
+
+            <com.netease.nim.uikit.common.ui.imageview.HeadImageView
                 android:id="@+id/iv_red_avatar"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
