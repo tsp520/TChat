@@ -201,7 +201,7 @@ public class PassValitationPopwindow extends PopupWindow implements
                     message.obj = "time";
                     sHandler.sendMessage(message);
                 }
-            }, 120);
+            }, 100);
 //            StringBuilder codeBuilder = new StringBuilder();
 //            for (int number : mNumberStack) {
 //                codeBuilder.append(number);
