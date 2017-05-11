@@ -113,7 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:background="@color/color_red_ccfa3c55"
+                android:background="@drawable/wzt_btn_bg"
                 android:enabled="false"
                 android:paddingBottom="7dp"
                 android:paddingTop="7dp"
