@@ -7,6 +7,8 @@ import java.util.Stack;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -95,7 +97,8 @@ public class PassValitationPopwindow extends PopupWindow implements
         tvTitle = (TextView) mMenuView.findViewById(R.id.tv_pop_title);
 
         //根据传来的type判断是主管授权还是管理员授权
-        tvTitle.setText(type == 0 ? "主管授权" : "管理员授权");
+//        tvTitle.setText(type == 0 ? "主管授权" : "管理员授权");
+        tvTitle.setText(type == 0 ? "请输入支付密码" : "请输入支付密码");
 
         mNumberViewList.add(mNumber1TextView);
         mNumberViewList.add(mNumber2TextView);
@@ -155,8 +158,20 @@ public class PassValitationPopwindow extends PopupWindow implements
         }
     }
 
+    public class SHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            StringBuilder codeBuilder = new StringBuilder();
+            for (int number : mNumberStack) {
+                codeBuilder.append(number);
+            }
+            validation(codeBuilder.toString());
+        }
+    }
+
     /**
-     * 数字按键的响应时间
+     * 数字按键的响应事件
      */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -175,13 +190,23 @@ public class PassValitationPopwindow extends PopupWindow implements
             }
         }
         refreshNumberViews(mNumberStack);
+        final SHandler sHandler = new SHandler();
         //input 6 numbers complete
         if (mNumberStack.size() == NUMBER_COUNT) {
-            StringBuilder codeBuilder = new StringBuilder();
-            for (int number : mNumberStack) {
-                codeBuilder.append(number);
-            }
-            validation(codeBuilder.toString());
+            sHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Message message = new Message();
+                    message.what = 1;
+                    message.obj = "time";
+                    sHandler.sendMessage(message);
+                }
+            }, 120);
+//            StringBuilder codeBuilder = new StringBuilder();
+//            for (int number : mNumberStack) {
+//                codeBuilder.append(number);
+//            }
+//            validation(codeBuilder.toString());
         }
 
     }
@@ -202,7 +227,7 @@ public class PassValitationPopwindow extends PopupWindow implements
         } else {
             clearnNumber();
 //			Toast.makeText(mContext, "验证失败,请重新验证", Toast.LENGTH_SHORT).show();
-            new ToastPopupwindow(mContext, view, "验证失败,请重新验证");
+            new ToastPopupwindow(mContext, view, "验证失败，请重新验证！");
         }
 
     }
@@ -231,7 +256,6 @@ public class PassValitationPopwindow extends PopupWindow implements
         }
         mNumberStack.pop();
     }
-
 
     /**
      * 刷新输入框显示
