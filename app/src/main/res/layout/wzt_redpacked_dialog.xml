@@ -76,7 +76,7 @@
                 android:layout_below="@id/tv_red_tip"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
-                android:singleLine="true"
+                android:maxLines="1"
                 android:text="恭喜发财，大吉大利！"
                 android:textColor="#F3C967"
                 android:textSize="20sp" />
