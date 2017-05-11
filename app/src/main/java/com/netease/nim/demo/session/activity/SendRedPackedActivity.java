@@ -1,0 +1,91 @@
+package com.netease.nim.demo.session.activity;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+
+import com.netease.nim.demo.R;
+import com.netease.nim.demo.login.LoginActivity;
+import com.netease.nim.uikit.common.activity.UI;
+import com.netease.nim.uikit.model.ToolBarOptions;
+import com.netease.nimlib.sdk.msg.model.IMMessage;
+
+public class SendRedPackedActivity extends UI {
+    private EditText etMoney;
+    private EditText etSay;
+    private Button btnSend;
+
+    private String sMoney;
+    private String sSay;
+
+    public static void start(Context context) {
+        Intent intent = new Intent(context, SendRedPackedActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        context.startActivity(intent);
+    }
+
+    public static void startActivityForResult(Activity activity, int requestCode) {
+        Intent intent = new Intent(activity, SendRedPackedActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        activity.startActivityForResult(intent, requestCode);
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_send_red_packed);
+
+        ToolBarOptions options = new ToolBarOptions();
+        options.titleString = "发红包";
+        setToolBar(R.id.toolbar, options);
+        etMoney = findView(R.id.edit_red_money);
+        etSay = findView(R.id.edit_red_say);
+        etMoney.addTextChangedListener(textWatcher);
+        etSay.addTextChangedListener(textWatcher);
+        btnSend = findView(R.id.btn_red_send);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showKeyboard(false);
+                sMoney = etMoney.getText().toString();
+                sSay = etSay.getText().toString();
+                Intent intent = SendRedPackedActivity.this.getIntent();
+                intent.putExtra("money", sMoney);
+                intent.putExtra("say", sSay);
+                setResult(Activity.RESULT_OK, intent);
+                SendRedPackedActivity.this.finish();
+            }
+        });
+    }
+
+    private TextWatcher textWatcher = new TextWatcher() {
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            boolean isEnable = etMoney.getText().length() > 0 && etSay.getText().length() > 0;
+            btnSend.setEnabled(isEnable);
+        }
+    };
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        showKeyboard(false);
+    }
+}
