@@ -9,6 +9,10 @@
         <item name="actionBarSize">@dimen/action_bar_height</item>
         <item name="android:textColorPrimary">@color/black</item>
         <item name="toolbarNavigationButtonStyle">@style/myToolbarNavigationButtonStyle</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="overlapAnchor">false</item>
     </style>
 
 </resources>
