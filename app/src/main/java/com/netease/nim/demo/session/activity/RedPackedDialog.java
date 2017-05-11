@@ -61,7 +61,7 @@ public class RedPackedDialog extends Dialog {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            final RedPackedDialog dialog = new RedPackedDialog(context);
+            final RedPackedDialog dialog = new RedPackedDialog(context, R.style.dialog_redpacked);
             View layout = inflater.inflate(R.layout.wzt_redpacked_dialog, null);
             dialog.addContentView(layout, new ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
