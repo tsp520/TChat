@@ -11,14 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.netease.nim.demo.R;
-import com.netease.nim.demo.login.LoginActivity;
+import com.netease.nim.demo.wzteng.checkpwd.PassValitationPopwindow;
 import com.netease.nim.uikit.common.activity.UI;
 import com.netease.nim.uikit.model.ToolBarOptions;
-import com.netease.nimlib.sdk.msg.model.IMMessage;
 
-import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 public class SendRedPackedActivity extends UI {
@@ -58,18 +54,39 @@ public class SendRedPackedActivity extends UI {
             @Override
             public void onClick(View v) {
                 showKeyboard(false);
-                sMoney = etMoney.getText().toString();
-                sSay = etSay.getText().toString();
-                if ("".equals(sSay)) {
-                    sSay = "恭喜发财，大吉大利！";
-                }
-                Intent intent = SendRedPackedActivity.this.getIntent();
-                intent.putExtra("money", sMoney);
-                intent.putExtra("say", sSay);
-                setResult(Activity.RESULT_OK, intent);
-                SendRedPackedActivity.this.finish();
+                new PassValitationPopwindow(SendRedPackedActivity.this, 1, findViewById(R.id.btn_red_send), new PassValitationPopwindow.OnInputNumberCodeCallback() {
+                    @Override
+                    public void onSuccess() {
+                        sMoney = etMoney.getText().toString();
+                        sSay = etSay.getText().toString();
+                        if ("".equals(sSay)) {
+                            sSay = "恭喜发财，大吉大利！";
+                        }
+                        Intent intent = SendRedPackedActivity.this.getIntent();
+                        intent.putExtra("money", sMoney);
+                        intent.putExtra("say", sSay);
+                        setResult(Activity.RESULT_OK, intent);
+                        SendRedPackedActivity.this.finish();
+                    }
+                });
             }
         });
+//        btnSend.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                showKeyboard(false);
+//                sMoney = etMoney.getText().toString();
+//                sSay = etSay.getText().toString();
+//                if ("".equals(sSay)) {
+//                    sSay = "恭喜发财，大吉大利！";
+//                }
+//                Intent intent = SendRedPackedActivity.this.getIntent();
+//                intent.putExtra("money", sMoney);
+//                intent.putExtra("say", sSay);
+//                setResult(Activity.RESULT_OK, intent);
+//                SendRedPackedActivity.this.finish();
+//            }
+//        });
     }
 
     public boolean stringFilter(String str) throws PatternSyntaxException {
