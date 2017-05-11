@@ -96,8 +96,10 @@ https://github.com/wenmingvs/LogReport<br/>
 </div>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170511-131055.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170511-152618.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170511-153120.png"/>
 </div>
-未完待续2017-05-11 13:15
+未完待续2017-05-11 15:15
 
 
 
