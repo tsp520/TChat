@@ -18,7 +18,6 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.netease.nim.demo.R;
 
