@@ -47,7 +47,7 @@ public class MsgViewHolderRedPacked extends MsgViewHolderBase {
         msgAttachment = (RedPackedAttachment) message.getAttachment();
         String nameLabel = msgAttachment.getRedPackedNameLabel();
         byte statusLabel = msgAttachment.getFlag();
-        int money = msgAttachment.getRedPackedMoney();
+        float money = msgAttachment.getRedPackedMoney();
         initDisplay();
 
         AttachStatusEnum status = message.getAttachStatus();
