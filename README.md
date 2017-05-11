@@ -92,7 +92,7 @@ https://github.com/wenmingvs/LogReport<br/>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170426-161828.png"/>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170426-161908.png"/>
-<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170511-131015.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170511-130921.png"/>
 </div>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170511-131055.png"/>
