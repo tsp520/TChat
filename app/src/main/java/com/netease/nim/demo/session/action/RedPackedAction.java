@@ -46,14 +46,13 @@ public class RedPackedAction extends BaseAction {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Toast.makeText(getActivity(), "...", Toast.LENGTH_SHORT).show();
         if (requestCode == 100) {
             if (resultCode == Activity.RESULT_OK) {
                 String money = data.getStringExtra("money");
                 String say = data.getStringExtra("say");
                 RedPackedAttachment redPackedAttachment = new RedPackedAttachment();
                 redPackedAttachment.setFlag((byte) 0);
-                redPackedAttachment.setRedPackedMoney(Integer.valueOf(money));
+                redPackedAttachment.setRedPackedMoney(Float.valueOf(money));
                 redPackedAttachment.setRedPackedNameLabel(say);
                 redPackedAttachment.setRedPackedFromLabel("藤信红包");
                 IMMessage message = MessageBuilder.createCustomMessage(getAccount(), getSessionType(), "红包", redPackedAttachment);
