@@ -82,7 +82,7 @@
                 style="@style/InputGroupCodeViewNumber" />
         </LinearLayout>
 
-        <com.example.textpassword.ExpandGridView
+        <com.netease.nim.demo.wzteng.checkpwd.ExpandGridView
             android:id="@+id/numbers_gridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
