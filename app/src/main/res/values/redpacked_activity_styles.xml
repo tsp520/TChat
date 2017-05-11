@@ -3,7 +3,7 @@
     <!-- Base application theme. -->
     <style name="RedPackedTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/color_red_ccfa3c55</item>
+        <item name="colorPrimary">#fa3c55</item>
         <item name="colorPrimaryDark">@color/color_red_f04c62</item>
         <item name="colorAccent">@color/color_red_f04c62</item>
         <item name="actionBarSize">@dimen/action_bar_height</item>
