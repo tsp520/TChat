@@ -9,7 +9,7 @@ public class RedPackedAttachment extends CustomAttachment {
 
     private String redPackedNameLabel;//文本
     private String redPackedFromLabel;//文本
-    private int redPackedMoney;//金领
+    private float redPackedMoney;//金领
     private byte flag;//是否领取
 
     public RedPackedAttachment() {
@@ -19,7 +19,7 @@ public class RedPackedAttachment extends CustomAttachment {
     @Override
     protected void parseData(JSONObject data) {
         this.flag = data.getByte("flag");
-        this.redPackedMoney = data.getIntValue("money");
+        this.redPackedMoney = data.getFloatValue("money");
         this.redPackedNameLabel = data.getString("label");
         this.redPackedFromLabel = data.getString("from");
     }
@@ -42,11 +42,11 @@ public class RedPackedAttachment extends CustomAttachment {
         this.redPackedNameLabel = redPackedNameLabel;
     }
 
-    public int getRedPackedMoney() {
+    public float getRedPackedMoney() {
         return redPackedMoney;
     }
 
-    public void setRedPackedMoney(int redPackedMoney) {
+    public void setRedPackedMoney(float redPackedMoney) {
         this.redPackedMoney = redPackedMoney;
     }
 
