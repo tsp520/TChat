@@ -75,7 +75,7 @@ public class MsgViewHolderRedPacked extends MsgViewHolderBase {
     private void initDisplay() {
         int iconResId = R.drawable.album_push_lucky_money_icon;
         redPackedIcon.setImageResource(iconResId);
-        redPackedNameLabel.setText("恭喜发财，大吉大利");
+        redPackedNameLabel.setText("恭喜发财，大吉大利！");
         redPackedStatusLabel.setText("领取红包");
         redPackedFromLabel.setText("藤信红包");
     }
