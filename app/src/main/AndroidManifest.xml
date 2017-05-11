@@ -480,7 +480,10 @@
             android:theme="@style/FullScreenTheme" />
         <activity
             android:name=".wzteng.qrcode.QrCodeActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".session.activity.SendRedPackedActivity"
+            android:theme="@style/RedPackedTheme"/>
     </application>
 
 </manifest>
