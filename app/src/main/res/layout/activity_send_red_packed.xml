@@ -114,7 +114,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:background="@color/color_red_ccfa3c55"
-                android:enabled="true"
+                android:enabled="false"
                 android:paddingBottom="7dp"
                 android:paddingTop="7dp"
                 android:layout_marginLeft="12dp"
