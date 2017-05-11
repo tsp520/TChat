@@ -16,6 +16,11 @@ import com.netease.nim.uikit.common.activity.UI;
 import com.netease.nim.uikit.model.ToolBarOptions;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
+
 public class SendRedPackedActivity extends UI {
     private EditText etMoney;
     private EditText etSay;
@@ -47,7 +52,7 @@ public class SendRedPackedActivity extends UI {
         etMoney = findView(R.id.edit_red_money);
         etSay = findView(R.id.edit_red_say);
         etMoney.addTextChangedListener(textWatcher);
-        etSay.addTextChangedListener(textWatcher);
+//        etSay.addTextChangedListener(textWatcher);
         btnSend = findView(R.id.btn_red_send);
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +60,9 @@ public class SendRedPackedActivity extends UI {
                 showKeyboard(false);
                 sMoney = etMoney.getText().toString();
                 sSay = etSay.getText().toString();
+                if ("".equals(sSay)) {
+                    sSay = "恭喜发财，大吉大利！";
+                }
                 Intent intent = SendRedPackedActivity.this.getIntent();
                 intent.putExtra("money", sMoney);
                 intent.putExtra("say", sSay);
@@ -64,11 +72,15 @@ public class SendRedPackedActivity extends UI {
         });
     }
 
+    public boolean stringFilter(String str) throws PatternSyntaxException {
+        String regEx = "^(?!0+(?:\\.0+)?$)\\d+(?:\\.\\d{1,2})?$";
+        return str.matches(regEx);
+    }
+
     private TextWatcher textWatcher = new TextWatcher() {
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
         }
 
         @Override
@@ -78,7 +90,7 @@ public class SendRedPackedActivity extends UI {
 
         @Override
         public void afterTextChanged(Editable s) {
-            boolean isEnable = etMoney.getText().length() > 0 && etSay.getText().length() > 0;
+            boolean isEnable = etMoney.getText().length() > 0 && stringFilter(etMoney.getText().toString());
             btnSend.setEnabled(isEnable);
         }
     };
