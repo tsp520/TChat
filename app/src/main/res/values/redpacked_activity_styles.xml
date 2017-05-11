@@ -13,6 +13,7 @@
         <item name="windowNoTitle">true</item>
         <item name="android:windowBackground">@color/white</item>
         <item name="overlapAnchor">false</item>
+        <item name="android:windowIsTranslucent">true</item>
     </style>
 
 </resources>
