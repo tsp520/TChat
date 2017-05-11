@@ -87,7 +87,7 @@
                             android:background="@color/white"
                             android:hint="恭喜发财，大吉大利！"
                             android:paddingLeft="90dp"
-                            android:maxLength="12"
+                            android:maxLength="16"
                             android:maxLines="1"
                             android:textColorHint="#DDDDDD"
                             android:textSize="16sp" />
