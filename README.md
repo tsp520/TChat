@@ -31,6 +31,7 @@ https://github.com/wenmingvs/LogReport<br/>
 账号：dawa<br/>
 密码：123456<br/>
 
+部份低版本系统侧滑返回会显示透明桌面
 2017/05/10 修复低版本提示jar包错误
 
 截图<br/>
