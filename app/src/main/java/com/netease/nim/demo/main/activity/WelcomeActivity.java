@@ -39,7 +39,7 @@ public class WelcomeActivity extends UI {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_welcome);
-        
+
         SwipeBackHelper.onCreate(this);
         SwipeBackHelper.getCurrentPage(this)//获取当前页面
                 .setSwipeBackEnable(false);//设置是否可滑动
