@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.jude.swipbackhelper.SwipeBackHelper;
 import com.netease.nim.demo.R;
 import com.netease.nim.demo.wzteng.checkpwd.PassValitationPopwindow;
 import com.netease.nim.uikit.common.activity.UI;
@@ -41,6 +42,10 @@ public class SendRedPackedActivity extends UI {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_red_packed);
+
+        SwipeBackHelper.onCreate(this);
+        SwipeBackHelper.getCurrentPage(this)//获取当前页面
+                .setSwipeBackEnable(false);//设置是否可滑动
 
         ToolBarOptions options = new ToolBarOptions();
         options.titleString = "发红包";
