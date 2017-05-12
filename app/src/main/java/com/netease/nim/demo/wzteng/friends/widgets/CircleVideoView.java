@@ -45,7 +45,7 @@ public class CircleVideoView extends LinearLayout implements VideoLoadMvpView, L
     private static final int STATE_DEACTIVED = 2;
     private int videoState = STATE_IDLE;
 
-    private int postion;;
+    private int postion;
     private String videoUrl;
 
     private OnPlayClickListener onPlayClickListener;
