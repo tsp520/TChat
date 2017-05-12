@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jude.swipbackhelper.SwipeBackHelper;
 import com.netease.nim.demo.DemoCache;
 import com.netease.nim.demo.R;
 import com.netease.nim.demo.config.preference.Preferences;
@@ -104,6 +105,10 @@ public class LoginActivity extends UI implements OnKeyListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
+
+        SwipeBackHelper.onCreate(this);
+        SwipeBackHelper.getCurrentPage(this)//获取当前页面
+                .setSwipeBackEnable(false);//设置是否可滑动
 
         ToolBarOptions options = new ToolBarOptions();
         options.isNeedNavigate = false;
