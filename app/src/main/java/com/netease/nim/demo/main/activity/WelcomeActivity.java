@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.jude.swipbackhelper.SwipeBackHelper;
 import com.netease.nim.demo.DemoCache;
 import com.netease.nim.demo.R;
 import com.netease.nim.demo.avchat.activity.AVChatActivity;
@@ -38,6 +39,10 @@ public class WelcomeActivity extends UI {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_welcome);
+        
+        SwipeBackHelper.onCreate(this);
+        SwipeBackHelper.getCurrentPage(this)//获取当前页面
+                .setSwipeBackEnable(false);//设置是否可滑动
 
         if (savedInstanceState != null) {
             setIntent(new Intent()); // 从堆栈恢复，不再重复解析之前的intent
