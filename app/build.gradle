@@ -120,7 +120,7 @@ dependencies {
     compile('com.github.bumptech.glide:okhttp3-integration:1.4.0') {
         exclude group: 'glide-parent'
     }
-
+    //wzteng
     compile project(path: ':ucrop')
     compile project(path: ':picselector')
     compile project(path: ':camera')
@@ -128,6 +128,9 @@ dependencies {
     compile project(path: ':zxing')
     compile project(path: ':recovery')
     compile project(path: ':logreport')
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
+    //wzteng
     compile 'com.netease.nimlib:jsbridge:1.3.1'
     compile 'com.android.support:multidex:1.0.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
