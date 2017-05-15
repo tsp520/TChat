@@ -47,6 +47,8 @@ import com.netease.nimlib.sdk.rts.model.RTSData;
 import com.netease.nimlib.sdk.team.constant.TeamFieldEnum;
 import com.netease.nimlib.sdk.team.model.IMMessageFilter;
 import com.netease.nimlib.sdk.team.model.UpdateTeamAttachment;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.wenming.library.LogReport;
 import com.wenming.library.save.imp.CrashWriter;
 import com.wenming.library.upload.email.EmailReporter;
@@ -57,6 +59,7 @@ import com.zxy.recovery.core.Recovery;
 import java.util.Map;
 
 public class NimApplication extends Application {
+//    private RefWatcher mRefWatcher;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -68,6 +71,7 @@ public class NimApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+//        mRefWatcher = LeakCanary.install(this);//内存泄露检测
         Log.e("wzt", "Recovery: init");
         initRecovery();
 
