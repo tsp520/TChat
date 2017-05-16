@@ -96,7 +96,7 @@ public class QrCodeDialog extends Dialog {
                     false,
                     null,
                     10,
-                    8,
+                    20,
                     0.2f);
             ivQrCodeImg.setImageBitmap(qrBitmap);
 
