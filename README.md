@@ -32,6 +32,8 @@ https://github.com/SumiMakito/AwesomeQRCode<bt/>
 账号：dawa<br/>
 密码：123456<br/>
 
+为了减小体积只保留一个armeabi，如果部分手机出现错误请自行修改配置<bt/>
+
 已知Bug:<br/>
 1.部份低版本系统侧滑返回会显示透明桌面(未修复)<br/>
 2.二维码扫描框未根据屏幕尺寸进行调整(未修复)<br/>

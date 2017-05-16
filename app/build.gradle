@@ -20,8 +20,11 @@ android {
         buildConfigField "String", "BUILD_DATE", "\"${new Date().toLocaleString()}\"";
         multiDexEnabled true
 
-        ndk {
-            abiFilters "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
+//        ndk {
+//            abiFilters "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
+//        }
+        ndk {//为了减少体积只保留一个
+            abiFilters "armeabi"
         }
 
         externalNativeBuild {
