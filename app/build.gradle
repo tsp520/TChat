@@ -24,7 +24,7 @@ android {
 //            abiFilters "arm64-v8a", "armeabi-v7a", "x86", "x86_64"
 //        }
         ndk {//为了减小体积只保留一个
-            abiFilters "armeabi"
+            abiFilters "armeabi-v7a"
         }
 
         externalNativeBuild {
