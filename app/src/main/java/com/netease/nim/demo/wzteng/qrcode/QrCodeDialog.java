@@ -3,6 +3,7 @@ package com.netease.nim.demo.wzteng.qrcode;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,13 +83,13 @@ public class QrCodeDialog extends Dialog {
             tvAbout = (TextView) layout.findViewById(R.id.tv_qrcode_about);
             ivQrCodeImg = (ImageView) layout.findViewById(R.id.iv_qrcode_img);
             Bitmap qrBitmap = AwesomeQRCode.create(
-                    DemoCache.getAccount() + "afdfaeijfasldjanaoigfajoigfsadfgjklgjaiojdfaoijbalifg",
+                    "https://github.com/WZTENG/TChat",
                     1600,
                     0,
                     0.5f,
                     Color.BLACK,
                     Color.WHITE,
-                    null,
+                    BitmapFactory.decodeResource(context.getResources(), R.drawable.head_icon_1),
                     false,
                     true,
                     false,
