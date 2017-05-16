@@ -104,7 +104,11 @@ https://github.com/SumiMakito/AwesomeQRCode<bt/>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170511-152618.png"/>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170511-153120.png"/>
 </div>
-未完待续2017-05-11 15:15
+<div>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170512-164207.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170516-135538.png"/>
+</div>
+未完待续2017-05-16 13:30
 
 
 
