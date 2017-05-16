@@ -17,6 +17,7 @@ https://github.com/Naoki2015/CircleDemo<br/>
 https://github.com/koral--/android-gif-drawable/<br/>
 https://github.com/Sunzxyong/Recovery<br/>
 https://github.com/wenmingvs/LogReport<br/>
+https://github.com/SumiMakito/AwesomeQRCode<bt/>
 
 当前编辑版本与编译环境：
 
@@ -25,7 +26,7 @@ https://github.com/wenmingvs/LogReport<br/>
 - Android Plugin Version 2.3.0
 - Android SDK Platform-Tools 25.0.1
 - Android 7.1.1 API25
-- 真机原生7.1.1
+- 真机原生7.1.2
 
 提供已有测试账号<br/>
 账号：dawa<br/>

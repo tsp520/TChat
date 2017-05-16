@@ -11,7 +11,14 @@
                     "endOffset": 2042
                 },
                 "from": {
-                    "file": "E:\\IDEAWorkspace\\nim_demo\\qrcodecore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml"
+                    "file": "E:\\IDEAWorkspace\\nim_demo\\qrcodecore\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 1993,
+                        "endColumn": 53,
+                        "endOffset": 2042
+                    }
                 }
             }
         ]

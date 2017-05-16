@@ -356,6 +356,10 @@
         "source": "C:\\Users\\TURI156\\.android\\build-cache\\36166d28c8e5626cf8c6e12a1ca2f48899183a23\\output\\res\\layout\\abc_search_view.xml"
     },
     {
+        "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\layout\\nim_message_item_redpacked.xml",
+        "source": "E:\\IDEAWorkspace\\nim_demo\\uikit\\res\\layout\\nim_message_item_redpacked.xml"
+    },
+    {
         "merged": "E:\\IDEAWorkspace\\nim_demo\\uikit\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
         "source": "C:\\Users\\TURI156\\.android\\build-cache\\2008cda148fd74668151baf6f275b62553d9b2dc\\output\\res\\layout\\design_navigation_item_subheader.xml"
     },
