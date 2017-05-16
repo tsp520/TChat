@@ -12,6 +12,7 @@ import com.netease.nim.demo.R;
 import com.netease.nim.demo.contact.activity.UserProfileSettingActivity;
 import com.netease.nim.demo.main.activity.SettingsActivity;
 import com.netease.nim.demo.main.model.MainTab;
+import com.netease.nim.demo.wzteng.qrcode.QrCodeDialog;
 import com.netease.nim.uikit.cache.NimUserInfoCache;
 import com.netease.nim.uikit.common.ui.imageview.HeadImageView;
 
@@ -71,7 +72,8 @@ public class ProfileListFragment extends  MainTabFragment {
         ivQrcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                QrCodeDialog.Builder builder = new QrCodeDialog.Builder(getContext());
+                builder.create().show();
             }
         });
 
