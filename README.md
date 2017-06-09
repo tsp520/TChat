@@ -28,7 +28,7 @@ https://github.com/SumiMakito/AwesomeQRCode<bt/>
 - Android 7.1.1 API25
 - 真机原生7.1.2
 
-提供已有测试账号<br/>
+提供已有测试账号，请修改相关信息！<br/>
 账号：dawa<br/>
 密码：123456<br/>
 
