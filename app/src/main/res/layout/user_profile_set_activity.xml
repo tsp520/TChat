@@ -59,62 +59,62 @@
         android:id="@+id/nick_layout"
         layout="@layout/user_profile_edit_item" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:background="#dadada" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.1dp"-->
+        <!--android:layout_marginLeft="12dp"-->
+        <!--android:layout_marginRight="12dp"-->
+        <!--android:background="#dadada" />-->
 
-    <include
-        android:id="@+id/id_layout"
-        layout="@layout/user_profile_edit_item" />
+    <!--<include-->
+        <!--android:id="@+id/id_layout"-->
+        <!--layout="@layout/user_profile_edit_item" />-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:background="#dadada" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.1dp"-->
+        <!--android:layout_marginLeft="12dp"-->
+        <!--android:layout_marginRight="12dp"-->
+        <!--android:background="#dadada" />-->
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@drawable/dialog_btn_selector"
-        android:orientation="vertical"
-        android:paddingTop="15dp">
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:background="@drawable/dialog_btn_selector"-->
+        <!--android:orientation="vertical"-->
+        <!--android:paddingTop="15dp">-->
 
-        <TextView
-            android:id="@+id/attribute"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="15dp"
-            android:textColor="@color/color_black_ff666666"
-            android:textSize="@dimen/text_size_17" />
+        <!--<TextView-->
+            <!--android:id="@+id/attribute"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:textColor="@color/color_black_ff666666"-->
+            <!--android:textSize="@dimen/text_size_17" />-->
 
-        <ImageView
-            android:id="@+id/iv_qrcode"
-            android:layout_width="37dp"
-            android:layout_height="37dp"
-            android:padding="8dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:src="@drawable/qrcode" />
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_qrcode"-->
+            <!--android:layout_width="37dp"-->
+            <!--android:layout_height="37dp"-->
+            <!--android:padding="8dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="20dp"-->
+            <!--android:src="@drawable/qrcode" />-->
 
-    </RelativeLayout>
+    <!--</RelativeLayout>-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:background="#dadada" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.1dp"-->
+        <!--android:layout_marginLeft="12dp"-->
+        <!--android:layout_marginRight="12dp"-->
+        <!--android:background="#dadada" />-->
 
-    <include
-        android:id="@+id/address_layout"
-        layout="@layout/user_profile_edit_item" />
+    <!--<include-->
+        <!--android:id="@+id/address_layout"-->
+        <!--layout="@layout/user_profile_edit_item" />-->
 
     <View
         android:layout_width="match_parent"
@@ -135,16 +135,16 @@
         android:layout_marginRight="12dp"
         android:background="#dadada" />
 
-    <include
-        android:id="@+id/country_layout"
-        layout="@layout/user_profile_edit_item" />
+    <!--<include-->
+        <!--android:id="@+id/country_layout"-->
+        <!--layout="@layout/user_profile_edit_item" />-->
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
-        android:background="#dadada" />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0.1dp"-->
+        <!--android:layout_marginLeft="12dp"-->
+        <!--android:layout_marginRight="12dp"-->
+        <!--android:background="#dadada" />-->
 
     <include
         android:id="@+id/signature_layout"
