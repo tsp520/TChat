@@ -3,6 +3,8 @@
 ![wechatpay](https://github.com/WZTENG/TChat/blob/master/screenshots/WECHATPAY.png)&nbsp;&nbsp;&nbsp;&nbsp;
 ![alipay](https://github.com/WZTENG/TChat/blob/master/screenshots/ALIPAY.png)
 
+**安卓版：https://github.com/WZTENG/TChat**
+
 **本项目使用网易云信IM加上网上开源项目编写，
 （附上使用的开源地址，如有侵权或遗漏马上修改）。**
 
