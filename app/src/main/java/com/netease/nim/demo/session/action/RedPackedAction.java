@@ -21,7 +21,7 @@ import java.io.File;
 public class RedPackedAction extends BaseAction {
 
     public RedPackedAction() {
-        super(R.drawable.message_plus_file_selector, R.string.input_panel_redpacked);
+        super(R.drawable.message_plus_redpacked_selector, R.string.input_panel_redpacked);
     }
 
     /**
