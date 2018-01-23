@@ -1,5 +1,7 @@
 package com.netease.nim.uikit.session.viewholder;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.widget.TextView;
 
 import com.netease.nim.uikit.NimUIKit;
@@ -8,7 +10,13 @@ import com.netease.nim.uikit.common.ui.imageview.MsgThumbImageView;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.util.media.ImageUtil;
 import com.netease.nim.uikit.common.util.sys.ScreenUtil;
+import com.netease.nim.uikit.wzteng.database.greendao.LocationSrcDao;
+import com.netease.nim.uikit.wzteng.database.manager.GetDaoMaster;
+import com.netease.nim.uikit.wzteng.database.model.LocationSrc;
+import com.netease.nim.uikit.wzteng.locationscreenshot.AMapScreenShotUtils;
 import com.netease.nimlib.sdk.msg.attachment.LocationAttachment;
+
+import java.util.List;
 
 /**
  * Created by zhoujianghua on 2015/8/7.
@@ -46,8 +54,39 @@ public class MsgViewHolderLocation extends MsgViewHolderBase {
         setLayoutParams(width, height, mapView);
         setLayoutParams(width, (int) (0.30 * height), addressText);
 
+        List<LocationSrc> list = GetDaoMaster.getDaoSession(context).getLocationSrcDao()
+                .queryBuilder()
+                .where(LocationSrcDao.Properties.AddrTxt.eq(location.getAddress()))
+                .build()
+                .list();
+        Bitmap locationBmp = null;
+        if (list.size() > 0) {
+            locationBmp = AMapScreenShotUtils.getBitmapFromData(context, list.get(0).getImagePath() + ".png");
+            float p = height / (float) width;
+            int lBmpWidth = locationBmp.getWidth();
+            int lBmpHeight = locationBmp.getHeight();
+            int tBmpHeight = (int) (lBmpWidth * p + 0.5);
+
+            try {
+                locationBmp = Bitmap.createBitmap(locationBmp,
+                        0,
+                        (lBmpHeight - tBmpHeight) / 2,
+                        lBmpWidth,
+                        tBmpHeight);
+            } catch (Exception e) {
+                e.printStackTrace();
+                locationBmp = null;
+            }
+        }
+
 //        mapView.loadAsResource(R.drawable.nim_location_bk, R.drawable.nim_message_item_round_bg);
-        mapView.loadAsResource(R.drawable.nim_location_bk, R.drawable.wzt_message_location_item_map_bg);//teng
+        if (locationBmp == null) {
+            mapView.loadAsResource(R.drawable.nim_location_bk, R.drawable.wzt_message_location_item_map_bg);//teng
+        } else {
+            mapView.loadAsResource(locationBmp, R.drawable.wzt_message_location_item_map_bg);//teng
+        }
+//        mapView.loadAsResource(R.drawable.nim_location_bk, R.drawable.wzt_message_location_item_map_bg);
+//        mapView.loadAsResource(locationBmp, R.drawable.wzt_message_location_item_map_bg);//teng
     }
 
     //teng

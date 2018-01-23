@@ -139,7 +139,7 @@ public class NavigationAmapActivity extends UI implements
 		createNavigationMarker();
 		startLocationTimeout();
 
-		CameraUpdate camera = CameraUpdateFactory.newCameraPosition(new CameraPosition(desLatLng, zoomLevel, 0, 0));
+		CameraUpdate camera = CameraUpdateFactory.newCameraPosition(new CameraPosition(desLatLng, zoomLevel, 5, 0));
 		amap.moveCamera(camera);
 	}
 

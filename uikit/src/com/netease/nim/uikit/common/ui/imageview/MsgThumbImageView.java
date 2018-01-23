@@ -190,6 +190,11 @@ public class MsgThumbImageView extends ImageView {
         setImageResource(resId);
     }
 
+    public void loadAsResource(Bitmap resId, int maskId) {
+        setBlendDrawable(maskId);
+        setImageBitmap(resId);
+    }
+
     private void setBlendDrawable(int maskId) {
         mask = maskId != 0 ? getResources().getDrawable(maskId) : null;
     }
