@@ -129,8 +129,7 @@ public class LocationAmapActivity extends UI implements AMap.OnCameraChangeListe
 
         LatLng latlng = null;
         if (location == null) {
-//            latlng = new LatLng(39.90923, 116.397428);
-            latlng = new LatLng(116.39749645, 39.90870752);//teng
+            latlng = new LatLng(39.90923, 116.397428);//teng
         } else {
             latlng = new LatLng(location.getLatitude(), location.getLongitude());
         }
