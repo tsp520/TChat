@@ -12,15 +12,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.amap.api.maps2d.AMap;
-import com.amap.api.maps2d.AMap.OnCameraChangeListener;
-import com.amap.api.maps2d.AMapUtils;
-import com.amap.api.maps2d.CameraUpdate;
-import com.amap.api.maps2d.CameraUpdateFactory;
-import com.amap.api.maps2d.MapView;
-import com.amap.api.maps2d.UiSettings;
-import com.amap.api.maps2d.model.CameraPosition;
-import com.amap.api.maps2d.model.LatLng;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.AMapUtils;
+import com.amap.api.maps.CameraUpdate;
+import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.TextureMapView;
+import com.amap.api.maps.UiSettings;
+import com.amap.api.maps.model.CameraPosition;
+import com.amap.api.maps.model.LatLng;
+import com.jude.swipbackhelper.SwipeBackHelper;
 import com.netease.nim.demo.R;
 import com.netease.nim.demo.location.helper.NimGeocoder;
 import com.netease.nim.demo.location.helper.NimLocationManager;
@@ -33,7 +33,7 @@ import com.netease.nim.uikit.model.ToolBarOptions;
 /**
  * 定位
  */
-public class LocationAmapActivity extends UI implements  OnCameraChangeListener, OnClickListener
+public class LocationAmapActivity extends UI implements AMap.OnCameraChangeListener, OnClickListener
 	, NimLocationListener {
 
 //	private static final String TAG = "LocationAmapActivity";
@@ -59,7 +59,7 @@ public class LocationAmapActivity extends UI implements  OnCameraChangeListener,
     private NimGeocoder geocoder;//地理编码
 	
 	AMap amap;
-	private MapView mapView;
+	private TextureMapView mapView;
 	private Button btnMyLocation;
 
     public static void start(Context context, LocationProvider.Callback callback) {
@@ -71,11 +71,13 @@ public class LocationAmapActivity extends UI implements  OnCameraChangeListener,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_view_amap_layout);
-        mapView = (MapView) findViewById(R.id.autonavi_mapView);
+        mapView = (TextureMapView) findViewById(R.id.autonavi_mapView);
     	mapView.onCreate(savedInstanceState);// 此方法必须重写
 
 		ToolBarOptions options = new ToolBarOptions();
 		setToolBar(R.id.toolbar, options);
+
+		SwipeBackHelper.getCurrentPage(this).setSwipeBackEnable(false);//禁止滑动退出
 
     	initView();
         initAmap();

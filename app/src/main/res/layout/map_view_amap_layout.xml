@@ -23,7 +23,7 @@
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.AppBarLayout>
 
-    <com.amap.api.maps2d.MapView
+    <com.amap.api.maps.TextureMapView
         android:id="@+id/autonavi_mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

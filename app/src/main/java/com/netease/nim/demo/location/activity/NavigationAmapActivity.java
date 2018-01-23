@@ -13,20 +13,19 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amap.api.maps2d.AMap;
-import com.amap.api.maps2d.AMap.InfoWindowAdapter;
-import com.amap.api.maps2d.AMap.OnInfoWindowClickListener;
-import com.amap.api.maps2d.AMap.OnMarkerClickListener;
-import com.amap.api.maps2d.CameraUpdate;
-import com.amap.api.maps2d.CameraUpdateFactory;
-import com.amap.api.maps2d.MapView;
-import com.amap.api.maps2d.UiSettings;
-import com.amap.api.maps2d.model.BitmapDescriptorFactory;
-import com.amap.api.maps2d.model.CameraPosition;
-import com.amap.api.maps2d.model.LatLng;
-import com.amap.api.maps2d.model.LatLngBounds;
-import com.amap.api.maps2d.model.Marker;
-import com.amap.api.maps2d.model.MarkerOptions;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdate;
+import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.MapView;
+import com.amap.api.maps.TextureMapView;
+import com.amap.api.maps.UiSettings;
+import com.amap.api.maps.model.BitmapDescriptorFactory;
+import com.amap.api.maps.model.CameraPosition;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.LatLngBounds;
+import com.amap.api.maps.model.Marker;
+import com.amap.api.maps.model.MarkerOptions;
+import com.jude.swipbackhelper.SwipeBackHelper;
 import com.netease.nim.demo.R;
 import com.netease.nim.demo.location.adapter.IconListAdapter;
 import com.netease.nim.demo.location.adapter.IconListAdapter.IconListItem;
@@ -47,10 +46,10 @@ import java.util.List;
  */
 public class NavigationAmapActivity extends UI implements
 		OnClickListener, LocationExtras, NimLocationListener,
-		OnMarkerClickListener, OnInfoWindowClickListener, InfoWindowAdapter {
+		AMap.OnMarkerClickListener, AMap.OnInfoWindowClickListener, AMap.InfoWindowAdapter {
 
 	private TextView sendButton;
-	private MapView mapView;
+	private TextureMapView mapView;
 
 	private NimLocationManager locationManager = null;
 
@@ -74,11 +73,13 @@ public class NavigationAmapActivity extends UI implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map_view_amap_navigation_layout);
-		mapView = (MapView) findViewById(R.id.autonavi_mapView);
+		mapView = (TextureMapView) findViewById(R.id.autonavi_mapView);
 		mapView.onCreate(savedInstanceState);// 此方法必须重写
 
 		ToolBarOptions options = new ToolBarOptions();
 		setToolBar(R.id.toolbar, options);
+
+		SwipeBackHelper.getCurrentPage(this).setSwipeBackEnable(false);//禁止滑动退出
 
 		initView();
 		initAmap();

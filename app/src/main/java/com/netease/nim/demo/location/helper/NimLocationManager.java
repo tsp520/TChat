@@ -17,9 +17,9 @@ import android.os.Message;
 import android.text.TextUtils;
 
 import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
-import com.amap.api.location.LocationManagerProxy;
-import com.amap.api.location.LocationProviderProxy;
 import com.netease.nim.demo.location.model.NimLocation;
 import com.netease.nim.demo.common.infra.TaskExecutor;
 import com.netease.nim.uikit.common.util.log.LogUtil;
@@ -38,7 +38,9 @@ public class NimLocationManager implements AMapLocationListener {
 	Criteria criteria; // onResume 重新激活 if mProvider == null
 	
 	/** AMap location */
-    private LocationManagerProxy aMapLocationManager;
+//    private LocationManagerProxy aMapLocationManager;
+    private AMapLocationClient mLocationClient;
+    private AMapLocationClientOption mLocationOption;
 
 	 /** google api */
 //    private LocationManager mSysLocationMgr = null;
@@ -82,25 +84,25 @@ public class NimLocationManager implements AMapLocationListener {
         }
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
-
-    }
-
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
-
-    }
-
-    @Override
-    public void onProviderEnabled(String provider) {
-
-    }
-
-    @Override
-    public void onProviderDisabled(String provider) {
-
-    }
+//    @Override
+//    public void onLocationChanged(Location location) {
+//
+//    }
+//
+//    @Override
+//    public void onStatusChanged(String provider, int status, Bundle extras) {
+//
+//    }
+//
+//    @Override
+//    public void onProviderEnabled(String provider) {
+//
+//    }
+//
+//    @Override
+//    public void onProviderDisabled(String provider) {
+//
+//    }
 
     public interface NimLocationListener {
 		public void onLocationChanged(NimLocation location);
@@ -116,9 +118,11 @@ public class NimLocationManager implements AMapLocationListener {
                 criteria.setCostAllowed(false);
             }
             if(mProvider == null) {
-                mProvider = aMapLocationManager.getBestProvider(criteria, true);
+//                mProvider = aMapLocationManager.getBestProvider(criteria, true);
+                mProvider = null;
             }
-            return aMapLocationManager.getLastKnownLocation(mProvider);
+//            return aMapLocationManager.getLastKnownLocation(mProvider);
+            return null;
 		} catch (Exception e) {
 			LogUtil.i(TAG, "get lastknown location failed: " + e.toString());
 		}
@@ -234,11 +238,16 @@ public class NimLocationManager implements AMapLocationListener {
 	}
 	
 	private void stopAMapLocation() {
-        if (aMapLocationManager != null) {
-            aMapLocationManager.removeUpdates(this);
-            aMapLocationManager.destory();
+//        if (aMapLocationManager != null) {
+//            aMapLocationManager.removeUpdates(this);
+//            aMapLocationManager.destory();
+//        }
+//        aMapLocationManager = null;
+
+        if (mLocationClient != null) {
+            mLocationClient.stopLocation();
+            mLocationClient = null;
         }
-        aMapLocationManager = null;
 	}
 	
 	public void activate() {
@@ -246,11 +255,44 @@ public class NimLocationManager implements AMapLocationListener {
 	}
 	
 	private void requestAmapLocation() {
-        if (aMapLocationManager == null) {
-            aMapLocationManager = LocationManagerProxy.getInstance(mContext);
-            aMapLocationManager.setGpsEnable(false);
-            aMapLocationManager.requestLocationData(
-                    LocationProviderProxy.AMapNetwork, 30 * 1000, 10, this);
+//        if (aMapLocationManager == null) {
+//            aMapLocationManager = LocationManagerProxy.getInstance(mContext);
+//            aMapLocationManager.setGpsEnable(false);
+//            aMapLocationManager.requestLocationData(
+//                    LocationProviderProxy.AMapNetwork, 30 * 1000, 10, this);
+//        }
+
+        if (mLocationClient == null) {
+            mLocationClient = new AMapLocationClient(mContext);
+        }
+        mLocationClient.setLocationListener(this);
+        mLocationOption = new AMapLocationClientOption();
+        //设置定位场景，目前支持三种场景（签到、出行、运动，默认无场景）
+//        mLocationOption.setLocationPurpose(AMapLocationClientOption.AMapLocationPurpose.SignIn);
+
+        //设置定位模式为AMapLocationMode
+        mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
+        //获取一次定位结果：
+        //该方法默认为false。
+        mLocationOption.setOnceLocation(true);
+
+        //获取最近3s内精度最高的一次定位结果：
+        //设置setOnceLocationLatest(boolean b)接口为true，启动定位时SDK会返回最近3s内精度最高的一次定位结果。如果设置其为true，setOnceLocation(boolean b)接口也会被设置为true，反之不会，默认为false。
+        mLocationOption.setOnceLocationLatest(true);
+        //设置定位间隔,单位毫秒,默认为2000ms，最低1000ms。
+        mLocationOption.setInterval(5000);
+        //设置是否返回地址信息（默认返回地址信息）
+        mLocationOption.setNeedAddress(true);
+        //单位是毫秒，默认30000毫秒，建议超时时间不要低于8000毫秒。
+        mLocationOption.setHttpTimeOut(30000);
+        //缓存机制
+        mLocationOption.setLocationCacheEnable(true);
+        //启动定位
+        if (null != mLocationClient) {
+            mLocationClient.setLocationOption(mLocationOption);
+            //设置场景模式后最好调用一次stop，再调用start以保证场景模式生效
+            mLocationClient.stopLocation();
+            mLocationClient.startLocation();
         }
     }
 }
