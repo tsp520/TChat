@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +18,11 @@ import com.luck.picture.lib.model.FunctionConfig;
 import com.luck.picture.lib.model.LocalMediaLoader;
 import com.luck.picture.lib.model.PictureConfig;
 import com.netease.nim.demo.R;
+import com.netease.nim.demo.wzteng.others.pictureselector.DefaultItemTouchHelpCallback;
+import com.netease.nim.demo.wzteng.others.pictureselector.DefaultItemTouchHelper;
 import com.netease.nim.demo.wzteng.others.pictureselector.FullyGridLayoutManager;
 import com.netease.nim.demo.wzteng.others.pictureselector.GridImageAdapter;
+import com.netease.nim.demo.wzteng.others.pictureselector.TouchHelpCallbackListenerImpl;
 import com.netease.nim.uikit.common.activity.UI;
 import com.netease.nim.uikit.model.ToolBarOptions;
 import com.yalantis.ucrop.entity.LocalMedia;
@@ -40,6 +44,9 @@ public class FriendsNewActivity extends UI {
 
     private Button btnSend;
     private EditText etMessage;
+
+    private DefaultItemTouchHelpCallback defaultItemTouchHelpCallback;
+    private DefaultItemTouchHelpCallback.OnItemTouchCallbackListener onItemTouchCallbackListener;
 
     public static void start(Context context) {
         start(context, null);
@@ -71,9 +78,11 @@ public class FriendsNewActivity extends UI {
 
         if (bundle != null) {
             initRecycleView();
+            initLongTouchtoMove();//长按滑动
             selectMedia = (List<LocalMedia>) bundle.get("resultList");
             adapter.setList(selectMedia);
             adapter.notifyDataSetChanged();
+            ((TouchHelpCallbackListenerImpl)onItemTouchCallbackListener).setSelectList(selectMedia);
             bundle.clear();
             bundle = null;
         }
@@ -93,6 +102,14 @@ public class FriendsNewActivity extends UI {
                 // 这里可预览图片
                 PictureConfig.getPictureConfig().externalPicturePreview(FriendsNewActivity.this, position, selectMedia);
             }
+
+            @Override
+            public boolean onItemLongClick(int position, View v) {
+//                Log.d("wzt", "position:" + position + " ," + selectList.size());
+                defaultItemTouchHelpCallback.setDragEnable(true);
+                defaultItemTouchHelpCallback.setSwipeEnable(true);
+                return false;
+            }
         });
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
@@ -105,6 +122,15 @@ public class FriendsNewActivity extends UI {
                 }
             }
         });
+    }
+
+    private void initLongTouchtoMove() {
+        onItemTouchCallbackListener = new TouchHelpCallbackListenerImpl(this, selectMedia, adapter);
+        defaultItemTouchHelpCallback = new DefaultItemTouchHelpCallback(onItemTouchCallbackListener);
+        defaultItemTouchHelpCallback.setDragEnable(true);
+        defaultItemTouchHelpCallback.setSwipeEnable(true);
+        DefaultItemTouchHelper defaultItemTouchHelper = new DefaultItemTouchHelper(defaultItemTouchHelpCallback);
+        defaultItemTouchHelper.attachToRecyclerView(recyclerView);
     }
 
     private void initUI() {
@@ -141,7 +167,7 @@ public class FriendsNewActivity extends UI {
     }
 
     /**
-     * 删除图片回调接口
+     * 图片回调接口
      */
     private GridImageAdapter.onAddPicClickListener onAddPicClickListener = new GridImageAdapter.onAddPicClickListener() {
         @Override
@@ -230,10 +256,18 @@ public class FriendsNewActivity extends UI {
                     // 删除图片
                     selectMedia.remove(position);
                     adapter.notifyItemRemoved(position);
-                    adapter.notifyDataSetChanged();//teng 修正点击删除图标没有触发观察者但是没了删除动画效果
+                    adapter.notifyItemRangeChanged(position, selectMedia.size());
+//                    adapter.notifyDataSetChanged();//teng 修正点击删除图标没有触发观察者但是没了删除动画效果
 
                     break;
             }
+        }
+
+        @Override
+        public boolean onLongClick(View view) {
+            defaultItemTouchHelpCallback.setDragEnable(false);
+            defaultItemTouchHelpCallback.setSwipeEnable(false);
+            return false;
         }
     };
 
@@ -244,10 +278,11 @@ public class FriendsNewActivity extends UI {
         @Override
         public void onSelectSuccess(List<LocalMedia> resultList) {
             selectMedia = resultList;
-//            Log.i("callBack_result", selectMedia.size() + "");
+//            Log.i("wzt", "selectMedia回调个数:" + selectMedia.size());
             if (selectMedia != null) {
                 adapter.setList(selectMedia);
                 adapter.notifyDataSetChanged();
+                ((TouchHelpCallbackListenerImpl)onItemTouchCallbackListener).setSelectList(selectMedia);
             }
         }
     };

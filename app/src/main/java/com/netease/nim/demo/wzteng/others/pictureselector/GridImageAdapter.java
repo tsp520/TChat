@@ -39,6 +39,7 @@ public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.View
 
     public interface onAddPicClickListener {
         void onAddPicClick(int type, int position);
+        boolean onLongClick(View view);
     }
 
     public GridImageAdapter(Context context, onAddPicClickListener mOnAddPicClickListener) {
@@ -101,12 +102,20 @@ public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.View
                     mItemClickListener.onItemClick(viewHolder.getAdapterPosition(), v);
                 }
             });
+            viewHolder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int adapterPosition = viewHolder.getAdapterPosition();
+                    boolean b = mItemClickListener.onItemLongClick(adapterPosition, v);
+                    return b;//false
+                }
+            });
         }
         return viewHolder;
     }
 
     private boolean isShowAddItem(int position) {
-        int size = list.size() == 0 ? 0 : list.size();
+        int size = list.size();
         return position == size;
     }
 
@@ -122,6 +131,12 @@ public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.View
                 @Override
                 public void onClick(View v) {
                     mOnAddPicClickListener.onAddPicClick(0, viewHolder.getAdapterPosition());
+                }
+            });
+            viewHolder.mImg.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    return mOnAddPicClickListener.onLongClick(v);
                 }
             });
             viewHolder.ll_del.setVisibility(View.INVISIBLE);
@@ -177,6 +192,7 @@ public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.View
 
     public interface OnItemClickListener {
         void onItemClick(int position, View v);
+        boolean onItemLongClick(int position, View v);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
