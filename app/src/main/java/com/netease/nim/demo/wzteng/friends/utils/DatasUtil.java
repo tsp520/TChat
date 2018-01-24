@@ -45,8 +45,8 @@ public class DatasUtil {
             "http://pic1.nipic.com/2008-12-09/200812910493588_2.jpg",
             "http://pic2.ooopic.com/11/79/98/31bOOOPICb1_1024.jpg" };*/
     public static final String[] HEADIMG = {
-            "http://img.wzfzl.cn/uploads/allimg/140820/co140R00Q925-14.jpg",
-            "http://www.feizl.com/upload2007/2014_06/1406272351394618.png",
+            "http://img2.woyaogexing.com/2018/01/23/72566db06b0e94e0!400x400_big.jpg",
+            "http://img2.woyaogexing.com/2018/01/20/f928af470b32deaa!400x400_big.jpg",
             "http://v1.qzone.cc/avatar/201308/30/22/56/5220b2828a477072.jpg%21200x200.jpg",
             "http://v1.qzone.cc/avatar/201308/22/10/36/521579394f4bb419.jpg!200x200.jpg",
             "http://v1.qzone.cc/avatar/201408/20/17/23/53f468ff9c337550.jpg!200x200.jpg",
@@ -76,7 +76,7 @@ public class DatasUtil {
         User user3 = new User("3", "隔壁老王", HEADIMG[3]);
         User user4 = new User("4", "赵六", HEADIMG[4]);
         User user5 = new User("5", "田七", HEADIMG[5]);
-        User user6 = new User("6", "Naoki", HEADIMG[6]);
+        User user6 = new User("6", "WZTENG", HEADIMG[6]);
         User user7 = new User("7", "这个名字是不是很长，哈哈！因为我是用来测试换行的", HEADIMG[7]);
 
         users.add(curUser);
