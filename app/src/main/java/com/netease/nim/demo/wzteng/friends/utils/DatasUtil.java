@@ -175,15 +175,19 @@ public class DatasUtil {
                 int x = getRandomNum(2);
                 String videoUrl;
                 String videoImgUrl;
+                String videoTitle;
                 if (x == 0) {
                     videoUrl = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4";
                     videoImgUrl = "http://t2.hddhhn.com/uploads/tu/201801/9999/efeb558f0a.jpg";
+                    videoTitle = "深圳市绿色低碳科技促进会";
                 } else {
                     videoUrl = "http://mirror.aarnet.edu.au/pub/TED-talks/911Mothers_2010W-480p.mp4";
                     videoImgUrl = "http://t2.hddhhn.com/uploads/tu/201801/9999/2a09f53634.jpg";
+                    videoTitle = "TED 演讲";
                 }
                 item.setVideoUrl(videoUrl);
                 item.setVideoImgUrl(videoImgUrl);
+                item.setVideoTitle(videoTitle);
             }
             circleDatas.add(item);
         }

@@ -28,6 +28,7 @@ public class CircleItem extends BaseBean{
 	private User user;
 	private String videoUrl;
 	private String videoImgUrl;
+	private String videoTitle;
 
 	private boolean isExpand;
 	
@@ -106,6 +107,14 @@ public class CircleItem extends BaseBean{
 
 	public void setVideoImgUrl(String videoImgUrl) {
 		this.videoImgUrl = videoImgUrl;
+	}
+
+	public String getVideoTitle() {
+		return videoTitle;
+	}
+
+	public void setVideoTitle(String videoTitle) {
+		this.videoTitle = videoTitle;
 	}
 
 	public void setExpand(boolean isExpand){

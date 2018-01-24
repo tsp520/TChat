@@ -318,7 +318,7 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                                 .setThumbImageView(imageView)
                                 .setUrl(circleItem.getVideoUrl())
                                 .setSetUpLazy(true)//lazy可以防止滑动卡顿
-                                .setVideoTitle("测试标题")
+                                .setVideoTitle(circleItem.getVideoTitle())
                                 .setCacheWithPlay(true)
                                 .setRotateViewAuto(true)
                                 .setLockLand(false)
