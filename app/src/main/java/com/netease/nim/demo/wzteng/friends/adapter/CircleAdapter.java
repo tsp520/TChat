@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -16,6 +17,7 @@ import com.netease.nim.demo.wzteng.friends.activity.ImagePagerActivity;
 import com.netease.nim.demo.wzteng.friends.adapter.viewholder.CircleViewHolder;
 import com.netease.nim.demo.wzteng.friends.adapter.viewholder.ImageViewHolder;
 import com.netease.nim.demo.wzteng.friends.adapter.viewholder.URLViewHolder;
+import com.netease.nim.demo.wzteng.friends.adapter.viewholder.VideoPlayerViewHolder;
 import com.netease.nim.demo.wzteng.friends.adapter.viewholder.VideoViewHolder;
 import com.netease.nim.demo.wzteng.friends.bean.ActionItem;
 import com.netease.nim.demo.wzteng.friends.bean.CircleItem;
@@ -34,6 +36,8 @@ import com.netease.nim.demo.wzteng.friends.widgets.MultiImageView;
 import com.netease.nim.demo.wzteng.friends.widgets.PraiseListView;
 import com.netease.nim.demo.wzteng.friends.widgets.SnsPopupWindow;
 import com.netease.nim.demo.wzteng.friends.widgets.dialog.CommentDialog;
+import com.netease.nim.demo.wzteng.friends.widgets.ijkplayer.SampleListener;
+import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,7 +100,8 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
             } else if (viewType == CircleViewHolder.TYPE_IMAGE) {
                 viewHolder = new ImageViewHolder(view);
             } else if (viewType == CircleViewHolder.TYPE_VIDEO) {
-                viewHolder = new VideoViewHolder(view);
+//                viewHolder = new VideoViewHolder(view);
+                viewHolder = new VideoPlayerViewHolder(view);
             }
         }
 
@@ -278,16 +283,78 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
 
                     break;
                 case CircleViewHolder.TYPE_VIDEO:
-                    if (holder instanceof VideoViewHolder) {
-                        ((VideoViewHolder) holder).videoView.setVideoUrl(circleItem.getVideoUrl());
-                        ((VideoViewHolder) holder).videoView.setVideoImgUrl(circleItem.getVideoImgUrl());//视频封面图片
-                        ((VideoViewHolder) holder).videoView.setPostion(position);
-                        ((VideoViewHolder) holder).videoView.setOnPlayClickListener(new CircleVideoView.OnPlayClickListener() {
+//                    if (holder instanceof VideoViewHolder) {
+//                        ((VideoViewHolder) holder).videoView.setVideoUrl(circleItem.getVideoUrl());
+//                        ((VideoViewHolder) holder).videoView.setVideoImgUrl(circleItem.getVideoImgUrl());//视频封面图片
+//                        ((VideoViewHolder) holder).videoView.setPostion(position);
+//                        ((VideoViewHolder) holder).videoView.setOnPlayClickListener(new CircleVideoView.OnPlayClickListener() {
+//                            @Override
+//                            public void onPlayClick(int pos) {
+//                                curPlayIndex = pos;
+//                            }
+//                        });
+//                    }
+                    if (holder instanceof VideoPlayerViewHolder) {
+                        ImageView imageView = new ImageView(context);
+                        if (position % 2 == 0) {
+                            imageView.setImageResource(R.drawable.room_cover_64);
+                        } else {
+                            imageView.setImageResource(R.drawable.room_cover_72);
+                        }
+                        //防止错位，离开释放
+                        //gsyVideoPlayer.initUIState();
+                        ((VideoPlayerViewHolder) holder).gsyVideoOptionBuilder
+                                .setIsTouchWiget(false)
+                                .setThumbImageView(imageView)
+                                .setUrl(circleItem.getVideoUrl())
+                                .setSetUpLazy(true)//lazy可以防止滑动卡顿
+                                .setVideoTitle("测试标题")
+                                .setCacheWithPlay(true)
+                                .setRotateViewAuto(true)
+                                .setLockLand(true)
+                                .setPlayTag("PlayTag")
+                                .setShowFullAnimation(true)
+                                .setNeedLockFull(true)
+                                .setPlayPosition(position)
+                                .setStandardVideoAllCallBack(new SampleListener() {
+                                    @Override
+                                    public void onPrepared(String url, Object... objects) {
+                                        super.onPrepared(url, objects);
+                                        if (!((VideoPlayerViewHolder) holder).videoView.isIfCurrentIsFullscreen()) {
+                                            //静音
+                                            GSYVideoManager.instance().setNeedMute(true);
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onQuitFullscreen(String url, Object... objects) {
+                                        super.onQuitFullscreen(url, objects);
+                                        //全屏不静音
+                                        GSYVideoManager.instance().setNeedMute(true);
+                                    }
+
+                                    @Override
+                                    public void onEnterFullscreen(String url, Object... objects) {
+                                        super.onEnterFullscreen(url, objects);
+                                        GSYVideoManager.instance().setNeedMute(false);
+                                        ((VideoPlayerViewHolder) holder).videoView.getCurrentPlayer().getTitleTextView().setText((String) objects[0]);
+                                    }
+                                }).build(((VideoPlayerViewHolder) holder).videoView);
+
+
+                        //增加title
+                        ((VideoPlayerViewHolder) holder).videoView.getTitleTextView().setVisibility(View.GONE);
+                        //设置返回键
+                        ((VideoPlayerViewHolder) holder).videoView.getBackButton().setVisibility(View.GONE);
+                        //设置全屏按键功能
+                        ((VideoPlayerViewHolder) holder).videoView.getFullscreenButton().setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onPlayClick(int pos) {
-                                curPlayIndex = pos;
+                            public void onClick(View v) {
+                                ((VideoPlayerViewHolder) holder).videoView.startWindowFullscreen(context, true, true);
                             }
                         });
+
                     }
 
                     break;

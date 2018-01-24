@@ -442,6 +442,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".wzteng.webview.WebViewActivity" />
         <activity android:name=".wzteng.friends.activity.FriendsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
             android:hardwareAccelerated="true"/>
         <activity
             android:name=".wzteng.friends.activity.ImagePagerActivity"

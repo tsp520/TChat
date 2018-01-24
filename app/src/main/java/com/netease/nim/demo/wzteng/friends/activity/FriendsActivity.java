@@ -3,6 +3,8 @@ package com.netease.nim.demo.wzteng.friends.activity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,6 +46,9 @@ import com.netease.nim.demo.wzteng.friends.widgets.dialog.UpLoadDialog;
 import com.netease.nim.uikit.common.activity.UI;
 import com.netease.nim.uikit.common.ui.dialog.CustomAlertDialog;
 import com.netease.nim.uikit.model.ToolBarOptions;
+import com.shuyu.gsyvideoplayer.GSYVideoManager;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
+import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer;
 import com.yalantis.ucrop.entity.LocalMedia;
 
 import java.io.Serializable;
@@ -77,6 +82,7 @@ public class FriendsActivity extends UI implements CircleContract.View {
     private UpLoadDialog uploadDialog;
     private SwipeRefreshLayout.OnRefreshListener refreshListener;
 
+    boolean mFull = false;
 
     public static void start(Context context) {
         start(context, null);
@@ -243,6 +249,9 @@ public class FriendsActivity extends UI implements CircleContract.View {
         recyclerView.setRefreshListener(refreshListener);
 
         recyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            int firstVisibleItem, lastVisibleItem;
+
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -255,6 +264,26 @@ public class FriendsActivity extends UI implements CircleContract.View {
                     Glide.with(FriendsActivity.this).resumeRequests();
                 } else {
                     Glide.with(FriendsActivity.this).pauseRequests();
+                }
+
+                firstVisibleItem = layoutManager.findFirstVisibleItemPosition();
+                lastVisibleItem = layoutManager.findLastVisibleItemPosition();
+                //大于0说明有播放
+                if (GSYVideoManager.instance().getPlayPosition() >= 0) {
+                    //当前播放的位置
+                    int position = GSYVideoManager.instance().getPlayPosition();
+                    //对应的播放列表TAG
+                    if (GSYVideoManager.instance().getPlayTag().equals("PlayTag")
+                            && (position < firstVisibleItem || position > lastVisibleItem)) {
+
+                        //如果滑出去了上面和下面就是否，和今日头条一样
+                        //是否全屏
+                        if (!mFull) {
+                            GSYVideoPlayer.releaseAllVideos();
+//                            circleAdapter.notifyDataSetChanged();
+//                            circleAdapter.notifyItemChanged(position);
+                        }
+                    }
                 }
 
             }
@@ -284,6 +313,21 @@ public class FriendsActivity extends UI implements CircleContract.View {
         });
 
         setViewTreeObserver();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        //如果旋转了就全屏
+        mFull = newConfig.orientation == ActivityInfo.SCREEN_ORIENTATION_USER;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (StandardGSYVideoPlayer.backFromWindowFull(this)) {
+            return;
+        }
+        super.onBackPressed();
     }
 
     private void initUploadDialog() {

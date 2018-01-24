@@ -144,4 +144,10 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'pub.devrel:easypermissions:0.2.1'
     testCompile 'junit:junit:4.12'
+    //ijkplayer
+//    compile 'tv.danmaku.ijk.media:ijkplayer-java:0.6.1'
+//    compile 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.6.1'
+    compile 'com.shuyu:gsyVideoPlayer-java:3.0.0'
+    compile 'com.shuyu:gsyVideoPlayer-armv7a:3.0.0'
+//    compile 'com.shuyu:gsyVideoPlayer-ex_so:3.0.0'
 }
