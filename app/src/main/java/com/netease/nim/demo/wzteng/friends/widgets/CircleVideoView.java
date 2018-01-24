@@ -32,7 +32,7 @@ import java.io.InputStream;
  */
 
 /**
- * 已更新为IJKPlayer播放器，不再使用
+ * 已更新为IJKPlayer播放器，不再使用该View
  */
 public class CircleVideoView extends LinearLayout implements VideoLoadMvpView, ListItem {
 

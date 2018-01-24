@@ -12,7 +12,7 @@ import com.netease.nim.demo.wzteng.friends.widgets.CircleVideoView;
  */
 
 /**
- * 已更新为IJKPlayer播放器，不再使用
+ * 已更新为IJKPlayer播放器，不再使用该ViewHolder
  */
 public class VideoViewHolder extends CircleViewHolder {
 
