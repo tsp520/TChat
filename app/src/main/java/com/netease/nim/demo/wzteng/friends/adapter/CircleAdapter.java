@@ -1,6 +1,9 @@
 package com.netease.nim.demo.wzteng.friends.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.provider.Browser;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -37,6 +40,7 @@ import com.netease.nim.demo.wzteng.friends.widgets.PraiseListView;
 import com.netease.nim.demo.wzteng.friends.widgets.SnsPopupWindow;
 import com.netease.nim.demo.wzteng.friends.widgets.dialog.CommentDialog;
 import com.netease.nim.demo.wzteng.friends.widgets.ijkplayer.SampleListener;
+import com.netease.nim.demo.wzteng.webview.WebViewActivity;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
 import java.util.ArrayList;
@@ -252,6 +256,16 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                         ((URLViewHolder) holder).urlContentTv.setText(linkTitle);
                         ((URLViewHolder) holder).urlBody.setVisibility(View.VISIBLE);
                         ((URLViewHolder) holder).urlTipTv.setVisibility(View.VISIBLE);
+                        ((URLViewHolder) holder).urlBody.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                WebViewActivity.start(circleItem.getLinkUrl(), circleItem.getLinkTitle(), context);
+//                                Uri uri = Uri.parse(circleItem.getLinkUrl());
+//                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                                intent.putExtra(Browser.EXTRA_APPLICATION_ID, context.getPackageName());
+//                                context.startActivity(intent);
+                            }
+                        });
                     }
 
                     break;

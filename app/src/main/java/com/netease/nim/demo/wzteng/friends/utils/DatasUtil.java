@@ -13,16 +13,22 @@ import java.util.Random;
 /**
  * @author yiw
  * @ClassName: DatasUtil
- * @Description: TODO(这里用一句话描述这个类的作用)
  * @date 2015-12-28 下午4:16:21
  */
 public class DatasUtil {
     public static final String[] CONTENTS = {"",
-            "哈哈，18123456789,ChinaAr  http://www.ChinaAr.com;一个不错的VR网站。哈哈，ChinaAr  http://www.ChinaAr.com;一个不错的VR网站。哈哈，ChinaAr  http://www.ChinaAr.com;一个不错的VR网站。哈哈，ChinaAr  http://www.ChinaAr.com;一个不错的VR网站。",
+            "哈哈，18123456789,少数派  https://sspai.com/;一个不错的网站。哈哈，ChinaAr  http://www.ChinaAr.com;一" +
+                    "个不错的VR网站。哈哈，ChinaAr  http://www.ChinaAr.com;一个不错的VR网站。哈" +
+                    "哈，ChinaAr  http://www.ChinaAr.com;一个不错的VR网站。",
             //"今天是个好日子，http://www.ChinaAr.com;一个不错的VR网站,18123456789,",
             //"呵呵，http://www.ChinaAr.com;一个不错的VR网站,18123456789,",
             //"只有http|https|ftp|svn://开头的网址才能识别为网址，正则表达式写的不太好，如果你又更好的正则表达式请评论告诉我，谢谢！",
-            "VR（Virtual Reality，即虚拟现实，简称VR），是由美国VPL公司创建人拉尼尔（Jaron Lanier）在20世纪80年代初提出的。其具体内涵是：综合利用计算机图形系统和各种现实及控制等接口设备，在计算机上生成的、可交互的三维环境中提供沉浸感觉的技术。其中，计算机生成的、可交互的三维环境称为虚拟环境（即Virtual Environment，简称VE）。虚拟现实技术是一种可以创建和体验虚拟世界的计算机仿真系统的技术。它利用计算机生成一种模拟环境，利用多源信息融合的交互式三维动态视景和实体行为的系统仿真使用户沉浸到该环境中。",
+            "VR（Virtual Reality，即虚拟现实，简称VR），是由美国VPL公司创建人拉尼尔（Jaron Lanier）在20世纪80年代初" +
+                    "提出的。其具体内涵是：综合利用计算机图形系统和各种现实及控制等接口设备，在计算机上生成的、可交互" +
+                    "的三维环境中提供沉浸感觉的技术。其中，计算机生成的、可交互的三维环境称为虚拟环" +
+                    "境（即Virtual Environment，简称VE）。虚拟现实技术是一种可以创建和体验虚拟世界的计算机" +
+                    "仿真系统的技术。它利用计算机生成一种模拟环境，利用多源信息融合的交互式三维动态视景和实体" +
+                    "行为的系统仿真使用户沉浸到该环境中。",
             //"哈哈哈哈",
             //"图不错",
             "我勒个去"};
@@ -167,6 +173,7 @@ public class DatasUtil {
                 item.setType("1");// 链接
                 item.setLinkImg("http://pics.sc.chinaz.com/Files/pic/icons128/2264/%E8%85%BE%E8%AE%AFQQ%E5%9B%BE%E6%A0%87%E4%B8%8B%E8%BD%BD1.png");
                 item.setLinkTitle("百度一下，你就知道");
+                item.setLinkUrl("http://www.baidu.com");
             } else if (type == 1) {
                 item.setType("2");// 图片
                 item.setPhotos(createPhotos());

@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.netease.nim.demo.wzteng.friends.spannable.SpannableClickable;
+import com.netease.nim.demo.wzteng.webview.WebViewActivity;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,11 +38,12 @@ public class UrlUtils {
                         sp.setSpan(new SpannableClickable(){
                             @Override
                             public void onClick(View widget) {
-                                Uri uri = Uri.parse(url);
-                                Context context = widget.getContext();
-                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                                intent.putExtra(Browser.EXTRA_APPLICATION_ID, context.getPackageName());
-                                context.startActivity(intent);
+                                WebViewActivity.start(url, "加载中...", widget.getContext());
+//                                Uri uri = Uri.parse(url);
+//                                Context context = widget.getContext();
+//                                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//                                intent.putExtra(Browser.EXTRA_APPLICATION_ID, context.getPackageName());
+//                                context.startActivity(intent);
                             }
                         }, urlMatcher.start(), urlMatcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     }
