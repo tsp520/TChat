@@ -24,9 +24,9 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 
 当前编辑版本与编译环境：
 
-- Android Studio 2.3
-- Gradle Version 3.3
-- Android Plugin Version 2.3.0
+- Android Studio 3.0.1
+- Gradle Version 4.1
+- Android Plugin Version 3.0.1
 - Android SDK Platform-Tools 25.0.1
 - Android 7.1.1 API25
 - 真机原生7.1.2
@@ -40,13 +40,13 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 已知Bug:<br/>
 1.部份低版本系统侧滑返回会显示透明桌面(未修复)<br/>
 2.二维码扫描框未根据屏幕尺寸进行调整(未修复)<br/>
-3.朋友圈小视频目前无法在6.0以上使用，会导致崩溃(正在修复，2017/05/12 修复崩溃，但无法播放，2018/01/24已修复。)<br/>
+3.朋友圈小视频目前无法在6.0以上使用，会导致崩溃(正在修复，2017/05/12 修复崩溃，但无法播放，2018/01/24 修复完成。)<br/>
 4.修复低版本提示jar包错误(2017/05/10 修复完成)<br/>
 
 更新:<br/>
-1.2018/01/23 更新高德地图 3DMap_5.7.0 Navi_5.6.0 Search_5.7.0 Location_3.7.0_20180109版本<br/>
-             更新聊天定位发送图片为实时图片，但接收图片为默认图片
-2.2018/01/24 更新朋友圈视频为IJKPlayer播放器，可以正常播放视频
+1.2018/01/23 更新高德地图 3DMap_5.7.0 Navi_5.6.0 Search_5.7.0 Location_3.7.0 20180109版本<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp更新聊天定位发送图片为实时图片，但接收图片为默认图片<br/>
+2.2018/01/24 更新朋友圈视频为IJKPlayer播放器，可以正常播放视频<br/>
 
 截图<br/>
 <div>
