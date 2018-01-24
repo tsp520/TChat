@@ -322,14 +322,6 @@ public class FriendsActivity extends UI implements CircleContract.View {
         mFull = newConfig.orientation == ActivityInfo.SCREEN_ORIENTATION_USER;
     }
 
-    @Override
-    public void onBackPressed() {
-        if (StandardGSYVideoPlayer.backFromWindowFull(this)) {
-            return;
-        }
-        super.onBackPressed();
-    }
-
     private void initUploadDialog() {
         uploadDialog = new UpLoadDialog(this);
     }
@@ -392,6 +384,11 @@ public class FriendsActivity extends UI implements CircleContract.View {
             if (edittextbody != null && edittextbody.getVisibility() == View.VISIBLE) {
                 //edittextbody.setVisibility(View.GONE);
                 updateEditTextBodyVisible(View.GONE, null);
+                return true;
+            }
+        }
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (StandardGSYVideoPlayer.backFromWindowFull(this)) {
                 return true;
             }
         }
@@ -587,6 +584,20 @@ public class FriendsActivity extends UI implements CircleContract.View {
             presenter.recycle();
         }
         super.onDestroy();
+        GSYVideoPlayer.releaseAllVideos();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        GSYVideoManager.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        GSYVideoManager.onResume();
+    }
+
 
 }
