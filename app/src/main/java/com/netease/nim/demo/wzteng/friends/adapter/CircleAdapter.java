@@ -297,9 +297,19 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                     if (holder instanceof VideoPlayerViewHolder) {
                         ImageView imageView = new ImageView(context);
                         if (position % 2 == 0) {
-                            imageView.setImageResource(R.drawable.room_cover_64);
+//                            imageView.setImageResource(R.drawable.room_cover_64);
+                            Glide.with(context)
+                                    .load(circleItem.getVideoImgUrl())
+                                    .error(R.drawable.nim_default_img_failed)
+                                    .centerCrop()
+                                    .into(imageView);
                         } else {
-                            imageView.setImageResource(R.drawable.room_cover_72);
+//                            imageView.setImageResource(R.drawable.room_cover_72);
+                            Glide.with(context)
+                                    .load(circleItem.getVideoImgUrl())
+                                    .error(R.drawable.nim_default_img_failed)
+                                    .centerCrop()
+                                    .into(imageView);
                         }
                         //防止错位，离开释放
                         //gsyVideoPlayer.initUIState();

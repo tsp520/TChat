@@ -26,7 +26,6 @@ public class SampleCoverVideo extends StandardGSYVideoPlayer implements VideoLoa
     ImageView mCoverImage;
     String mCoverOriginUrl;
     int mDefaultRes;
-    String mDefaultResUrl;
 
     private static final int STATE_IDLE = 0;
     private static final int STATE_ACTIVED = 1;
@@ -80,54 +79,12 @@ public class SampleCoverVideo extends StandardGSYVideoPlayer implements VideoLoa
                 .into(mCoverImage);
     }
 
-    public void loadCoverImage(String url) {
-        mCoverOriginUrl = url;
-        Glide.with(getContext().getApplicationContext())
-                .load(url)
-                .placeholder(R.drawable.actionbar_dropdown_bg)
-                .error(R.drawable.friends_im_aio_image_fail_round)
-                .centerCrop()
-                .into(mCoverImage);
-    }
-
     @Override
     public GSYBaseVideoPlayer startWindowFullscreen(Context context, boolean actionBar, boolean statusBar) {
         GSYBaseVideoPlayer gsyBaseVideoPlayer = super.startWindowFullscreen(context, actionBar, statusBar);
         SampleCoverVideo sampleCoverVideo = (SampleCoverVideo) gsyBaseVideoPlayer;
         sampleCoverVideo.loadCoverImage(mCoverOriginUrl, mDefaultRes);
         return gsyBaseVideoPlayer;
-    }
-
-    public ImageView getmCoverImage() {
-        return mCoverImage;
-    }
-
-    public void setmCoverImage(ImageView mCoverImage) {
-        this.mCoverImage = mCoverImage;
-    }
-
-    public String getmCoverOriginUrl() {
-        return mCoverOriginUrl;
-    }
-
-    public void setmCoverOriginUrl(String mCoverOriginUrl) {
-        this.mCoverOriginUrl = mCoverOriginUrl;
-    }
-
-    public int getmDefaultRes() {
-        return mDefaultRes;
-    }
-
-    public void setmDefaultRes(int mDefaultRes) {
-        this.mDefaultRes = mDefaultRes;
-    }
-
-    public String getmDefaultResUrl() {
-        return mDefaultResUrl;
-    }
-
-    public void setmDefaultResUrl(String mDefaultResUrl) {
-        this.mDefaultResUrl = mDefaultResUrl;
     }
 
     @Override

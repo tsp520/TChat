@@ -172,14 +172,16 @@ public class DatasUtil {
                 item.setPhotos(createPhotos());
             } else {
                 item.setType("3");// 视频
-//                String videoUrl = "http://yiwcicledemo.s.qupai.me/v/80c81c19-7c02-4dee-baca-c97d9bbd6607.mp4";
-//                String videoImgUrl = "http://yiwcicledemo.s.qupai.me/v/80c81c19-7c02-4dee-baca-c97d9bbd6607.jpg";
-
-//                String videoUrl = "http://mirror.aarnet.edu.au/pub/TED-talks/911Mothers_2010W-480p.mp4";
-//                String videoImgUrl = "http://pic31.nipic.com/20130624/8821914_104949466000_2.jpg";
-
-                String videoUrl = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4";
-                String videoImgUrl = "http://pic31.nipic.com/20130624/8821914_104949466000_2.jpg";
+                int x = getRandomNum(10) % 2;
+                String videoUrl;
+                String videoImgUrl;
+                if (x == 0) {
+                    videoUrl = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4";
+                    videoImgUrl = "http://t2.hddhhn.com/uploads/tu/201801/9999/efeb558f0a.jpg";
+                } else {
+                    videoUrl = "http://mirror.aarnet.edu.au/pub/TED-talks/911Mothers_2010W-480p.mp4";
+                    videoImgUrl = "http://t2.hddhhn.com/uploads/tu/201801/9999/2a09f53634.jpg";
+                }
                 item.setVideoUrl(videoUrl);
                 item.setVideoImgUrl(videoImgUrl);
             }
