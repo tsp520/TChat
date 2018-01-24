@@ -321,7 +321,7 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                                 .setVideoTitle("测试标题")
                                 .setCacheWithPlay(true)
                                 .setRotateViewAuto(true)
-                                .setLockLand(true)
+                                .setLockLand(false)
                                 .setPlayTag("PlayTag")
                                 .setShowFullAnimation(true)
                                 .setNeedLockFull(true)
