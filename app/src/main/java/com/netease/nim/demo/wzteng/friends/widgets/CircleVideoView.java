@@ -30,6 +30,10 @@ import java.io.InputStream;
 /**
  * Created by yiwei on 16/5/23.
  */
+
+/**
+ * 已更新为IJKPlayer播放器，不再使用
+ */
 public class CircleVideoView extends LinearLayout implements VideoLoadMvpView, ListItem {
 
     public TextureVideoView videoPlayer;

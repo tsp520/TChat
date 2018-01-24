@@ -10,6 +10,10 @@ import com.netease.nim.demo.wzteng.friends.widgets.CircleVideoView;
 /**
  * Created by suneee on 2016/8/16.
  */
+
+/**
+ * 已更新为IJKPlayer播放器，不再使用
+ */
 public class VideoViewHolder extends CircleViewHolder {
 
     public CircleVideoView videoView;
