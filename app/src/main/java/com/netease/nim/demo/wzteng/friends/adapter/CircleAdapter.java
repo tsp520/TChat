@@ -346,7 +346,7 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                                         super.onPrepared(url, objects);
                                         if (!((VideoPlayerViewHolder) holder).videoView.isIfCurrentIsFullscreen()) {
                                             //静音
-                                            GSYVideoManager.instance().setNeedMute(true);
+                                            GSYVideoManager.instance().setNeedMute(false);
                                         }
 
                                     }
@@ -354,8 +354,8 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                                     @Override
                                     public void onQuitFullscreen(String url, Object... objects) {
                                         super.onQuitFullscreen(url, objects);
-                                        //全屏不静音
-                                        GSYVideoManager.instance().setNeedMute(true);
+                                        //静音
+                                        GSYVideoManager.instance().setNeedMute(false);
                                     }
 
                                     @Override

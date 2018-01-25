@@ -81,7 +81,7 @@ public class DatasUtil {
         User user2 = new User("2", "李四", HEADIMG[2]);
         User user3 = new User("3", "隔壁老王", HEADIMG[3]);
         User user4 = new User("4", "赵六", HEADIMG[4]);
-        User user5 = new User("5", "田七", HEADIMG[5]);
+        User user5 = new User("5", "小姐姐", HEADIMG[5]);
         User user6 = new User("6", "WZTENG", HEADIMG[6]);
         User user7 = new User("7", "这个名字是不是很长，哈哈！因为我是用来测试换行的", HEADIMG[7]);
 
