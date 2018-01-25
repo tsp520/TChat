@@ -1,5 +1,6 @@
 package com.netease.nim.demo.wzteng.friends.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.jude.swipbackhelper.SwipeBackHelper;
 import com.netease.nim.demo.R;
 import com.netease.nim.demo.wzteng.friends.activity.FriendsActivity;
 import com.netease.nim.demo.wzteng.friends.activity.ImagePagerActivity;
@@ -354,6 +356,7 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                                     @Override
                                     public void onQuitFullscreen(String url, Object... objects) {
                                         super.onQuitFullscreen(url, objects);
+                                        SwipeBackHelper.getCurrentPage((Activity) context).setSwipeBackEnable(true);//滑动退出
                                         //静音
                                         GSYVideoManager.instance().setNeedMute(false);
                                     }
@@ -361,6 +364,7 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                                     @Override
                                     public void onEnterFullscreen(String url, Object... objects) {
                                         super.onEnterFullscreen(url, objects);
+                                        SwipeBackHelper.getCurrentPage((Activity) context).setSwipeBackEnable(false);//禁止滑动退出
                                         GSYVideoManager.instance().setNeedMute(false);
                                         ((VideoPlayerViewHolder) holder).videoView.getCurrentPlayer().getTitleTextView().setText((String) objects[0]);
                                     }
