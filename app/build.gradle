@@ -150,4 +150,8 @@ dependencies {
     compile 'com.shuyu:gsyVideoPlayer-java:3.0.0'
     compile 'com.shuyu:gsyVideoPlayer-armv7a:3.0.0'
 //    compile 'com.shuyu:gsyVideoPlayer-ex_so:3.0.0'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.google.code.gson:gson:2.8.2'
+
+    compile 'me.wcy:lrcview:2.0.1'
 }

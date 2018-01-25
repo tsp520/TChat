@@ -183,7 +183,7 @@ public class NimApplication extends Application {
         StatusBarNotificationConfig config = new StatusBarNotificationConfig();
         // 点击通知需要跳转到的界面
         config.notificationEntrance = WelcomeActivity.class;
-        config.notificationSmallIconId = R.drawable.ic_stat_notify_msg;
+        config.notificationSmallIconId = R.drawable.ic_logo;
 
         // 通知铃声的uri字符串
         config.notificationSound = "android.resource://com.netease.nim.demo/raw/msg";

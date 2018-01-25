@@ -10,16 +10,14 @@ public class CircleItem extends BaseBean {
     public final static String TYPE_URL = "1";
     public final static String TYPE_IMG = "2";
     public final static String TYPE_VIDEO = "3";
+    public final static String TYPE_MUSIC = "4";
 
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
 
     private String id;
     private String content;
     private String createTime;
-    private String type;//1:链接  2:图片 3:视频
+    private String type;//1:链接  2:图片 3:视频 4:音乐
     private String linkImg;
     private String linkTitle;
     private String linkUrl;
@@ -30,6 +28,10 @@ public class CircleItem extends BaseBean {
     private String videoUrl;
     private String videoImgUrl;
     private String videoTitle;
+
+    private String musicTitle;
+    private String musicArtist;
+    private String musicAlbum;
 
     private boolean isExpand;
 
@@ -143,6 +145,30 @@ public class CircleItem extends BaseBean {
 
     public void setVideoTitle(String videoTitle) {
         this.videoTitle = videoTitle;
+    }
+
+    public String getMusicTitle() {
+        return musicTitle;
+    }
+
+    public void setMusicTitle(String musicTitle) {
+        this.musicTitle = musicTitle;
+    }
+
+    public String getMusicArtist() {
+        return musicArtist;
+    }
+
+    public void setMusicArtist(String musicArtist) {
+        this.musicArtist = musicArtist;
+    }
+
+    public String getMusicAlbum() {
+        return musicAlbum;
+    }
+
+    public void setMusicAlbum(String musicAlbum) {
+        this.musicAlbum = musicAlbum;
     }
 
     public void setExpand(boolean isExpand) {

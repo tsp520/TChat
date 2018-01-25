@@ -487,6 +487,28 @@
         <activity
             android:name=".session.activity.SendRedPackedActivity"
             android:theme="@style/RedPackedTheme"/>
+
+        <!--音乐-->
+        <activity android:name=".wzteng.friends.widgets.music.MusicActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <service android:name="com.netease.nim.demo.wzteng.friends.widgets.music.service.PlayService" />
+
+        <receiver android:name="com.netease.nim.demo.wzteng.friends.widgets.music.receiver.DownloadReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.netease.nim.demo.wzteng.friends.widgets.music.receiver.RemoteControlReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.netease.nim.demo.wzteng.friends.widgets.music.receiver.StatusBarReceiver">
+            <intent-filter>
+                <action android:name="me.wcy.music.STATUS_BAR_ACTIONS" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

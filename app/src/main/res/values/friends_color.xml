@@ -25,4 +25,6 @@
 
     <color name="default_clickable_color">#cccccc</color>
     <color name="basic_color_primary">#373b3e</color>
+
+    <color name="white_8p">#14FFFFFF</color>
 </resources>

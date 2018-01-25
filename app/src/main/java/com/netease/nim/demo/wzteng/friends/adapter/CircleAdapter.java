@@ -21,6 +21,7 @@ import com.netease.nim.demo.wzteng.friends.activity.FriendsActivity;
 import com.netease.nim.demo.wzteng.friends.activity.ImagePagerActivity;
 import com.netease.nim.demo.wzteng.friends.adapter.viewholder.CircleViewHolder;
 import com.netease.nim.demo.wzteng.friends.adapter.viewholder.ImageViewHolder;
+import com.netease.nim.demo.wzteng.friends.adapter.viewholder.MusicViewHolder;
 import com.netease.nim.demo.wzteng.friends.adapter.viewholder.URLViewHolder;
 import com.netease.nim.demo.wzteng.friends.adapter.viewholder.VideoPlayerViewHolder;
 import com.netease.nim.demo.wzteng.friends.adapter.viewholder.VideoViewHolder;
@@ -42,6 +43,7 @@ import com.netease.nim.demo.wzteng.friends.widgets.PraiseListView;
 import com.netease.nim.demo.wzteng.friends.widgets.SnsPopupWindow;
 import com.netease.nim.demo.wzteng.friends.widgets.dialog.CommentDialog;
 import com.netease.nim.demo.wzteng.friends.widgets.ijkplayer.SampleListener;
+import com.netease.nim.demo.wzteng.friends.widgets.music.MusicActivity;
 import com.netease.nim.demo.wzteng.webview.WebViewActivity;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
@@ -88,6 +90,8 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
             itemType = CircleViewHolder.TYPE_IMAGE;
         } else if (CircleItem.TYPE_VIDEO.equals(item.getType())) {
             itemType = CircleViewHolder.TYPE_VIDEO;
+        } else if (CircleItem.TYPE_MUSIC.equals(item.getType())) {
+            itemType = CircleViewHolder.TYPE_MUSIC;
         }
         return itemType;
     }
@@ -108,6 +112,8 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
             } else if (viewType == CircleViewHolder.TYPE_VIDEO) {
 //                viewHolder = new VideoViewHolder(view);
                 viewHolder = new VideoPlayerViewHolder(view);
+            } else if (viewType == CircleViewHolder.TYPE_MUSIC) {
+                viewHolder = new MusicViewHolder(view);
             }
         }
 
@@ -385,6 +391,28 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
 
                     }
 
+                    break;
+
+                case CircleViewHolder.TYPE_MUSIC:
+                    if (holder instanceof MusicViewHolder) {
+                        String musicImg = circleItem.getMusicAlbum();
+                        String musicTitle = circleItem.getMusicTitle();
+                        String musicArtist = circleItem.getMusicArtist();
+                        Glide.with(context).load(musicImg).into(((MusicViewHolder) holder).musicAlbumIv);
+                        ((MusicViewHolder) holder).musicBody.setVisibility(View.VISIBLE);
+                        ((MusicViewHolder) holder).urlTipTv.setVisibility(View.VISIBLE);
+                        ((MusicViewHolder) holder).urlTipTv.setText("分享了一首音乐");
+                        ((MusicViewHolder) holder).musicTitleTv.setText(musicTitle);
+                        ((MusicViewHolder) holder).musicArtistTv.setText(musicArtist);
+                        ((MusicViewHolder) holder).musicBody.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //测试点击
+//                                WebViewActivity.start("http://play.baidu.com/?__m=mboxCtrl.playSong&__a=569080829&__o=/||newIcon#", "音乐测试", context);
+                                MusicActivity.start(context);
+                            }
+                        });
+                    }
                     break;
                 default:
                     break;

@@ -45,8 +45,9 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 
 更新:<br/>
 1.2018/01/23 更新高德地图 3DMap_5.7.0 Navi_5.6.0 Search_5.7.0 Location_3.7.0 20180109版本<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp更新聊天定位发送图片为实时图片，但接收图片为默认图片<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更新聊天定位发送图片为实时图片，但接收图片为默认图片<br/>
 2.2018/01/24 更新朋友圈视频为IJKPlayer播放器，可以正常播放视频<br/>
+3.2018/01/25 增加朋友圈音乐连接到百度随机播放歌曲<br/>
 
 截图<br/>
 <div>
@@ -122,6 +123,12 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180124-141604.png"/>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180124-141617.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180125-164339.png"/>
+</div>
+<div>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180125-164202.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180125-164207.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180125-164229.png"/>
 </div>
 未完待续2018-01-23 17:30
 

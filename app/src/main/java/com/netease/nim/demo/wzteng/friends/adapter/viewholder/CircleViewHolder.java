@@ -25,6 +25,7 @@ public abstract class CircleViewHolder extends RecyclerView.ViewHolder implement
     public final static int TYPE_URL = 1;
     public final static int TYPE_IMAGE = 2;
     public final static int TYPE_VIDEO = 3;
+    public final static int TYPE_MUSIC = 4;
 
     public int viewType;
 
