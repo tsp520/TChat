@@ -130,7 +130,10 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180125-164207.png"/>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180125-164229.png"/>
 </div>
-未完待续2018-01-23 17:30
+<div>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180125-173849.png"/>
+</div>
+未完待续2018-01-25 17:30
 
 
 
