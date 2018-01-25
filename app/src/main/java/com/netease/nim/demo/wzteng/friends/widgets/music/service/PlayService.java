@@ -383,6 +383,7 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
 
     @Override
     public void onDestroy() {
+        super.onDestroy();
         mPlayer.reset();
         mPlayer.release();
         mPlayer = null;
@@ -390,7 +391,6 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
         mMediaSessionManager.release();
 //        Notifier.cancelAll();
         MusicCache.get().setPlayService(null);
-        super.onDestroy();
         Log.i(TAG, "onDestroy: " + getClass().getSimpleName());
     }
 

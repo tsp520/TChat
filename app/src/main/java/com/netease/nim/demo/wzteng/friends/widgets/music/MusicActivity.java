@@ -313,6 +313,11 @@ public class MusicActivity extends UI implements View.OnClickListener,
         bindService(intent, mPlayServiceConnection, Context.BIND_AUTO_CREATE);
     }
 
+    private void toStopService() {
+        Intent stopIntent = new Intent(this, PlayService.class);
+        stopService(stopIntent);
+    }
+
     private class PlayServiceConnection implements ServiceConnection {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -632,6 +637,7 @@ public class MusicActivity extends UI implements View.OnClickListener,
         if (service != null) {
             service.setOnPlayEventListener(null);
         }
+        toStopService();
     }
 
 }
