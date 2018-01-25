@@ -44,6 +44,7 @@ import com.netease.nim.demo.wzteng.friends.widgets.music.utils.Preferences;
 import com.netease.nim.demo.wzteng.friends.widgets.music.utils.SystemUtils;
 import com.netease.nim.demo.wzteng.friends.widgets.music.utils.ToastUtils;
 import com.netease.nim.demo.wzteng.friends.widgets.music.view.AlbumCoverView;
+import com.netease.nim.demo.wzteng.friends.widgets.music.view.LrcView;
 import com.netease.nim.uikit.common.activity.UI;
 import com.zhy.http.okhttp.OkHttpUtils;
 
@@ -52,7 +53,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import me.wcy.lrcview.LrcView;
 import okhttp3.OkHttpClient;
 
 public class MusicActivity extends UI implements View.OnClickListener,

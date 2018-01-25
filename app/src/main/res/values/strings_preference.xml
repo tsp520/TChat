@@ -11,4 +11,7 @@
     <string name="song_list_item_title_1">1.%1$s - %2$s</string>
     <string name="song_list_item_title_2">2.%1$s - %2$s</string>
     <string name="song_list_item_title_3">3.%1$s - %2$s</string>
+
+    <string name="lrc_label">暂无歌词</string>
+
 </resources>

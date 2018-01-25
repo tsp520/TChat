@@ -14,7 +14,7 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin" />
 
-    <me.wcy.lrcview.LrcView
+    <com.netease.nim.demo.wzteng.friends.widgets.music.view.LrcView
         android:id="@+id/lrc_view_single"
         android:layout_width="match_parent"
         android:layout_height="20dp"
