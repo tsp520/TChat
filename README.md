@@ -27,7 +27,7 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 - Android Studio 3.0.1
 - Gradle Version 4.1
 - Android Plugin Version 3.0.1
-- Android SDK Platform-Tools 25.0.1
+- Android SDK Platform-Tools 26.0.2
 - Android 7.1.1 API25
 - 真机原生7.1.2
 
