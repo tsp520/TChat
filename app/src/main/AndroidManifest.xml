@@ -506,7 +506,7 @@
         </receiver>
         <receiver android:name="com.netease.nim.demo.wzteng.friends.widgets.music.receiver.StatusBarReceiver">
             <intent-filter>
-                <action android:name="me.wcy.music.STATUS_BAR_ACTIONS" />
+                <action android:name="STATUS_BAR_ACTIONS" />
             </intent-filter>
         </receiver>
     </application>
