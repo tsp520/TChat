@@ -17,11 +17,11 @@
     <com.netease.nim.demo.wzteng.friends.widgets.music.view.LrcView
         android:id="@+id/lrc_view_single"
         android:layout_width="match_parent"
-        android:layout_height="20dp"
+        android:layout_height="60dp"
         lrc:lrcAnimationDuration="1000"
         lrc:lrcCurrentTextColor="@color/white"
-        lrc:lrcDividerHeight="10dp"
-        lrc:lrcNormalTextColor="@color/white"
+        lrc:lrcDividerHeight="2dp"
+        lrc:lrcNormalTextColor="#80FFFFFF"
         lrc:lrcPadding="40dp"
-        lrc:lrcTextSize="16sp" />
+        lrc:lrcTextSize="15sp" />
 </LinearLayout>
