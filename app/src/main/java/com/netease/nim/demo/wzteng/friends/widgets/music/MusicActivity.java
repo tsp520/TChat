@@ -479,6 +479,16 @@ public class MusicActivity extends UI implements View.OnClickListener,
         return false;
     }
 
+    @Override
+    public void changeMusicProgress(long time) {
+        if (getPlayService().isPlaying() || getPlayService().isPausing()) {
+            getPlayService().seekTo((int) time);
+//            if (getPlayService().isPausing()) {
+//                getPlayService().playPause();
+//            }
+        }
+    }
+
     private void onChangeImpl(Music music) {
         if (music == null) {
             return;

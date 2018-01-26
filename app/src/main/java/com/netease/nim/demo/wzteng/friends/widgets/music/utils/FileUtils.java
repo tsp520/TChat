@@ -24,7 +24,7 @@ public class FileUtils {
     private static final String LRC = ".lrc";
 
     private static String getAppDir() {
-        return Environment.getExternalStorageDirectory() + "/PonyMusic";
+        return Environment.getExternalStorageDirectory() + "/com.netease.nim.demo/WMusic";
     }
 
     public static String getMusicDir() {

@@ -72,6 +72,8 @@ public class LrcView extends View {
          * @return 是否成功消费该事件，如果成功消费，则会更新UI
          */
         boolean onPlayClick(long time);
+
+        void changeMusicProgress(long time);
     }
 
     public LrcView(Context context) {
@@ -362,6 +364,13 @@ public class LrcView extends View {
             if (hasLrc() && !isFling) {
                 adjustCenter();
                 postDelayed(hideTimelineRunnable, TIMELINE_KEEP_TIME);
+            }
+        }
+        if (hasLrc() && event.getAction() == MotionEvent.ACTION_UP) {
+            long timex = mLrcEntryList.get(getCenterLine()).getTime();
+            if (mOnPlayClickListener != null) {
+                mCurrentLine = getCenterLine();
+                mOnPlayClickListener.changeMusicProgress(timex);
             }
         }
         return mGestureDetector.onTouchEvent(event);

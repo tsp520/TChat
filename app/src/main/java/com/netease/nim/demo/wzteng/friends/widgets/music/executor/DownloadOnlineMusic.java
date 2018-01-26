@@ -13,7 +13,6 @@ import java.io.File;
 
 /**
  * 下载音乐
- * Created by wcy on 2016/1/3.
  */
 public abstract class DownloadOnlineMusic extends DownloadMusic {
     private OnlineMusic mOnlineMusic;

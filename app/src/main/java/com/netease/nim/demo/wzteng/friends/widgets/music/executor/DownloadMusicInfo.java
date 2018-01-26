@@ -1,8 +1,5 @@
 package com.netease.nim.demo.wzteng.friends.widgets.music.executor;
 
-/**
- * Created by hzwangchenyan on 2017/8/11.
- */
 public class DownloadMusicInfo {
     private String title;
     private String musicPath;
