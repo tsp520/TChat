@@ -405,4 +405,9 @@ public class PlayService extends Service implements MediaPlayer.OnCompletionList
             return PlayService.this;
         }
     }
+
+    public MediaPlayer getmPlayer() {
+        return mPlayer;
+    }
+
 }

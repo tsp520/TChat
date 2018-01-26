@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.media.AudioManager;
+import android.media.audiofx.Visualizer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -45,6 +46,7 @@ import com.netease.nim.demo.wzteng.friends.widgets.music.utils.SystemUtils;
 import com.netease.nim.demo.wzteng.friends.widgets.music.utils.ToastUtils;
 import com.netease.nim.demo.wzteng.friends.widgets.music.view.AlbumCoverView;
 import com.netease.nim.demo.wzteng.friends.widgets.music.view.LrcView;
+import com.netease.nim.demo.wzteng.friends.widgets.music.view.VisualView;
 import com.netease.nim.uikit.common.activity.UI;
 import com.zhy.http.okhttp.OkHttpUtils;
 
@@ -101,6 +103,9 @@ public class MusicActivity extends UI implements View.OnClickListener,
     //一次获取多少曲
     private static final int MUSIC_LIST_SIZE = 15;
 
+    private CaptureVisualizer captureVisualizer;
+    private VisualView visualView;
+
     public static void start(Context context) {
         start(context, null);
     }
@@ -145,6 +150,23 @@ public class MusicActivity extends UI implements View.OnClickListener,
         initSongLists();
     }
 
+    private void initVisualizer() {
+        captureVisualizer = new CaptureVisualizer(getPlayService().getmPlayer(),
+                new CaptureVisualizer.IDataCaptureListener() {
+                    @Override
+                    public void onWaveFormDataCapture(Visualizer visualizer, byte[] waveform, int samplingRate) {
+//                        Log.i("visualizer", "size" + waveform.length + ",[0]" + waveform[0] + ",[1]" + waveform[1]);
+                        visualView.onWaveFormDataCapture(visualizer, waveform, samplingRate);
+                    }
+
+                    @Override
+                    public void onFftDataCapture(Visualizer visualizer, byte[] fft, int samplingRate) {
+                        visualView.onFftDataCapture(visualizer, fft, samplingRate);
+                    }
+                });
+        captureVisualizer.initVisualizer();
+    }
+
     private void initSongLists() {
         mSongLists = MusicCache.get().getSongListInfos();
         if (mSongLists.isEmpty()) {
@@ -172,11 +194,12 @@ public class MusicActivity extends UI implements View.OnClickListener,
      * @param songListInfo
      */
     private void getMusicListInfo(final SongListInfo songListInfo) {
-        Log.i("wzt", "开始请求网络音乐列表");
+        Log.i("wzt", "开始请求网络音乐专辑");
+        ToastUtils.show("开始请求网络音乐");
         HttpClient.getSongListInfo(songListInfo.getType(), 3, 0, new HttpCallback<OnlineMusicList>() {
             @Override
             public void onSuccess(OnlineMusicList response) {
-                Log.i("wzt", "请求网络音乐列表成功");
+                Log.i("wzt", "请求网络音乐专辑列表成功");
                 if (response == null || response.getSong_list() == null) {
                     return;
                 }
@@ -186,18 +209,19 @@ public class MusicActivity extends UI implements View.OnClickListener,
 
             @Override
             public void onFail(Exception e) {
-                Log.i("wzt", "请求网络音乐列表失败");
+                Log.i("wzt", "请求网络音乐专辑列表失败");
+                ToastUtils.show("请求网络音乐专辑列表失败");
             }
         });
 
     }
 
     private void getMusic(final int offset) {
-        Log.i("wzt", "开始获取某类型的歌曲列表");
+        Log.i("wzt", "开始获取专辑的歌曲列表");
         HttpClient.getSongListInfo(mListInfo.getType(), MUSIC_LIST_SIZE, offset, new HttpCallback<OnlineMusicList>() {
             @Override
             public void onSuccess(OnlineMusicList response) {
-                Log.i("wzt", "获取某类型的歌曲列表成功");
+                Log.i("wzt", "获取专辑的歌曲列表成功");
                 if (response == null || response.getSong_list() == null || response.getSong_list().size() == 0) {
                     return;
                 }
@@ -205,11 +229,13 @@ public class MusicActivity extends UI implements View.OnClickListener,
                 mOffset += MUSIC_LIST_SIZE;
                 mMusicList.addAll(response.getSong_list());
                 play(mMusicList.get(DatasUtil.getRandomNum(mMusicList.size())));
+                initVisualizer();
             }
 
             @Override
             public void onFail(Exception e) {
-                Log.i("wzt", "获取某类型的歌曲列表失败");
+                Log.i("wzt", "获取专辑的歌曲列表失败");
+                ToastUtils.show("获取专辑的歌曲列表失败");
             }
         });
     }
@@ -225,13 +251,13 @@ public class MusicActivity extends UI implements View.OnClickListener,
             public void onExecuteSuccess(Music music) {
 //                mProgressDialog.cancel();
                 getPlayService().play(music);
-                ToastUtils.show("开始播放");
+//                ToastUtils.show("开始播放");
             }
 
             @Override
             public void onExecuteFail(Exception e) {
 //                mProgressDialog.cancel();
-                ToastUtils.show("无法播放");
+                ToastUtils.show("无法播放该音乐");
             }
         }.execute();
     }
@@ -280,6 +306,8 @@ public class MusicActivity extends UI implements View.OnClickListener,
         mLrcViewSingle = coverView.findViewById(R.id.lrc_view_single);
         mLrcViewFull = lrcView.findViewById(R.id.lrc_view_full);
         sbVolume = lrcView.findViewById(R.id.sb_volume);
+
+        visualView = findView(R.id.visualview);
 
         ivBack.setOnClickListener(this);
         ivMode.setOnClickListener(this);
@@ -648,6 +676,10 @@ public class MusicActivity extends UI implements View.OnClickListener,
             service.setOnPlayEventListener(null);
         }
         toStopService();
+
+        if (captureVisualizer != null) {
+            captureVisualizer.onDestroy();
+        }
     }
 
 }

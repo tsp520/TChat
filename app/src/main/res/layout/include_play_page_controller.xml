@@ -72,5 +72,11 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@id/iv_play"
             android:src="@drawable/play_btn_next_selector" />
+
+        <com.netease.nim.demo.wzteng.friends.widgets.music.view.VisualView
+            android:id="@+id/visualview"
+            android:layout_width="match_parent"
+            android:layout_height="85dp" />
+
     </RelativeLayout>
 </LinearLayout>
