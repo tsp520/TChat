@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.netease.nim.demo.R;
@@ -35,6 +36,10 @@ public class WebViewActivity extends UI {
     public static boolean isX5WebViewEnabled = false;
     private static String url = "";
     private static String title = "";
+
+    private TextView tvTitle;
+    private ImageView ivClose;
+    private ImageView ivStop;
 
     public static void start(String url, String title, Context context) {
         WebViewActivity.url = url;
@@ -60,10 +65,10 @@ public class WebViewActivity extends UI {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
-        ToolBarOptions options = new ToolBarOptions();
-        options.titleString = title;
-        options.navigateId = R.drawable.webview_close_alpha;
-        setToolBar(R.id.toolbar, options);
+//        ToolBarOptions options = new ToolBarOptions();
+//        options.titleString = title;
+//        options.navigateId = R.drawable.back;
+//        setToolBar(R.id.toolbar, options);
 
         initUI();
     }
@@ -95,6 +100,17 @@ public class WebViewActivity extends UI {
                         }).show();
             }
         });
+
+        tvTitle = findView(R.id.tv_title);
+        tvTitle.setText(title);
+        ivClose = findView(R.id.iv_close);
+        ivClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        ivStop = findView(R.id.iv_stop);
 
         preinitX5WebCore();
         /**
@@ -135,16 +151,19 @@ public class WebViewActivity extends UI {
             @Override
             public void onPageStarted(WebView webView, String s, Bitmap bitmap) {
                 super.onPageStarted(webView, s, bitmap);
+                ivStop.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onPageFinished(WebView webView, String s) {
                 super.onPageFinished(webView, s);
 
-                ToolBarOptions options = new ToolBarOptions();
-                options.titleString = webView.getTitle();
-                options.navigateId = R.drawable.webview_close_alpha;
-                setToolBar(R.id.toolbar, options);
+//                ToolBarOptions options = new ToolBarOptions();
+//                options.titleString = webView.getTitle();
+//                options.navigateId = R.drawable.back;
+//                setToolBar(R.id.toolbar, options);
+                tvTitle.setText(webView.getTitle());
+                ivStop.setVisibility(View.GONE);
             }
         });
         tWebview.setWebChromeClient(new WebChromeClient() {
@@ -219,8 +238,6 @@ public class WebViewActivity extends UI {
     }
 
     @Override
-
-
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && tWebview.canGoBack()) {
             tWebview.goBack();// 返回前一个页面
