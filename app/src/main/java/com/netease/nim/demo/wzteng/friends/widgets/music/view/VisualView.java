@@ -85,7 +85,10 @@ public class VisualView extends View {
             float y = (getHeight() - i * vgap - vgap);//计算y轴坐标
             float y1 = (getHeight() + i * vgap + vgap);
             //绘制频谱块
-            mPaint.setColor(Color.argb(255, 255, 245, 220));//画笔颜色
+//            mPaint.setColor(Color.argb(255, 255, 245, 220));//画笔颜色
+            mPaint.setColor(blendColors(Color.argb(255, 255, 80, 0),
+                    Color.argb(255, 255, 245, 220),
+                    i / (float) (26 * 2)));
             canvas.drawLine(x, y, (x + strokeLength), y, mPaint);//绘制频谱块
         }
 
@@ -154,6 +157,15 @@ public class VisualView extends View {
     //波形数据
     public void onWaveFormDataCapture(Visualizer visualizer, byte[] waveform, int samplingRate) {
 
+    }
+
+    private static int blendColors(int color1, int color2, float ratio) {
+        final float inverseRation = 1f - ratio;
+        float r = (Color.red(color1) * ratio) + (Color.red(color2) * inverseRation);
+        float g = (Color.green(color1) * ratio) + (Color.green(color2) * inverseRation);
+        float b = (Color.blue(color1) * ratio) + (Color.blue(color2) * inverseRation);
+        float a = (Color.alpha(color1) * ratio) + (Color.alpha(color2) * inverseRation);
+        return Color.argb((int) a, (int) r, (int) g, (int) b);
     }
 
 }
