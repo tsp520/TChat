@@ -88,7 +88,7 @@ public class VisualView extends View {
 //            mPaint.setColor(Color.argb(255, 255, 245, 220));//画笔颜色
             mPaint.setColor(blendColors(Color.argb(255, 255, 80, 0),
                     Color.argb(255, 255, 245, 220),
-                    i / (float) (26 * 2)));
+                    i / (float) (CYLINDER_NUM * 2)));
             canvas.drawLine(x, y, (x + strokeLength), y, mPaint);//绘制频谱块
         }
 
