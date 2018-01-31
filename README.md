@@ -48,6 +48,7 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更新聊天定位发送图片为实时图片，但接收图片为默认图片<br/>
 2.2018/01/24 更新朋友圈视频为IJKPlayer播放器，可以正常播放视频<br/>
 3.2018/01/25 增加朋友圈音乐连接到百度随机播放歌曲<br/>
+4.2018/01/31 修改朋友圈链接使用jsoup爬虫简单分析网页再刷新内容
 
 截图<br/>
 <div>

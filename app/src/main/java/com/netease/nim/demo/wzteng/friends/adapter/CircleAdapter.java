@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.Browser;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,8 +50,16 @@ import com.netease.nim.demo.wzteng.friends.widgets.music.MusicActivity;
 import com.netease.nim.demo.wzteng.webview.WebViewActivity;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
+
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by yiwei on 16/5/17.
@@ -118,6 +129,18 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
         }
 
         return viewHolder;
+    }
+
+    //爬虫后刷新item
+    WHandler handler = new WHandler();
+    public class WHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what < datas.size()) {
+                notifyItemChanged(msg.what);
+            }
+        }
     }
 
     @Override
@@ -260,7 +283,13 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                     if (holder instanceof URLViewHolder) {
                         String linkImg = circleItem.getLinkImg();
                         String linkTitle = circleItem.getLinkTitle();
-                        Glide.with(context).load(linkImg).into(((URLViewHolder) holder).urlImageIv);
+                        if (linkImg.contains(".gif")) {
+                            Glide.with(context).load(linkImg).asGif().into(((URLViewHolder) holder).urlImageIv);
+                        } else {
+                            Glide.with(context).load(linkImg).into(((URLViewHolder) holder).urlImageIv);
+                        }
+                        //不要gif
+//                        Glide.with(context).load(linkImg).into(((URLViewHolder) holder).urlImageIv);
                         ((URLViewHolder) holder).urlContentTv.setText(linkTitle);
                         ((URLViewHolder) holder).urlBody.setVisibility(View.VISIBLE);
                         ((URLViewHolder) holder).urlTipTv.setVisibility(View.VISIBLE);
@@ -274,6 +303,42 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
 //                                context.startActivity(intent);
                             }
                         });
+
+                        //通过标志位来区别是否是爬虫后的内容
+                        if (!circleItem.isJsoup()) {
+                            final int p = position - 1;//有顶部背景
+                            new Thread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    try {
+                                        Message message = new Message();
+                                        message.what = position;
+                                        //这里开始是做一个解析，需要在非UI线程进行
+                                        String imgStr = "";
+                                        Document document = Jsoup.parse(new URL(circleItem.getLinkUrl()), 5000);
+                                        String title = document.head().getElementsByTag("title").text();
+                                        Elements imgs = document.getElementsByTag("img");//取得所有Img标签的值
+                                        if (imgs.size() > 0) {
+                                            imgStr = imgs.get(0).attr("abs:src");//默认取第一个为图片
+                                        }
+                                        CircleItem circleItem1 = (CircleItem) datas.get(p);
+                                        //不要gif
+//                                        if (!imgStr.contains(".gif")) {
+//                                            circleItem1.setLinkImg(imgStr);
+//                                        }
+                                        circleItem1.setLinkImg(imgStr);
+                                        circleItem1.setLinkTitle(title);
+                                        circleItem1.setJsoup(true);
+                                        if (p < datas.size()) {
+                                            datas.set(p, circleItem1);
+                                        }
+                                        handler.sendMessage(message);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }, "URL jsoup").start();
+                        }
                     }
 
                     break;

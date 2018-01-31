@@ -172,7 +172,7 @@ public class DatasUtil {
             if (type == 0) {
                 item.setType("1");// 链接
                 item.setLinkImg("http://pics.sc.chinaz.com/Files/pic/icons128/2264/%E8%85%BE%E8%AE%AFQQ%E5%9B%BE%E6%A0%87%E4%B8%8B%E8%BD%BD1.png");
-                item.setLinkTitle("百度一下，你就知道");
+                item.setLinkTitle("爬虫后会在这显示标题");
                 item.setLinkUrl("http://www.baidu.com");
             } else if (type == 1) {
                 item.setType("2");// 图片
@@ -198,7 +198,7 @@ public class DatasUtil {
             } else if (type == 3) {
                 item.setType("4");//音乐
                 item.setMusicTitle("随机音乐，看你听不听");
-                item.setMusicArtist("就是我唱的");
+                item.setMusicArtist("不知道谁唱的");
                 item.setMusicAlbum("http://img2.woyaogexing.com/2018/01/23/72566db06b0e94e0!400x400_big.jpg");
             }
             circleDatas.add(item);

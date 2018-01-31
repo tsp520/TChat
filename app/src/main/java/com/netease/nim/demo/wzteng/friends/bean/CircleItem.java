@@ -21,6 +21,7 @@ public class CircleItem extends BaseBean {
     private String linkImg;
     private String linkTitle;
     private String linkUrl;
+    private boolean jsoup;
     private List<PhotoInfo> photos;
     private List<FavortItem> favorters;
     private List<CommentItem> comments;
@@ -105,6 +106,14 @@ public class CircleItem extends BaseBean {
 
     public void setLinkUrl(String linkUrl) {
         this.linkUrl = linkUrl;
+    }
+
+    public boolean isJsoup() {
+        return jsoup;
+    }
+
+    public void setJsoup(boolean jsoup) {
+        this.jsoup = jsoup;
     }
 
     public List<PhotoInfo> getPhotos() {
