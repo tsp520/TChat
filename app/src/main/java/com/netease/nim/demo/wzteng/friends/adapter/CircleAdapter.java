@@ -133,6 +133,7 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
 
     //爬虫后刷新item
     WHandler handler = new WHandler();
+
     public class WHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
@@ -326,7 +327,10 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
 //                                        if (!imgStr.contains(".gif")) {
 //                                            circleItem1.setLinkImg(imgStr);
 //                                        }
-                                        circleItem1.setLinkImg(imgStr);
+                                        if (imgStr.contains(".jpeg") || imgStr.contains(".jpg")
+                                                || imgStr.contains(".png") || imgStr.contains(".gif")) {
+                                            circleItem1.setLinkImg(imgStr);
+                                        }
                                         circleItem1.setLinkTitle(title);
                                         circleItem1.setJsoup(true);
                                         if (p < datas.size()) {

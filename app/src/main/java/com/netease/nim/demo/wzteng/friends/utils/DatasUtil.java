@@ -170,10 +170,18 @@ public class DatasUtil {
             item.setComments(createCommentItemList());
             int type = getRandomNum(4);
             if (type == 0) {
-                item.setType("1");// 链接
-                item.setLinkImg("http://pics.sc.chinaz.com/Files/pic/icons128/2264/%E8%85%BE%E8%AE%AFQQ%E5%9B%BE%E6%A0%87%E4%B8%8B%E8%BD%BD1.png");
-                item.setLinkTitle("爬虫后会在这显示标题");
-                item.setLinkUrl("http://www.baidu.com");
+                int y = getRandomNum(2);
+                if (y == 0) {
+                    item.setType("1");// 链接
+                    item.setLinkImg("https://zkres3.myzaker.com/201710/59df32891bc8e0f771000001_640.jpg");
+                    item.setLinkTitle("爬虫后会在这显示标题");
+                    item.setLinkUrl("http://www.baidu.com");
+                } else {
+                    item.setType("1");// 链接
+                    item.setLinkImg("https://zkres3.myzaker.com/201710/59df32891bc8e0f771000001_640.jpg");
+                    item.setLinkTitle("爬虫后会在这显示标题");
+                    item.setLinkUrl("http://www.qq.com");
+                }
             } else if (type == 1) {
                 item.setType("2");// 图片
                 item.setPhotos(createPhotos());
