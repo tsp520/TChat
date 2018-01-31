@@ -14,11 +14,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-class GalleryItemViewHolder {
-    HeadImageView imageView;
-}
 
 public class ContactSelectAvatarAdapter extends BaseAdapter {
+    class GalleryItemViewHolder {
+        HeadImageView imageView;
+    }
+
     private Context context;
 
     private List<IContact> selectedContactItems;
