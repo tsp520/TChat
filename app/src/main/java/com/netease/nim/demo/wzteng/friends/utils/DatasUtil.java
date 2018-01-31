@@ -207,7 +207,7 @@ public class DatasUtil {
                 item.setType("4");//音乐
                 item.setMusicTitle("随机音乐，看你听不听");
                 item.setMusicArtist("不知道谁唱的");
-                item.setMusicAlbum("http://img2.woyaogexing.com/2018/01/23/72566db06b0e94e0!400x400_big.jpg");
+                item.setMusicAlbum("https://img.tulaoshi.com/image/20160405/f38ee26848e75297169b877be4a91cf4.jpg");
             }
             circleDatas.add(item);
         }
