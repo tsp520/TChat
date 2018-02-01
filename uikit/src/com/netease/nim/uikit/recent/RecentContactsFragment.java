@@ -137,6 +137,8 @@ public class RecentContactsFragment extends TFragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addOnItemTouchListener(touchListener);
 
+//        OverScrollDecoratorHelper.setUpOverScroll(recyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);//ios滑动效果
+
         // drop listener
         DropManager.getInstance().setDropListener(new DropManager.IDropListener() {
             @Override

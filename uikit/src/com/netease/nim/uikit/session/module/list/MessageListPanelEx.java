@@ -178,6 +178,8 @@ public class MessageListPanelEx {
             messageListView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         }
 
+//        OverScrollDecoratorHelper.setUpOverScroll(messageListView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);//ios滑动效果，但是滑动返回很难触发
+
         // adapter
         items = new ArrayList<>();
         adapter = new MsgAdapter(messageListView, items);
