@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.netease.nim.uikit.NimUIKit;
+import com.netease.nim.uikit.OnlineStateChangeListener;
 import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.cache.FriendDataCache;
 import com.netease.nim.uikit.model.ToolBarOptions;
@@ -26,6 +29,7 @@ import com.netease.nimlib.sdk.msg.model.CustomNotification;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 
 import java.util.List;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -58,13 +62,16 @@ public class P2PMessageActivity extends BaseMessageActivity {
 
         // 单聊特例话数据，包括个人信息，
         requestBuddyInfo();
+        displayOnlineState();
         registerObservers(true);
+        registerOnlineStateChangeListener(true);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         registerObservers(false);
+        registerOnlineStateChangeListener(false);
     }
 
     @Override
@@ -116,6 +123,36 @@ public class P2PMessageActivity extends BaseMessageActivity {
     };
 
     private UserInfoObservable.UserInfoObserver uinfoObserver;
+
+    OnlineStateChangeListener onlineStateChangeListener = new OnlineStateChangeListener() {
+        @Override
+        public void onlineStateChange(Set<String> accounts) {
+            // 更新 toolbar
+            if (accounts.contains(sessionId)) {
+                // 按照交互来展示
+                displayOnlineState();
+            }
+        }
+    };
+
+    private void registerOnlineStateChangeListener(boolean register) {
+        if (!NimUIKit.enableOnlineState()) {
+            return;
+        }
+        if (register) {
+            NimUIKit.addOnlineStateChangeListeners(onlineStateChangeListener);
+        } else {
+            NimUIKit.removeOnlineStateChangeListeners(onlineStateChangeListener);
+        }
+    }
+
+    private void displayOnlineState() {
+        if (!NimUIKit.enableOnlineState()) {
+            return;
+        }
+        String detailContent = NimUIKit.getOnlineStateContentProvider().getDetailDisplay(sessionId);
+        setSubTitle(detailContent);
+    }
 
     private void registerUserInfoObserver() {
         if (uinfoObserver == null) {

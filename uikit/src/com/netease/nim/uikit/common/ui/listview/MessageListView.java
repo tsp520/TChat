@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 
 import com.netease.nim.uikit.common.adapter.IViewReclaimer;
@@ -17,7 +18,7 @@ public class MessageListView extends AutoRefreshListView {
 
 	private OnListViewEventListener listener;
 
-	private RecyclerListener recyclerListener = new RecyclerListener() {
+	private AbsListView.RecyclerListener recyclerListener = new AbsListView.RecyclerListener() {
 
 		@Override
 		public void onMovedToScrapHeap(View view) {

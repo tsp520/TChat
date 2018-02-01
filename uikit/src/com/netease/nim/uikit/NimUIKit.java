@@ -17,8 +17,8 @@ import com.netease.nim.uikit.contact_selector.activity.ContactSelectActivity;
 import com.netease.nim.uikit.custom.DefalutContactEventListener;
 import com.netease.nim.uikit.custom.DefalutP2PSessionCustomization;
 import com.netease.nim.uikit.custom.DefalutTeamSessionCustomization;
-import com.netease.nim.uikit.custom.DefalutUserInfoProvider;
 import com.netease.nim.uikit.custom.DefaultContactProvider;
+import com.netease.nim.uikit.custom.DefaultUserInfoProvider;
 import com.netease.nim.uikit.session.SessionCustomization;
 import com.netease.nim.uikit.session.SessionEventListener;
 import com.netease.nim.uikit.session.activity.P2PMessageActivity;
@@ -43,7 +43,9 @@ import com.netease.nimlib.sdk.team.constant.TeamTypeEnum;
 import com.netease.nimlib.sdk.team.model.Team;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * UIKit能力输出类。
@@ -89,8 +91,15 @@ public final class NimUIKit {
     // 群聊界面定制
     private static SessionCustomization commonTeamSessionCustomization;
 
+    // 在线状态展示内容
+    private static OnlineStateContentProvider onlineStateContentProvider;
+
+    // 在线状态变化监听
+    private static List<OnlineStateChangeListener> onlineStateChangeListeners;
+
+
     /**
-     * 初始化UIKit, 用户信息、联系人信息使用 {@link DefalutUserInfoProvider}，{@link DefaultContactProvider}
+     * 初始化UIKit, 用户信息、联系人信息使用 ，{@link DefaultContactProvider}
      * 若用户自行提供 userInfoProvider，contactProvider，请使用 {@link NimUIKit#init(Context, UserInfoProvider, ContactProvider)}
      *
      * @param context
@@ -137,7 +146,7 @@ public final class NimUIKit {
     private static void initUserInfoProvider(UserInfoProvider userInfoProvider) {
 
         if (userInfoProvider == null) {
-            userInfoProvider = new DefalutUserInfoProvider(context);
+            userInfoProvider = new DefaultUserInfoProvider(context);
         }
 
         NimUIKit.userInfoProvider = userInfoProvider;
@@ -483,6 +492,7 @@ public final class NimUIKit {
 
     /**
      * 获取自定义推送内容
+     *
      * @return
      */
     public static CustomPushContentProvider getCustomPushContentProvider() {
@@ -497,4 +507,44 @@ public final class NimUIKit {
     public static void CustomPushContentProvider(CustomPushContentProvider mixPushCustomConfig) {
         NimUIKit.customPushContentProvider = mixPushCustomConfig;
     }
+
+    public static OnlineStateContentProvider getOnlineStateContentProvider() {
+        return onlineStateContentProvider;
+    }
+
+    public static void setOnlineStateContentProvider(OnlineStateContentProvider onlineStateContentProvider) {
+        NimUIKit.onlineStateContentProvider = onlineStateContentProvider;
+    }
+
+    public static void addOnlineStateChangeListeners(OnlineStateChangeListener onlineStateChangeListener) {
+        if (onlineStateChangeListeners == null) {
+            onlineStateChangeListeners = new LinkedList<>();
+        }
+        onlineStateChangeListeners.add(onlineStateChangeListener);
+    }
+
+    public static void removeOnlineStateChangeListeners(OnlineStateChangeListener onlineStateChangeListener) {
+        if (onlineStateChangeListeners == null) {
+            return;
+        }
+        onlineStateChangeListeners.remove(onlineStateChangeListener);
+    }
+
+    public static void notifyOnlineStateChange(Set<String> accounts) {
+        if (onlineStateChangeListeners != null) {
+            for (OnlineStateChangeListener listener : onlineStateChangeListeners) {
+                listener.onlineStateChange(accounts);
+            }
+        }
+    }
+
+    /**
+     * 设置了 onlineStateContentProvider 则表示UIKit需要展示在线状态
+     *
+     * @return
+     */
+    public static boolean enableOnlineState() {
+        return onlineStateContentProvider != null;
+    }
+
 }

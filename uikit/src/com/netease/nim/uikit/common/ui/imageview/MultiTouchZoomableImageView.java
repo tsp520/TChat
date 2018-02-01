@@ -136,7 +136,7 @@ public class MultiTouchZoomableImageView extends BaseZoomableImageView {
 					}					
 				}
 			} 			
-			catch (IllegalArgumentException e) {  
+			catch (IllegalArgumentException e) {
 		        e.printStackTrace();  
 		    } 
 
@@ -159,7 +159,7 @@ public class MultiTouchZoomableImageView extends BaseZoomableImageView {
 		}
 
 		@Override
-		public boolean onFling( MotionEvent e1, MotionEvent e2, float velocityX, float velocityY )
+		public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY )
 		{
 			if ( (e1!=null&&e1.getPointerCount() > 1) || (e2!=null&&e2.getPointerCount() > 1) ) return false;
 			if ( mScaleDetector.isInProgress() ) return false;
@@ -167,7 +167,7 @@ public class MultiTouchZoomableImageView extends BaseZoomableImageView {
 			final float FLING_MIN_DISTANCE = 100;
 			final float FLING_MIN_VELOCITY = 200;
 			if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE 
-					&& Math.abs(velocityX) > FLING_MIN_VELOCITY) { 
+					&& Math.abs(velocityX) > FLING_MIN_VELOCITY) {
 				Log.i("MultiTouchZoomableImageView","Fling Left");
 			} else if (e2.getX() - e1.getX() > FLING_MIN_DISTANCE 
 					&& Math.abs(velocityX) > FLING_MIN_VELOCITY) {
@@ -194,10 +194,10 @@ public class MultiTouchZoomableImageView extends BaseZoomableImageView {
 					invalidate();
 				}
 			}
-			catch(NullPointerException  e){
+			catch(NullPointerException e){
 
 			}
-			catch (IllegalArgumentException e) {  
+			catch (IllegalArgumentException e) {
 				e.printStackTrace();  
 			}  
 
@@ -210,7 +210,7 @@ public class MultiTouchZoomableImageView extends BaseZoomableImageView {
 		try {
 			if (mViewPager!=null) {
 				switch (event.getAction()) {
-				case MotionEvent.ACTION_MOVE: 
+				case MotionEvent.ACTION_MOVE:
 					mViewPager.requestDisallowInterceptTouchEvent(true);
 					break;
 				case MotionEvent.ACTION_UP:

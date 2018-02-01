@@ -16,25 +16,16 @@ public class DemoCache {
 
     private static StatusBarNotificationConfig notificationConfig;
 
-    /**
-     * 清空帐户
-     */
     public static void clear() {
         account = null;
     }
 
-    /**
-     * 获取帐户
-     * @return 帐户
-     */
     public static String getAccount() {
         return account;
     }
 
-    /**
-     * 设置帐户
-     * @param account 帐户
-     */
+    private static boolean mainTaskLaunching;
+
     public static void setAccount(String account) {
         DemoCache.account = account;
         NimUIKit.setAccount(account);
@@ -54,5 +45,13 @@ public class DemoCache {
 
     public static void setContext(Context context) {
         DemoCache.context = context.getApplicationContext();
+    }
+
+    public static void setMainTaskLaunching(boolean mainTaskLaunching) {
+        DemoCache.mainTaskLaunching = mainTaskLaunching;
+    }
+
+    public static boolean isMainTaskLaunching() {
+        return mainTaskLaunching;
     }
 }

@@ -164,7 +164,7 @@ public class EasyAlertDialog extends Dialog {
     }
 
 	public void addPositiveButton(CharSequence title, int color, float size,
-			View.OnClickListener positiveBtnListener) {
+                                  View.OnClickListener positiveBtnListener) {
 		isPositiveBtnVisible = true;
 		positiveBtnTitle = TextUtils.isEmpty(title) ? context
 				.getString(R.string.ok) : title;
@@ -181,7 +181,7 @@ public class EasyAlertDialog extends Dialog {
 	}
 
 	public void addNegativeButton(CharSequence title, int color, float size,
-			View.OnClickListener negativeBtnListener) {
+                                  View.OnClickListener negativeBtnListener) {
 		isNegativeBtnVisible = true;
 		negativeBtnTitle = TextUtils.isEmpty(title) ? context
 				.getString(R.string.cancel) : title;
@@ -217,7 +217,7 @@ public class EasyAlertDialog extends Dialog {
         	ViewGroup root = (ViewGroup) findViewById(R.id.easy_alert_dialog_layout);
         	if (root != null) {
         		ViewGroup.LayoutParams params = root.getLayoutParams();
-                params.width = (int)ScreenUtil.getDialogWidth();
+                params.width = (int) ScreenUtil.getDialogWidth();
                 root.setLayoutParams(params);
         	}
 

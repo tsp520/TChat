@@ -9,7 +9,6 @@ import android.view.View;
 
 import com.netease.nim.demo.DemoCache;
 import com.netease.nim.demo.chatroom.adapter.ChatRoomMsgAdapter;
-import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.UserPreferences;
 import com.netease.nim.uikit.common.ui.dialog.EasyAlertDialog;
 import com.netease.nim.uikit.common.ui.dialog.EasyAlertDialogHelper;
@@ -32,8 +31,10 @@ import com.netease.nimlib.sdk.msg.constant.MsgDirectionEnum;
 import com.netease.nimlib.sdk.msg.constant.MsgStatusEnum;
 import com.netease.nimlib.sdk.msg.model.AttachmentProgress;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
+import com.netease.nimlib.sdk.msg.model.QueryDirectionEnum;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -79,6 +80,13 @@ public class ChatRoomMsgListPanel {
         return false;
     }
 
+    public void reload(Container container) {
+        this.container = container;
+        if (adapter != null) {
+            adapter.clearData();
+        }
+    }
+
     private void init() {
         initListView();
         this.uiHandler = new Handler(DemoCache.getContext().getMainLooper());
@@ -87,7 +95,7 @@ public class ChatRoomMsgListPanel {
 
     private void initListView() {
         // RecyclerView
-        messageListView = (RecyclerView) rootView.findViewById(R.id.messageListView);
+        messageListView = (RecyclerView) rootView.findViewById(com.netease.nim.uikit.R.id.messageListView);
         messageListView.setLayoutManager(new LinearLayoutManager(container.activity));
         messageListView.requestDisallowInterceptTouchEvent(true);
         messageListView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -175,6 +183,8 @@ public class ChatRoomMsgListPanel {
 
         private boolean firstLoad = true;
 
+        private boolean fetching = false;
+
         public MessageLoader() {
             anchor = null;
             loadFromLocal();
@@ -183,16 +193,19 @@ public class ChatRoomMsgListPanel {
         private RequestCallback<List<ChatRoomMessage>> callback = new RequestCallbackWrapper<List<ChatRoomMessage>>() {
             @Override
             public void onResult(int code, List<ChatRoomMessage> messages, Throwable exception) {
-                if (messages != null) {
-                    onMessageLoaded(messages);
-                } else {
-                    adapter.fetchMoreEnd(true);
-                }
+                onMessageLoaded(messages);
+
+                fetching = false;
             }
         };
 
         private void loadFromLocal() {
-            NIMClient.getService(ChatRoomService.class).pullMessageHistory(container.account, anchor().getTime(), LOAD_MESSAGE_COUNT)
+            if (fetching) {
+                return;
+            }
+
+            fetching = true;
+            NIMClient.getService(ChatRoomService.class).pullMessageHistoryEx(container.account, anchor().getTime(), LOAD_MESSAGE_COUNT, QueryDirectionEnum.QUERY_OLD)
                     .setCallback(callback);
         }
 
@@ -210,11 +223,13 @@ public class ChatRoomMsgListPanel {
         private void onMessageLoaded(List<ChatRoomMessage> messages) {
             int count = messages.size();
 
+            // 逆序
+            Collections.reverse(messages);
             // 加入到列表中
-            if (count <= 0) {
-                adapter.fetchMoreEnd(true);
+            if (count < LOAD_MESSAGE_COUNT) {
+                adapter.fetchMoreEnd(messages, true);
             } else {
-                adapter.fetchMoreComplete(messageListView, messages);
+                adapter.fetchMoreComplete(messages);
             }
 
             // 如果是第一次加载，updateShowTimeItem返回的就是lastShowTimeItem
@@ -372,7 +387,7 @@ public class ChatRoomMsgListPanel {
             };
 
             final EasyAlertDialog dialog = EasyAlertDialogHelper.createOkCancelDiolag(container.activity, null,
-                    container.activity.getString(R.string.repeat_download_message), true, listener);
+                    container.activity.getString(com.netease.nim.uikit.R.string.repeat_download_message), true, listener);
             dialog.show();
         }
 

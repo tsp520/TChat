@@ -626,7 +626,9 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         container.activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON,
                 WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-        started = audioMessageHelper.startRecord();
+//        started = audioMessageHelper.startRecord();
+        audioMessageHelper.startRecord();
+        started = true;
         cancelled = false;
         if (started == false) {
             Toast.makeText(container.activity, R.string.recording_init_failed, Toast.LENGTH_SHORT).show();
@@ -651,6 +653,7 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
      * @param cancel
      */
     private void onEndAudioRecord(boolean cancel) {
+        started = false;
         container.activity.getWindow().setFlags(0, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         audioMessageHelper.completeRecord(cancel);

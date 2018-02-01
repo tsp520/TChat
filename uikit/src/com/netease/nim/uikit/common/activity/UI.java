@@ -181,6 +181,13 @@ public abstract class UI extends AppCompatActivity {
         }
     }
 
+    public void setSubTitle(String subTitle) {
+        if (toolbar != null) {
+            toolbar.setSubtitle(subTitle);
+            toolbar.setSubtitleTextColor(Color.argb(255, 210, 210, 210));//wzt
+        }
+    }
+
     protected final Handler getHandler() {
         if (handler == null) {
             handler = new Handler(getMainLooper());

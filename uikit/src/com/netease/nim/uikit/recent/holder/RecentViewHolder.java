@@ -2,6 +2,7 @@ package com.netease.nim.uikit.recent.holder;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.text.style.ImageSpan;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -58,6 +59,8 @@ public abstract class RecentViewHolder extends RecyclerViewHolder<BaseQuickAdapt
 
     private ImageView imgUnreadExplosion;
 
+    protected TextView tvOnlineState;
+
     // 子类覆写
     protected abstract String getContent(RecentContact recent);
 
@@ -78,7 +81,7 @@ public abstract class RecentViewHolder extends RecyclerViewHolder<BaseQuickAdapt
         this.imgMsgStatus = holder.getView(R.id.img_msg_status);
         this.bottomLine = holder.getView(R.id.bottom_line);
         this.topLine = holder.getView(R.id.top_line);
-
+        this.tvOnlineState = holder.getView(R.id.tv_online_state);
         holder.addOnClickListener(R.id.unread_number_tip);
 
         this.tvUnread.setTouchListener(new DropFake.ITouchListener() {
@@ -111,6 +114,8 @@ public abstract class RecentViewHolder extends RecyclerViewHolder<BaseQuickAdapt
 
         updateNickLabel(UserInfoHelper.getUserTitleName(recent.getContactId(), recent.getSessionType()));
 
+        updateOnlineState(recent);
+
         updateMsgLabel(holder, recent);
 
         updateNewIndicator(recent);
@@ -140,7 +145,6 @@ public abstract class RecentViewHolder extends RecyclerViewHolder<BaseQuickAdapt
         if ((recent.getTag() & RecentContactsFragment.RECENT_TAG_STICKY) == 0) {
             holder.getConvertView().setBackgroundResource(R.drawable.touch_bg);
         } else {
-            //置顶背景色
             holder.getConvertView().setBackgroundResource(R.drawable.nim_recent_contact_sticky_selecter);
         }
     }
@@ -163,7 +167,7 @@ public abstract class RecentViewHolder extends RecyclerViewHolder<BaseQuickAdapt
 
     private void updateMsgLabel(BaseViewHolder holder, RecentContact recent) {
         // 显示消息具体内容
-        MoonUtil.identifyRecentVHFaceExpressionAndTags(holder.getContext(), tvMessage, getContent(recent), ImageSpan.ALIGN_BOTTOM, 0.45f);
+        MoonUtil.identifyRecentVHFaceExpressionAndTags(holder.getContext(), tvMessage, getContent(recent), -1, 0.45f);
         //tvMessage.setText(getContent());
 
         MsgStatusEnum status = recent.getMsgStatus();
@@ -185,6 +189,24 @@ public abstract class RecentViewHolder extends RecyclerViewHolder<BaseQuickAdapt
         tvDatetime.setText(timeString);
     }
 
+    protected String getOnlineStateContent(RecentContact recent) {
+        return "";
+    }
+
+    protected void updateOnlineState(RecentContact recent) {
+        if (recent.getSessionType() == SessionTypeEnum.Team) {
+            tvOnlineState.setVisibility(View.GONE);
+        } else {
+            String onlineStateContent = getOnlineStateContent(recent);
+            if (TextUtils.isEmpty(onlineStateContent)) {
+                tvOnlineState.setVisibility(View.GONE);
+            } else {
+                tvOnlineState.setVisibility(View.VISIBLE);
+                tvOnlineState.setText(getOnlineStateContent(recent));
+            }
+        }
+    }
+
     protected void updateNickLabel(String nick) {
         int labelWidth = ScreenUtil.screenWidth;
         labelWidth -= ScreenUtil.dip2px(50 + 70); // 减去固定的头像和时间宽度
@@ -204,4 +226,5 @@ public abstract class RecentViewHolder extends RecyclerViewHolder<BaseQuickAdapt
     protected RecentContactsCallback getCallback() {
         return ((RecentContactAdapter) getAdapter()).getCallback();
     }
+
 }

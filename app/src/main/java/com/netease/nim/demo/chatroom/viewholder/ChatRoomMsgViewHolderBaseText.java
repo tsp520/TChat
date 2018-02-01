@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.netease.nim.uikit.NimUIKit;
-import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.util.sys.ScreenUtil;
 import com.netease.nim.uikit.session.emoji.MoonUtil;
@@ -23,7 +22,7 @@ public class ChatRoomMsgViewHolderBaseText extends ChatRoomMsgViewHolderBase {
 
     @Override
     protected int getContentResId() {
-        return R.layout.nim_message_item_text;
+        return com.netease.nim.uikit.R.layout.nim_message_item_text;
     }
 
     @Override
@@ -34,9 +33,8 @@ public class ChatRoomMsgViewHolderBaseText extends ChatRoomMsgViewHolderBase {
     protected void bindContentView() {
         layoutDirection();
 
-        TextView bodyTextView = findViewById(R.id.nim_message_item_text_body);
-//        bodyTextView.setTextColor(isReceivedMessage() ? Color.BLACK : Color.WHITE);
-        bodyTextView.setTextColor(isReceivedMessage() ? Color.BLACK : Color.BLACK);//teng
+        TextView bodyTextView = findViewById(com.netease.nim.uikit.R.id.nim_message_item_text_body);
+        bodyTextView.setTextColor(isReceivedMessage() ? Color.BLACK : Color.WHITE);
         bodyTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,15 +47,13 @@ public class ChatRoomMsgViewHolderBaseText extends ChatRoomMsgViewHolderBase {
     }
 
     private void layoutDirection() {
-        TextView bodyTextView = findViewById(R.id.nim_message_item_text_body);
+        TextView bodyTextView = findViewById(com.netease.nim.uikit.R.id.nim_message_item_text_body);
         if (isReceivedMessage()) {
-            bodyTextView.setBackgroundResource(R.drawable.nim_message_item_left_selector);
+            bodyTextView.setBackgroundResource(com.netease.nim.uikit.R.drawable.nim_message_item_left_selector);
             bodyTextView.setPadding(ScreenUtil.dip2px(15), ScreenUtil.dip2px(8), ScreenUtil.dip2px(10), ScreenUtil.dip2px(8));
-            bodyTextView.setMaxWidth(ScreenUtil.getDisplayWidth() - ScreenUtil.dip2px(40 * 2 + 15));//teng
         } else {
-            bodyTextView.setBackgroundResource(R.drawable.nim_message_item_right_selector);
+            bodyTextView.setBackgroundResource(com.netease.nim.uikit.R.drawable.nim_message_item_right_selector);
             bodyTextView.setPadding(ScreenUtil.dip2px(10), ScreenUtil.dip2px(8), ScreenUtil.dip2px(15), ScreenUtil.dip2px(8));
-            bodyTextView.setMaxWidth(ScreenUtil.getDisplayWidth() - ScreenUtil.dip2px(40 * 2 + 15));//teng
         }
     }
 

@@ -3,7 +3,6 @@ package com.netease.nim.demo.chatroom.viewholder;
 import android.widget.TextView;
 
 import com.netease.nim.demo.chatroom.helper.ChatRoomNotificationHelper;
-import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nimlib.sdk.chatroom.model.ChatRoomNotificationAttachment;
 
@@ -17,12 +16,12 @@ public class ChatRoomMsgViewHolderNotification extends ChatRoomMsgViewHolderBase
 
     @Override
     protected int getContentResId() {
-        return R.layout.nim_message_item_notification;
+        return com.netease.nim.uikit.R.layout.nim_message_item_notification;
     }
 
     @Override
     protected void inflateContentView() {
-        notificationTextView = (TextView) view.findViewById(R.id.message_item_notification_label);
+        notificationTextView = (TextView) view.findViewById(com.netease.nim.uikit.R.id.message_item_notification_label);
     }
 
     @Override

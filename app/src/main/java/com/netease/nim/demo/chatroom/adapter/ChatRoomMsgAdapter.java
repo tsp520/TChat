@@ -5,7 +5,6 @@ import android.view.View;
 
 import com.netease.nim.demo.chatroom.viewholder.ChatRoomMsgViewHolderBase;
 import com.netease.nim.demo.chatroom.viewholder.ChatRoomMsgViewHolderFactory;
-import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nim.uikit.common.ui.recyclerview.holder.BaseViewHolder;
 import com.netease.nimlib.sdk.chatroom.model.ChatRoomMessage;
@@ -41,7 +40,7 @@ public class ChatRoomMsgAdapter extends BaseMultiItemFetchLoadAdapter<ChatRoomMe
         int viewType = 0;
         for (Class<? extends ChatRoomMsgViewHolderBase> holder : holders) {
             viewType++;
-            addItemType(viewType, R.layout.nim_message_item, holder);
+            addItemType(viewType, com.netease.nim.uikit.R.layout.nim_message_item, holder);
             holder2ViewType.put(holder, viewType);
         }
     }

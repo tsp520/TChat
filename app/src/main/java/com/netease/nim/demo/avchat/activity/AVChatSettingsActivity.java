@@ -1,6 +1,7 @@
 package com.netease.nim.demo.avchat.activity;
 
 import android.os.Bundle;
+
 import com.netease.nim.demo.R;
 import com.netease.nim.uikit.common.activity.UI;
 import com.netease.nim.uikit.model.ToolBarOptions;

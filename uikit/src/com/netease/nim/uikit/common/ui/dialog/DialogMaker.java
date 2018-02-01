@@ -19,7 +19,7 @@ public class DialogMaker {
 	
 	@Deprecated
 	public static EasyProgressDialog showProgressDialog(Context context,
-			String title, String message, boolean canCancelable, OnCancelListener listener) {
+                                                        String title, String message, boolean canCancelable, OnCancelListener listener) {
 
 		if (progressDialog == null) {
 			progressDialog = new EasyProgressDialog(context, message);

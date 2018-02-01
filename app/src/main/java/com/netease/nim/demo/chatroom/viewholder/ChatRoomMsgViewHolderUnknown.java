@@ -1,6 +1,5 @@
 package com.netease.nim.demo.chatroom.viewholder;
 
-import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 
@@ -15,7 +14,7 @@ public class ChatRoomMsgViewHolderUnknown extends ChatRoomMsgViewHolderBase {
 
     @Override
     protected int getContentResId() {
-        return R.layout.nim_message_item_unknown;
+        return com.netease.nim.uikit.R.layout.nim_message_item_unknown;
     }
 
     @Override

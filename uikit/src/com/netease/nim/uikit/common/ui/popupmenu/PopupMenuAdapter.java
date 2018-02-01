@@ -25,7 +25,7 @@ public class PopupMenuAdapter extends BaseAdapter {
 
 	private LayoutInflater inflater;
 
-	public PopupMenuAdapter(Context context, List<PopupMenuItem> list,int typeBg) {
+	public PopupMenuAdapter(Context context, List<PopupMenuItem> list, int typeBg) {
 		this.list = list;
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.typeBg = typeBg;

@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.netease.nim.demo.chatroom.adapter.ChatRoomMsgAdapter;
 import com.netease.nim.uikit.NimUIKit;
-import com.netease.nim.uikit.R;
 import com.netease.nim.uikit.cache.TeamDataCache;
 import com.netease.nim.uikit.common.ui.imageview.HeadImageView;
 import com.netease.nim.uikit.common.ui.recyclerview.adapter.BaseMultiItemFetchLoadAdapter;
@@ -87,12 +86,12 @@ public abstract class ChatRoomMsgViewHolderBase extends RecyclerViewHolder<BaseM
 
     // 当是接收到的消息时，内容区域背景的drawable id
     protected int leftBackground() {
-        return R.drawable.nim_message_item_left_selector;
+        return com.netease.nim.uikit.R.drawable.nim_message_item_left_selector;
     }
 
     // 当是发送出去的消息时，内容区域背景的drawable id
     protected int rightBackground() {
-        return R.drawable.nim_message_item_right_selector;
+        return com.netease.nim.uikit.R.drawable.nim_message_item_right_selector;
     }
 
     // 返回该消息是不是居中显示
@@ -161,16 +160,16 @@ public abstract class ChatRoomMsgViewHolderBase extends RecyclerViewHolder<BaseM
     }
 
     protected final void inflate() {
-        timeTextView = findViewById(R.id.message_item_time);
-        avatarLeft = findViewById(R.id.message_item_portrait_left);
-        avatarRight = findViewById(R.id.message_item_portrait_right);
-        alertButton = findViewById(R.id.message_item_alert);
-        progressBar = findViewById(R.id.message_item_progress);
-        nameTextView = findViewById(R.id.message_item_nickname);
-        contentContainer = findViewById(R.id.message_item_content);
-        nameIconView = findViewById(R.id.message_item_name_icon);
-        nameContainer = findViewById(R.id.message_item_name_layout);
-        readReceiptTextView = findViewById(R.id.textViewAlreadyRead);
+        timeTextView = findViewById(com.netease.nim.uikit.R.id.message_item_time);
+        avatarLeft = findViewById(com.netease.nim.uikit.R.id.message_item_portrait_left);
+        avatarRight = findViewById(com.netease.nim.uikit.R.id.message_item_portrait_right);
+        alertButton = findViewById(com.netease.nim.uikit.R.id.message_item_alert);
+        progressBar = findViewById(com.netease.nim.uikit.R.id.message_item_progress);
+        nameTextView = findViewById(com.netease.nim.uikit.R.id.message_item_nickname);
+        contentContainer = findViewById(com.netease.nim.uikit.R.id.message_item_content);
+        nameIconView = findViewById(com.netease.nim.uikit.R.id.message_item_name_icon);
+        nameContainer = findViewById(com.netease.nim.uikit.R.id.message_item_name_layout);
+        readReceiptTextView = findViewById(com.netease.nim.uikit.R.id.textViewAlreadyRead);
 
         // 这里只要inflate出来后加入一次即可
         if (contentContainer.getChildCount() == 0) {
@@ -333,7 +332,7 @@ public abstract class ChatRoomMsgViewHolderBase extends RecyclerViewHolder<BaseM
             return;
         }
 
-        LinearLayout bodyContainer = (LinearLayout) view.findViewById(R.id.message_item_body);
+        LinearLayout bodyContainer = (LinearLayout) view.findViewById(com.netease.nim.uikit.R.id.message_item_body);
 
         // 调整container的位置
         int index = isReceivedMessage() ? 0 : 3;

@@ -51,4 +51,6 @@ dependencies {
     //greendao
     compile 'org.greenrobot:greendao:3.2.2'//wzteng
     compile project(path: ':swipebackhelper')//wzteng
+
+    compile 'me.everything:overscroll-decor-android:1.0.4'
 }

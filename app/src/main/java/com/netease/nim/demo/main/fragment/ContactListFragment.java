@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.netease.nim.demo.DemoCache;
 import com.netease.nim.demo.R;
 import com.netease.nim.demo.contact.activity.BlackListActivity;
+import com.netease.nim.demo.main.activity.RobotListActivity;
 import com.netease.nim.demo.main.activity.SystemMessageActivity;
 import com.netease.nim.demo.main.activity.TeamListActivity;
 import com.netease.nim.demo.main.helper.SystemMessageUnreadManager;
@@ -53,6 +54,7 @@ public class ContactListFragment extends MainTabFragment {
         static final FuncItem ADVANCED_TEAM = new FuncItem();//高级群
         static final FuncItem BLACK_LIST = new FuncItem();//黑名单
         static final FuncItem MY_COMPUTER = new FuncItem();//我的电脑
+//        static final FuncItem ROBOT = new FuncItem();//机器人暂时没用
 
         @Override
         public int getItemType() {
@@ -110,6 +112,10 @@ public class ContactListFragment extends MainTabFragment {
                     funcName.setText("我的电脑");
                     image.setImageResource(R.drawable.ic_my_computer);
                 }
+//                else if (item == ROBOT) {
+//                    funcName.setText("智能机器人");
+//                    image.setImageResource(R.drawable.ic_robot);
+//                }
 
                 if (item != VERIFY) {
                     image.setScaleType(ScaleType.FIT_XY);
@@ -135,6 +141,7 @@ public class ContactListFragment extends MainTabFragment {
             items.add(ADVANCED_TEAM);
             items.add(BLACK_LIST);
             items.add(MY_COMPUTER);
+//            items.add(ROBOT);
 
             return items;
         }
@@ -151,6 +158,9 @@ public class ContactListFragment extends MainTabFragment {
             } else if (item == BLACK_LIST) {
                 BlackListActivity.start(context);
             }
+//            else if (item == ROBOT) {
+//                RobotListActivity.start(context);
+//            }
         }
     }
 

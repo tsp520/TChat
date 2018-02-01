@@ -219,10 +219,10 @@
     <!-- 多端登录 -->
     <string name="multiport_manager">多端登录管理</string>
     <string name="multiport_logout">下线</string>
-    <string name="computer_version">云信电脑版</string>
-    <string name="web_version">云信网页版</string>
-    <string name="mobile_android_version">云信安卓版</string>
-    <string name="mobile_ios_version">云信苹果版</string>
+    <string name="computer_version">藤信电脑版</string>
+    <string name="web_version">藤信网页版</string>
+    <string name="mobile_android_version">藤信安卓版</string>
+    <string name="mobile_ios_version">藤信苹果版</string>
     <string name="multiport_logging">正在使用</string>
     <string name="kickout_notify">下线通知</string>
     <string name="kickout_content">你的帐号被%1$s踢出下线，请确定帐号信息安全</string>
@@ -230,6 +230,15 @@
     <!-- 阅后即焚 -->
     <string name="snapchat_longclick_to_view">按住查看</string>
     <string name="snapchat_title">阅后即焚</string>
+
+    <!-- 多端在线类型 -->
+    <string name="on_line">在线</string>
+    <string name="on_line_pc">电脑在线</string>
+    <string name="on_line_web">web在线</string>
+    <string name="client_aos">Android</string>
+    <string name="client_ios">iOS</string>
+    <string name="on_line_busy">忙碌</string>
+    <string name="off_line">离线</string>
 
     <!-- 个人名片 -->
     <string name="birthday">生 日</string>
@@ -257,6 +266,10 @@
     <string name="js_bridge">NIM JS Bridge</string>
     <string name="js_bridge_demonstration">Js Bridge演示</string>
 
+    <!--机器人-->
+    <string name="nim_robot_title">藤信君机器人</string>
+    <string name="robot_start_chat">开始对话</string>
+
     <!-- NRTC -->
     <string name="nrtc_settings">网络通话设置</string>
     <string name="nrtc_setting_net">网络</string>
@@ -266,6 +279,7 @@
     <string name="nrtc_setting_vie_crop_key">nrtc_setting_vie_crop_key</string>
     <string name="nrtc_setting_vie_crop">画面裁剪</string>
     <string name="nrtc_setting_vie_quality_key">nrtc_setting_vie_quality_key</string>
+    <string name="nrtc_setting_vie_crop_ratio_key">nrtc_setting_vie_crop_ratio_key</string>
     <string name="nrtc_setting_vie_quality">视频清晰度</string>
     <string-array name="nrtc_setting_vie_quality_entries"> 
         <item>Default</item> 
@@ -360,6 +374,6 @@
     <string name="nrtc_setting_voe_dtx_key">nrtc_setting_voe_dtx_key</string>
     <string name="nrtc_setting_voe_dtx">人声检测</string>
     <string name="title_activity_register">RegisterActivity</string>
-
+    <string name="nrtc_setting_other_webrtc_compat_key">setting_other_webrtc_compat_key</string>
 
 </resources>

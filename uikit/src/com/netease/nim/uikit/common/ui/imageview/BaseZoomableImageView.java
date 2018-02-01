@@ -23,8 +23,6 @@ package com.netease.nim.uikit.common.ui.imageview;
  * Copyright (C) 2009 The Android Open Source Project
  */
 
-import com.netease.nim.uikit.common.util.media.SampleSizeUtil;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -41,6 +39,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+
+import com.netease.nim.uikit.common.util.media.SampleSizeUtil;
 
 public abstract class BaseZoomableImageView extends View {
 	// Statics
@@ -210,11 +210,11 @@ public abstract class BaseZoomableImageView extends View {
 
 	// Sets the bitmap for the image and resets the base
 	@SuppressLint("NewApi")
-	public void setImageBitmap(final Bitmap bitmap, final boolean fitScreen) {	
+	public void setImageBitmap(final Bitmap bitmap, final boolean fitScreen) {
 		
 		//版本过低或者长度大于最大纹理限制，不采用硬件加速
 		if (Build.VERSION.SDK_INT >= MIN_SDK_ENABLE_LAYER_TYPE_HARDWARE) {
-			if (bitmap != null && (bitmap.getHeight() > SampleSizeUtil.getTextureSize() 
+			if (bitmap != null && (bitmap.getHeight() > SampleSizeUtil.getTextureSize()
 					|| bitmap.getWidth() > SampleSizeUtil.getTextureSize())) {
 				setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 			} else {
@@ -261,7 +261,7 @@ public abstract class BaseZoomableImageView extends View {
 	 * @param bitmap
 	 * @param selection
 	 */
-	public void setImageBitmap(final Bitmap bitmap,final Rect selection ) {					
+	public void setImageBitmap(final Bitmap bitmap, final Rect selection ) {
 		final int viewWidth = getWidth();
 
 
@@ -403,7 +403,7 @@ public abstract class BaseZoomableImageView extends View {
 	 * @param matrix
 	 * @param selection
 	 */
-	private void setBaseMatrix(Bitmap bitmap, Matrix matrix,Rect selection) {
+	private void setBaseMatrix(Bitmap bitmap, Matrix matrix, Rect selection) {
 		if(selection == null){
 			return ;
 		}
@@ -702,13 +702,13 @@ public abstract class BaseZoomableImageView extends View {
 				//width == mBitmap.getWidth() * getValue(mDisplayMatrix, Matrix.MSCALE_X) 意味着图片右边离屏宽度 == 0，已经滑到最右边								
 				if ((m_x == 0 && distanceX <= 0) //到达图片的最左边继续往左边滑
 						|| (width == mBitmap.getWidth() //到达图片的最右边继续往右边滑
-						* getValue(mDisplayMatrix, Matrix.MSCALE_X) && distanceX >= 0)) {									
+						* getValue(mDisplayMatrix, Matrix.MSCALE_X) && distanceX >= 0)) {
 					System.out.println("ScrollOver");
 					return true;
 				}
 			}
 		}
-		catch (IllegalArgumentException e) {  
+		catch (IllegalArgumentException e) {
 			Log.v("Vincent", "isScrollOver");
 			e.printStackTrace();  
 		}  

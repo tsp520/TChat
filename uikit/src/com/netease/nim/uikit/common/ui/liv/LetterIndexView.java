@@ -29,7 +29,7 @@ public class LetterIndexView extends View {
 
     private Drawable hintDrawable;
 
-    private int stringArrayId = R.array.letter_list3;//右侧字母列表
+    private int stringArrayId = R.array.letter_list;
 
     public LetterIndexView(Context paramContext) {
         this(paramContext, null);

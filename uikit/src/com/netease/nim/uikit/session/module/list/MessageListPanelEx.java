@@ -541,6 +541,8 @@ public class MessageListPanelEx {
                 return;
             }
 
+            boolean noMoreMessage = messages.size() < LOAD_MESSAGE_COUNT;
+
             if (remote) {
                 Collections.reverse(messages);
             }
@@ -580,17 +582,17 @@ public class MessageListPanelEx {
             int count = messages.size();
             if (isBottomLoad) {
                 // 底部加载
-                if (count <= 0) {
-                    adapter.loadMoreEnd(true);
+                if (noMoreMessage) {
+                    adapter.loadMoreEnd(messages, true);
                 } else {
                     adapter.loadMoreComplete(messages);
                 }
             } else {
                 // 顶部加载
-                if (count <= 0) {
-                    adapter.fetchMoreEnd(true);
+                if (noMoreMessage) {
+                    adapter.fetchMoreEnd(messages, true);
                 } else {
-                    adapter.fetchMoreComplete(messageListView, messages);
+                    adapter.fetchMoreComplete(messages);
                 }
             }
 
@@ -622,9 +624,10 @@ public class MessageListPanelEx {
             updateReceipt(messages); // 更新已读回执标签
 
             // new data
-            adapter.appendData(messages);
             if (loadCount < LOAD_MESSAGE_COUNT) {
-                adapter.loadMoreEnd(true);
+                adapter.loadMoreEnd(messages, true);
+            } else {
+                adapter.appendData(messages);
             }
 
             firstLoad = false;
