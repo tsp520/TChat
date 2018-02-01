@@ -52,7 +52,6 @@ public class MessageInfoActivity extends UI {
 
         ToolBarOptions options = new ToolBarOptions();
         options.titleId = R.string.message_info;
-        options.navigateId = R.drawable.actionbar_dark_back_icon;
         setToolBar(R.id.toolbar, options);
 
         account = getIntent().getStringExtra(EXTRA_ACCOUNT);
@@ -172,7 +171,7 @@ public class MessageInfoActivity extends UI {
                         }
                     });
                 } else {
-                    Toast.makeText(DemoCache.getContext(), "请选择至少一个联系人！", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(DemoCache.getContext(), "请至少选择一个联系人！", Toast.LENGTH_SHORT).show();
                 }
             }
         }
