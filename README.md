@@ -50,6 +50,7 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 3.2018/01/25 增加朋友圈音乐连接到百度随机播放歌曲<br/>
 4.2018/01/31 修改朋友圈链接使用jsoup爬虫简单分析网页再刷新内容<br/>
 5.2018/02/01 升级IM到4.0，增加好友在线状态<br/>
+6.2018/02/02 增加聊天表情雨<br/>
 
 截图<br/>
 <div>
@@ -134,6 +135,11 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 </div>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180125-173849.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180202-161549.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180202-161554.png"/>
+</div>
+<div>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180202-161557.png"/>
 </div>
 未完待续2018-01-25 17:30
 

@@ -25,6 +25,7 @@ import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.msg.MsgService;
 import com.netease.nimlib.sdk.msg.MsgServiceObserve;
+import com.netease.nimlib.sdk.msg.constant.MsgTypeEnum;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.IMMessage;
 import com.netease.nimlib.sdk.msg.model.MessageReceipt;
@@ -169,6 +170,15 @@ public class MessageFragment extends TFragment implements ModuleProxy {
 
             messageListPanel.onIncomingMessage(messages);
             sendMsgReceipt(); // 发送已读回执
+
+            //表情雨
+            for (IMMessage imMessage : messages) {
+                if (imMessage.getMsgType() == MsgTypeEnum.text
+                        && inputPanel.startEmojiRain(imMessage.getContent())) {
+                    break;
+                }
+            }
+
         }
     };
 
@@ -193,6 +203,11 @@ public class MessageFragment extends TFragment implements ModuleProxy {
         NIMClient.getService(MsgService.class).sendMessage(message, false);
 
         messageListPanel.onMsgSend(message);
+
+        //表情雨
+        if (message.getMsgType() == MsgTypeEnum.text) {
+            inputPanel.startEmojiRain(message.getContent());
+        }
 
         return true;
     }

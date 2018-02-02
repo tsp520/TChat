@@ -3,6 +3,7 @@ package com.netease.nim.uikit.session.module.input;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.text.Editable;
@@ -40,6 +41,8 @@ import com.netease.nim.uikit.session.emoji.MoonUtil;
 import com.netease.nim.uikit.session.module.Container;
 import com.netease.nim.uikit.team.model.TeamExtras;
 import com.netease.nim.uikit.team.model.TeamRequestCode;
+import com.netease.nim.uikit.wzteng.view.emorain.EmojiUtils;
+import com.netease.nim.uikit.wzteng.view.emorain.EmoticonRainView;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.media.record.AudioRecorder;
 import com.netease.nimlib.sdk.media.record.IAudioRecordCallback;
@@ -82,6 +85,8 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
     protected View sendMessageButtonInInputBar;// 发送消息按钮
     protected View emojiButtonInInputBar;// 发送消息按钮
     protected View messageInputBar;
+
+    protected EmoticonRainView emoticonRain; //表情雨
 
     private SessionCustomization customization;
 
@@ -180,6 +185,9 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         emojiButtonInInputBar = view.findViewById(R.id.emoji_button);
         sendMessageButtonInInputBar = view.findViewById(R.id.buttonSendMessage);
         messageEditText = (EditText) view.findViewById(R.id.editTextMessage);
+
+        //表情雨
+        emoticonRain = view.findViewById(R.id.emoji_rain);
 
         // 语音
         audioRecordBtn = (Button) view.findViewById(R.id.audioRecord);
@@ -811,4 +819,22 @@ public class InputPanel implements IEmoticonSelectedListener, IAudioRecordCallba
         // 显示键盘
         uiHandler.postDelayed(showTextRunnable, SHOW_LAYOUT_DELAY);
     }
+
+    //表情雨
+    public boolean startEmojiRain(String text) {
+        List<Bitmap> bitmaps = EmojiUtils.getBitmaps(container.activity, text);
+        if (bitmaps != null) {
+            emoticonRain.setAutoRecycleBitmap(true);
+            EmoticonRainView.Conf conf = new EmoticonRainView.Conf.Builder()
+                    .bitmaps(bitmaps)
+                    .emoticonHeightPixel(50)
+                    .emoticonWidthPixel(50)
+                    .build();
+            emoticonRain.start(conf);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
