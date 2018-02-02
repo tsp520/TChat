@@ -136,7 +136,7 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180125-173849.png"/>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180202-161549.png"/>
-<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180202-161554.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180202-161555.png"/>
 </div>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180202-161557.png"/>
