@@ -128,6 +128,7 @@ public class RegisterActivity extends UI {
                     @Override
                     public void onClick() {
                         //拍照
+                        Toast.makeText(RegisterActivity.this, "拍照", Toast.LENGTH_SHORT).show();
                     }
                 });
                 title = "从相册选择";
@@ -135,6 +136,7 @@ public class RegisterActivity extends UI {
                     @Override
                     public void onClick() {
                         //相册
+                        Toast.makeText(RegisterActivity.this, "相册", Toast.LENGTH_SHORT).show();
                     }
                 });
                 alertDialog.show();
@@ -169,7 +171,7 @@ public class RegisterActivity extends UI {
                             @Override
                             public void onFailed(int code, String errorMsg) {
                                 Toast.makeText(RegisterActivity.this, getString(R.string.register_failed,
-                                        String.valueOf(code), errorMsg), Toast.LENGTH_SHORT).show();
+                                        String.valueOf(code), errorMsg), Toast.LENGTH_LONG).show();
                                 DialogMaker.dismissProgressDialog();
                             }
                         });
