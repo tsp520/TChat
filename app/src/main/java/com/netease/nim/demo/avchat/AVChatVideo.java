@@ -21,7 +21,7 @@ import com.netease.nimlib.sdk.avchat.model.AVChatCameraCapturer;
  * 视频管理器， 视频界面初始化和相关管理
  * Created by hzxuwen on 2015/5/5.
  */
-public class AVChatVideo implements View.OnClickListener, ToggleListener{
+public class AVChatVideo implements View.OnClickListener, ToggleListener {
 
     // data
     private Context context;

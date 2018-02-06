@@ -22,7 +22,7 @@ import com.netease.nim.uikit.common.util.sys.NetworkUtil;
  * 音频管理器， 音频界面初始化和管理
  * Created by hzxuwen on 2015/4/24.
  */
-public class AVChatAudio implements View.OnClickListener, ToggleListener{
+public class AVChatAudio implements View.OnClickListener, ToggleListener {
     // constant
     private static final int[] NETWORK_GRADE_DRAWABLE = new int[]{R.drawable.network_grade_0, R.drawable.network_grade_1, R.drawable.network_grade_2, R.drawable.network_grade_3};
     private static final int[] NETWORK_GRADE_LABEL = new int[]{R.string.avchat_network_grade_0, R.string.avchat_network_grade_1, R.string.avchat_network_grade_2, R.string.avchat_network_grade_3};
