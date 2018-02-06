@@ -13,7 +13,7 @@ android {
     buildToolsVersion ANDROID_BUILD_TOOLS_VERSION
 
     defaultConfig {
-
+        applicationId "com.netease.nim.demo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         buildConfigField "String", "GIT_REVISION", "\"${getGitVersion()}\""
@@ -32,6 +32,12 @@ android {
                 cppFlags ""
             }
         }
+
+        manifestPlaceholders = [
+                JPUSH_APPKEY: "0974df477230750600272420", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+
     }
 
     signingConfigs {
@@ -152,5 +158,8 @@ dependencies {
 //    compile 'com.shuyu:gsyVideoPlayer-ex_so:3.0.0'
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.google.code.gson:gson:2.8.2'
+    //jpush
+    compile 'cn.jiguang.sdk:janalytics:1.1.1'
+    compile 'cn.jiguang.sdk:jcore:1.1.2'
 
 }

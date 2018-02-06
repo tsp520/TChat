@@ -63,6 +63,8 @@ import com.zxy.recovery.core.Recovery;
 
 import java.util.Map;
 
+import cn.jiguang.analytics.android.api.JAnalyticsInterface;
+
 public class NimApplication extends Application {
 //    private RefWatcher mRefWatcher;
 
@@ -99,7 +101,7 @@ public class NimApplication extends Application {
         NIMClient.init(this, getLoginInfo(), getOptions());
         ExtraOptions.provide();
         // crash handler
-        AppCrashHandler.getInstance(this);
+//        AppCrashHandler.getInstance(this);
 
         if (inMainProcess()) {
 
@@ -127,6 +129,10 @@ public class NimApplication extends Application {
 
             OnlineStateEventManager.init();
         }
+
+        //极光统计
+        JAnalyticsInterface.setDebugMode(false);
+        JAnalyticsInterface.init(this);
     }
 
     /**
