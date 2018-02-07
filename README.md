@@ -1,4 +1,4 @@
-## :rocket:编码不易，求star！如果觉得本项目对您有用，请随意打赏，谢谢。:rocket: ##
+## :rocket: 编码不易，求star！如果觉得本项目对您有用，请随意打赏，谢谢。 :rocket: ##
 
 ![wechatpay](https://github.com/WZTENG/TChat/blob/master/screenshots/WECHATPAY.png)&nbsp;&nbsp;&nbsp;&nbsp;
 ![alipay](https://github.com/WZTENG/TChat/blob/master/screenshots/ALIPAY.png)
@@ -40,8 +40,8 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 * 已知Bug:<br/>
    > 1. 部份低版本系统侧滑返回会显示透明桌面(未修复)<br/>
    > 2. 二维码扫描框未根据屏幕尺寸进行调整(未修复)<br/>
-   > ~~3. 朋友圈小视频目前无法在6.0以上使用，会导致崩溃(正在修复，2017/05/12 修复崩溃，但无法播放，2018/01/24 修复完成。)~~<br/>
-   > ~~4. 修复低版本提示jar包错误(2017/05/10 修复完成)~~<br/>
+   > 3. ~~朋友圈小视频目前无法在6.0以上使用，会导致崩溃(正在修复，2017/05/12 修复崩溃，但无法播放，2018/01/24 修复完成。)~~<br/>
+   > 4. ~~修复低版本提示jar包错误(2017/05/10 修复完成)~~<br/>
 
 * 更新:<br/>
    > 1. 2018/01/23 更新高德地图 3DMap_5.7.0 Navi_5.6.0 Search_5.7.0 Location_3.7.0 20180109版本<br/>
@@ -53,7 +53,7 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
    > 6. 2018/02/02 增加聊天表情雨<br/>
    > 7. 2018/02/06 修复设置里面的"网络通话设置","音视频通话网络探测"的bug<br/>
 
-截图<br/>
+:art: 截图<br/>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133335.png"/>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20170309-133340.png"/>
