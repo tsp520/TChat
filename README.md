@@ -10,17 +10,17 @@
 
 ### 使用以下开源项目并修改了部分内容 ###
 
-https://github.com/Curzibn/BottomDialog<br/>
-https://github.com/LuckSiege/PictureSelector<br/>
-https://github.com/Jude95/SwipeBackHelper<br/>
-https://github.com/CJT2325/CameraView<br/>
-https://github.com/bingoogolapple/BGAQRCode-Android<br/>
-https://github.com/Naoki2015/CircleDemo<br/>
-https://github.com/koral--/android-gif-drawable/<br/>
-https://github.com/Sunzxyong/Recovery<br/>
-https://github.com/wenmingvs/LogReport<br/>
-https://github.com/SumiMakito/AwesomeQRCode<br/>
-https://github.com/CarGuo/GSYVideoPlayer<br/>
+ > https://github.com/Curzibn/BottomDialog<br/>
+ > https://github.com/LuckSiege/PictureSelector<br/>
+ > https://github.com/Jude95/SwipeBackHelper<br/>
+ > https://github.com/CJT2325/CameraView<br/>
+ > https://github.com/bingoogolapple/BGAQRCode-Android<br/>
+ > https://github.com/Naoki2015/CircleDemo<br/>
+ > https://github.com/koral--/android-gif-drawable/<br/>
+ > https://github.com/Sunzxyong/Recovery<br/>
+ > https://github.com/wenmingvs/LogReport<br/>
+ > https://github.com/SumiMakito/AwesomeQRCode<br/>
+ > https://github.com/CarGuo/GSYVideoPlayer<br/>
 
 当前编辑版本与编译环境：
 
@@ -32,8 +32,8 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
 - 真机原生7.1.2
 
 提供已有测试账号，请勿修改相关信息！<br/>
-> 账号：dawa<br/>
-> 密码：123456<br/>
+ > 账号：dawa<br/>
+ > 密码：123456<br/>
 
 为了减小体积只保留一个armeabi-v7a，如果部分手机出现错误请自行修改配置<bt/>
 
@@ -44,14 +44,14 @@ https://github.com/CarGuo/GSYVideoPlayer<br/>
    > 4. ~~修复低版本提示jar包错误(2017/05/10 修复完成)~~<br/>
 
 * 更新:<br/>
-   > 1. 2018/01/23 :art:更新高德地图 3DMap_5.7.0 Navi_5.6.0 Search_5.7.0 Location_3.7.0 20180109版本<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;更新聊天定位发送图片为实时图片，但接收图片为默认图片<br/>
-   > 2. 2018/01/24 :art:更新朋友圈视频为IJKPlayer播放器，可以正常播放视频<br/>
-   > 3. 2018/01/25 :sparkles:增加朋友圈音乐连接到百度随机播放歌曲<br/>
-   > 4. 2018/01/31 :art:修改朋友圈链接使用jsoup爬虫简单分析网页再刷新内容<br/>
-   > 5. 2018/02/01 :sparkles:升级IM到4.0，增加好友在线状态<br/>
-   > 6. 2018/02/02 :sparkles:增加聊天表情雨<br/>
-   > 7. 2018/02/06 :bug:修复设置里面的"网络通话设置","音视频通话网络探测"的bug<br/>
+   > 1. 2018/01/23 * :art:更新高德地图 3DMap_5.7.0 Navi_5.6.0 Search_5.7.0 Location_3.7.0 20180109版本<br/>
+                   * 更新聊天定位发送图片为实时图片，但接收图片为默认图片<br/>
+   > 2. 2018/01/24 *:art:更新朋友圈视频为IJKPlayer播放器，可以正常播放视频<br/>
+   > 3. 2018/01/25 *:sparkles:增加朋友圈音乐连接到百度随机播放歌曲<br/>
+   > 4. 2018/01/31 *:art:修改朋友圈链接使用jsoup爬虫简单分析网页再刷新内容<br/>
+   > 5. 2018/02/01 *:sparkles:升级IM到4.0，增加好友在线状态<br/>
+   > 6. 2018/02/02 *:sparkles:增加聊天表情雨<br/>
+   > 7. 2018/02/06 *:bug:修复设置里面的"网络通话设置","音视频通话网络探测"的bug<br/>
 
 :art: 截图<br/>
 <div>
