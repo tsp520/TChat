@@ -218,11 +218,30 @@ public class DropCover extends View {
             curY = 0;
             ratio = 1;
         } else {
-            // 超出最大移动距离，那么执行爆裂帧动画
-            initExplosionAnimation();
+//            // 超出最大移动距离，那么执行爆裂帧动画
+//            initExplosionAnimation();
+//
+//            needDraw = false;
+//            explosionAnimStart = true;
+            if (isDistanceOverLimit) {//禁用点击也消除
+                // 超出最大移动距离，那么执行爆裂帧动画
+                initExplosionAnimation();
 
-            needDraw = false;
-            explosionAnimStart = true;
+                needDraw = false;
+                explosionAnimStart = true;
+            } else {
+                if (hasBroken) {
+                    // 如果已经断裂，那么直接回原点，显示FakeView
+                    onDropCompleted(false);
+                } else {
+                    // 如果还未断裂，那么执行抖动动画
+                    shakeAnimation();
+                }
+                // reset
+                curX = 0;
+                curY = 0;
+                ratio = 1;
+            }
         }
 
         invalidate();
