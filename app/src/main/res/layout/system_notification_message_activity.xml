@@ -16,6 +16,7 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
+            style="@style/Toolbar.TitleText"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -44,7 +45,7 @@
                 android:fadingEdge="none"
                 android:focusable="false"
                 android:listSelector="@android:color/transparent"
-                android:scrollbars="vertical"></com.netease.nim.uikit.common.ui.listview.MessageListView>
+                android:scrollbars="vertical"/>
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>

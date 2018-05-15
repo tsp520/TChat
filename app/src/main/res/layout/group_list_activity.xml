@@ -14,10 +14,11 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
+            style="@style/Toolbar.TitleText"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:titleTextAppearance="@style/Toolbar.TitleText"></android.support.v7.widget.Toolbar>
+            app:titleTextAppearance="@style/Toolbar.TitleText" />
     </android.support.design.widget.AppBarLayout>
 
     <ListView

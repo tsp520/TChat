@@ -11,7 +11,7 @@
         <item name="toolbarNavigationButtonStyle">@style/myToolbarNavigationButtonStyle</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -30,11 +30,15 @@
     <!-- toolbar 文本 -->
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">16sp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="contentInsetStart">0dp</item>
     </style>
 
     <!-- toolbar 文本 -->
     <style name="Toolbar.SubTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">11sp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="contentInsetStart">0dp</item>
     </style>
 
     <!-- 黑色主题 -->

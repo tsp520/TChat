@@ -11,7 +11,7 @@
         <item name="toolbarNavigationButtonStyle">@style/myToolbarNavigationButtonStyle</item>
     </style>
 
-    <style name="AppTheme.NoActionBar">
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         //if you don't set this the background will be black when you slide.
@@ -44,6 +44,8 @@
 
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18sp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="contentInsetStart">0dp</item>
     </style>
 
     <!-- 登录主题 -->
