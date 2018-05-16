@@ -19,6 +19,8 @@
             android:layout_height="@dimen/action_bar_height"
             android:background="?attr/colorPrimary"
             android:minHeight="@dimen/action_bar_height"
+            app:contentInsetStart="15dp"
+            app:contentInsetStartWithNavigation="15dp"
             app:titleTextAppearance="@style/Toolbar.TitleText"/>
 
     </android.support.design.widget.AppBarLayout>

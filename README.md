@@ -1,4 +1,4 @@
-## :rocket: 编码不易，求star！如果觉得本项目对您有用，请随意打赏，谢谢。 ##
+## :rocket: 编码不易，点个star！如果觉得本项目对您有用，请随意打赏，谢谢。 ##
 
 ![wechatpay](https://github.com/WZTENG/TChat/blob/master/screenshots/WECHATPAY.png)&nbsp;&nbsp;&nbsp;&nbsp;
 ![alipay](https://github.com/WZTENG/TChat/blob/master/screenshots/ALIPAY.png)
@@ -36,6 +36,8 @@
  > 密码：123456<br/>
 
 为了减小体积只保留一个armeabi-v7a，如果部分手机出现错误请自行修改配置<bt/>
+
+* :memo:说明:android studio 3.1.2可能修改了什么东西，暂时去掉ndk，不然提示CreateProcess error=2, 系统找不到指定的文件。(错误提示指向一个ndk文件)
 
 * :bug:已知Bug:<br/>
    > 1. 部份低版本系统侧滑返回会显示透明桌面(未修复)<br/>
