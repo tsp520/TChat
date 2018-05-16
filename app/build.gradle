@@ -27,11 +27,11 @@ android {
             abiFilters "armeabi-v7a"
         }
 
-        externalNativeBuild {
-            cmake {
-                cppFlags ""
-            }
-        }
+//        externalNativeBuild {
+//            cmake {
+//                cppFlags ""
+//            }
+//        }
 
         manifestPlaceholders = [
                 JPUSH_APPKEY: "0974df477230750600272420", //JPush上注册的包名对应的appkey.
@@ -101,11 +101,11 @@ android {
         exclude 'META-INF/NOTICE.txt'
     }
 
-    externalNativeBuild {
-        cmake {
-            path 'CMakeLists.txt'
-        }
-    }
+//    externalNativeBuild {
+//        cmake {
+//            path 'CMakeLists.txt'
+//        }
+//    }
 
 }
 

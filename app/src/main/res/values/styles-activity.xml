@@ -12,6 +12,10 @@
     </style>
 
     <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/color_blue_3a9efb</item>
+        <item name="colorPrimaryDark">@color/color_blue_0888ff</item>
+        <item name="colorAccent">@color/color_green_89fbff</item>
+        <item name="actionBarSize">@dimen/action_bar_height</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         //if you don't set this the background will be black when you slide.
