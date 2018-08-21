@@ -1,5 +1,6 @@
 package com.netease.nim.demo.wzteng.others.pictureselector;
 
+import android.graphics.Canvas;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -114,6 +115,15 @@ public class DefaultItemTouchHelpCallback extends ItemTouchHelper.Callback {
         }
     }
 
+    @Override
+    public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                            float dX, float dY, int actionState, boolean isCurrentlyActive) {
+        super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+        if (onItemTouchCallbackListener != null) {
+            onItemTouchCallbackListener.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+        }
+    }
+
     public interface OnItemTouchCallbackListener {
         /**
          * 当某个Item被滑动删除的时候
@@ -145,6 +155,20 @@ public class DefaultItemTouchHelpCallback extends ItemTouchHelper.Callback {
          * @param viewHolder
          */
         void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder);
+
+        /**
+         * 拖动item时的信息
+         *
+         * @param c
+         * @param recyclerView
+         * @param viewHolder
+         * @param dX
+         * @param dY
+         * @param actionState
+         * @param isCurrentlyActive
+         */
+        void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                         float dX, float dY, int actionState, boolean isCurrentlyActive);
     }
 
 }

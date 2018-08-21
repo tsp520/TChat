@@ -139,9 +139,9 @@ public class GridImageAdapter extends RecyclerView.Adapter<GridImageAdapter.View
                     return mOnAddPicClickListener.onLongClick(v);
                 }
             });
-            viewHolder.ll_del.setVisibility(View.INVISIBLE);
+            viewHolder.ll_del.setVisibility(View.GONE);//View.INVISIBLE 暂时去掉改为拖动删除
         } else {
-            viewHolder.ll_del.setVisibility(View.VISIBLE);
+            viewHolder.ll_del.setVisibility(View.GONE);//View.VISIBLE 暂时去掉改为拖动删除
             viewHolder.ll_del.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

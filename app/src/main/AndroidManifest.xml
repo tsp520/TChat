@@ -473,7 +473,8 @@
             android:name="com.netease.nim.demo.wzteng.friends.MyGlideModule"
             android:value="GlideModule" />
 
-        <activity android:name=".wzteng.friends.activity.FriendsNewActivity" />
+        <activity android:name=".wzteng.friends.activity.FriendsNewActivity"
+            android:windowSoftInputMode="adjustPan"/>
 
         <!--
         其实不仅是调用相机和相册，只要是访问文件，都会出现这个错误，其原因是Android 7.0 做了一些系统权限更改，

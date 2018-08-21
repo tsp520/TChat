@@ -1,6 +1,7 @@
 package com.netease.nim.demo.wzteng.others.pictureselector;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
@@ -13,17 +14,25 @@ import java.util.List;
 /**
  * Created by WZTENG on 2018/1/18 0018.
  */
-
 public class TouchHelpCallbackListenerImpl implements DefaultItemTouchHelpCallback.OnItemTouchCallbackListener {
 
     private List<LocalMedia> selectList;
     private GridImageAdapter adapter;
     private Context context;
 
+    private ITouchHelpCallback iTouchHelpCallback;
+
     public TouchHelpCallbackListenerImpl(Context context, List<LocalMedia> selectList, RecyclerView.Adapter adapter) {
         this.context = context;
         this.selectList = selectList;
         this.adapter = (GridImageAdapter) adapter;
+    }
+
+    public TouchHelpCallbackListenerImpl(Context context, List<LocalMedia> selectList, RecyclerView.Adapter adapter, ITouchHelpCallback iTouchHelpCallback) {
+        this.context = context;
+        this.selectList = selectList;
+        this.adapter = (GridImageAdapter) adapter;
+        this.iTouchHelpCallback = iTouchHelpCallback;
     }
 
     @Override
@@ -52,7 +61,7 @@ public class TouchHelpCallbackListenerImpl implements DefaultItemTouchHelpCallba
 
     @Override
     public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
-//        Log.d("wzt", "onSelectedChanged");
+//        Log.d("wzt", "onSelectedChanged actionState:" + actionState);
         if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
             viewHolder.itemView.setAlpha(0.7f);
             viewHolder.itemView.setScaleX(1.1f);
@@ -62,6 +71,9 @@ public class TouchHelpCallbackListenerImpl implements DefaultItemTouchHelpCallba
 //                vib.vibrate(70);
 //            }
         }
+        if (iTouchHelpCallback != null) {
+            iTouchHelpCallback.onSelectedChanged(viewHolder, actionState);
+        }
     }
 
     @Override
@@ -70,6 +82,18 @@ public class TouchHelpCallbackListenerImpl implements DefaultItemTouchHelpCallba
         viewHolder.itemView.setAlpha(1.0f);
         viewHolder.itemView.setScaleX(1.0f);
         viewHolder.itemView.setScaleY(1.0f);
+        if (iTouchHelpCallback != null) {
+            iTouchHelpCallback.clearView(recyclerView, viewHolder);
+        }
+    }
+
+    @Override
+    public void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                            float dX, float dY, int actionState, boolean isCurrentlyActive) {
+
+        if (iTouchHelpCallback != null) {
+            iTouchHelpCallback.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+        }
     }
 
     private void changeSelecList(List<LocalMedia> list, int from, int to) {
@@ -92,5 +116,12 @@ public class TouchHelpCallbackListenerImpl implements DefaultItemTouchHelpCallba
     public void setSelectList(List<LocalMedia> selectList) {
         this.selectList = selectList;
 //        Log.i("wzt", "selectMedia设置时个数:" + selectList.size());
+    }
+
+    public interface ITouchHelpCallback {
+        void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState);
+        void clearView(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder);
+        void onChildDraw(Canvas c, RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,
+                         float dX, float dY, int actionState, boolean isCurrentlyActive);
     }
 }

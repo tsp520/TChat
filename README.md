@@ -56,6 +56,7 @@
    > 7. 2018/02/06<br/>  >> :bug:修复设置里面的"网络通话设置","音视频通话网络探测"的bug<br/>
    > 8. 2018/03/06<br/>  >> :art:改进Tab小红点点击就消失的"bug"<br/>
    > 9. 2018/05/15<br/>  >> :art:改进Toolbar返回按钮与标题间隙<br/>
+   > 10. 2018/08/21<br/>  >> :art:修改朋友圈发表界面。微信使用ViewGroup，本项目使用RecyclerView与微信效果有点区别，主要在微信效果为覆盖，本项目为透传。<br/>
 
 :art: 截图<br/>
 <div>
@@ -145,8 +146,10 @@
 </div>
 <div>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180202-161557.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180821-185352.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180821-185416.png"/>
 </div>
-未完待续2018-02-06 13:30
+未完待续2018-08-21 13:30
 
 
 

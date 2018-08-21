@@ -89,4 +89,9 @@
     <dimen name="friend_map_bound_padding">80dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="article_post_et_h">100dp</dimen>
+    <dimen name="article_post_delete">50dp</dimen>
+    <dimen name="article_img_margin_top">10dp</dimen>
+    <dimen name="article_img_dimens">80dp</dimen>
+
 </resources>
