@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
     }
+    useLibrary 'org.apache.http.legacy'//org.apache.http找不到的临时解决办法
 }
 
 dependencies {
