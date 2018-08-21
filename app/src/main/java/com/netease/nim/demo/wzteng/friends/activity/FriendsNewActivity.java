@@ -358,7 +358,8 @@ public class FriendsNewActivity extends UI {
 
     private void showDeleteBox() {
         llDeleteBox.setVisibility(View.VISIBLE);
-        tvDeleteleTip.setText("拖拽到此处删除");
+        llDeleteBox.setBackgroundColor(0xDDFF4444);
+        tvDeleteleTip.setText("拖到此处删除");
         ivDeleteTip.setImageResource(R.drawable.friends_del_nor);
     }
 
@@ -368,6 +369,7 @@ public class FriendsNewActivity extends UI {
 
     private void sureToDeleteBox() {
         llDeleteBox.setVisibility(View.VISIBLE);
+        llDeleteBox.setBackgroundColor(0xDDD7110A);
         tvDeleteleTip.setText("松手即可删除");
         ivDeleteTip.setImageResource(R.drawable.friends_del_sure);
     }

@@ -240,7 +240,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="拖拽到此处删除"
+            android:text="拖到此处删除"
             android:textColor="@color/grey_white"
             android:textSize="13sp" />
 
