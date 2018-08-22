@@ -50,6 +50,8 @@
 
     <uses-permission android:name="com.netease.nim.demo.permission.MIPUSH_RECEIVE" />
 
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
     <application
         android:name=".NimApplication"
         android:allowBackup="true"
@@ -459,10 +461,11 @@
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".wzteng.webview.WebViewActivity" />
-        <activity android:name=".wzteng.friends.activity.FriendsActivity"
+        <activity
+            android:name=".wzteng.friends.activity.FriendsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:hardwareAccelerated="true"/>
+            android:hardwareAccelerated="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".wzteng.friends.activity.ImagePagerActivity"
             android:launchMode="singleTop"
@@ -473,8 +476,9 @@
             android:name="com.netease.nim.demo.wzteng.friends.MyGlideModule"
             android:value="GlideModule" />
 
-        <activity android:name=".wzteng.friends.activity.FriendsNewActivity"
-            android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".wzteng.friends.activity.FriendsNewActivity"
+            android:windowSoftInputMode="adjustPan" />
 
         <!--
         其实不仅是调用相机和相册，只要是访问文件，都会出现这个错误，其原因是Android 7.0 做了一些系统权限更改，
@@ -505,10 +509,22 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".session.activity.SendRedPackedActivity"
-            android:theme="@style/RedPackedTheme"/>
+            android:theme="@style/RedPackedTheme" />
+
+        <activity
+            android:name=".wzteng.topwinmanager.TopWinManagerTestActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".wzteng.topwinmanager.floatwindow.FloatActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="standard"
+            android:theme="@style/permission_PermissionActivity"
+            android:windowSoftInputMode="stateHidden|stateAlwaysHidden"/>
 
         <!--音乐-->
-        <activity android:name=".wzteng.friends.widgets.music.MusicActivity"
+        <activity
+            android:name=".wzteng.friends.widgets.music.MusicActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <service android:name="com.netease.nim.demo.wzteng.friends.widgets.music.service.PlayService" />

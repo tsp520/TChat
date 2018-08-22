@@ -393,4 +393,8 @@
     <string name="nrtc_setting_voe_dtx_key">nrtc_setting_voe_dtx_key</string>
     <string name="nrtc_setting_voe_dtx">人声检测</string>
 
+
+    <string name="top_window_manager">悬浮球测试</string>
+
+
 </resources>

@@ -13,6 +13,7 @@ import com.netease.nim.demo.main.model.MainTab;
 import com.netease.nim.demo.wzteng.GlobalConfig;
 import com.netease.nim.demo.wzteng.friends.activity.FriendsActivity;
 import com.netease.nim.demo.wzteng.qrcode.QrCodeActivity;
+import com.netease.nim.demo.wzteng.topwinmanager.TopWinManagerTestActivity;
 import com.netease.nim.demo.wzteng.webview.WebViewActivity;
 
 
@@ -68,7 +69,13 @@ public class FindListFragment extends MainTabFragment {
                 false, false, null);
 
         addViewToSubItem(ll_sub_item, R.drawable.find_nearby, "附近的人", 0, "", 0,
-                true, true, null);
+                true, true,
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        TopWinManagerTestActivity.start(getContext());
+                    }
+                });
 
         addViewToSubItem(ll_sub_item, R.drawable.find_bottle, "漂流瓶", 0, "", 0,
                 false, false, null);

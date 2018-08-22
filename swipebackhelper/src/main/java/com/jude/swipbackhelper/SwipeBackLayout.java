@@ -88,6 +88,8 @@ public class SwipeBackLayout extends FrameLayout {
      */
     private int mTrackingEdge;
 
+    SwipeBackLayoutTouchListener touchListener;//wzteng
+
     public SwipeBackLayout(Context context) {
         this(context, null);
     }
@@ -255,6 +257,11 @@ public class SwipeBackLayout extends FrameLayout {
         if (!mEnable) {
             return false;
         }
+        //start*****************wzteng
+        if (touchListener != null) {
+            touchListener.onTouchEvent(event);
+        }
+        //end*******************wzteng
         try {
             mDragHelper.processTouchEvent(event);
         } catch (Exception e) {
@@ -434,4 +441,10 @@ public class SwipeBackLayout extends FrameLayout {
         }
 
     }
+
+    //wzteng为了获取坐标实现悬浮球
+    public void setTouchListener(SwipeBackLayoutTouchListener touchListener) {
+        this.touchListener = touchListener;
+    }
+
 }
