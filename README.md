@@ -57,6 +57,7 @@
    > 8. 2018/03/06<br/>  >> :art:改进Tab小红点点击就消失的"bug"<br/>
    > 9. 2018/05/15<br/>  >> :art:改进Toolbar返回按钮与标题间隙<br/>
    > 10. 2018/08/21<br/>  >> :art:修改朋友圈发表界面。微信使用GridView，本项目使用RecyclerView与微信效果有点区别，主要在微信效果为覆盖，本项目为透传。<br/>
+   > 11. 2018/08/22<br/>  >> :sparkles:增加类似公众号侧滑悬浮球效果，与微信有一点区别（还有点小bug）。同时在SwipeBackHelper中增加触摸回调实现位置判断来处理。<br/>
 
 :art: 截图<br/>
 <div>
@@ -149,7 +150,16 @@
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180821-185352.png"/>
 <img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180821-185416.png"/>
 </div>
-未完待续2018-08-21 13:30
+<div>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180822-190422.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180822-190430.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180822-190452.png"/>
+</div>
+<div>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180822-190503.png"/>
+<img width="288" height="512" src="https://github.com/WZTENG/TChat/blob/master/screenshots/Screenshot_20180822-190518.png"/>
+</div>
+未完待续2018-08-22 13:30
 
 
 
