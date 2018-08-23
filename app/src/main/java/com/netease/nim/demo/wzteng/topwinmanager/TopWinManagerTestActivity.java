@@ -239,7 +239,7 @@ public class TopWinManagerTestActivity extends UI {
                     .setView(iconView)
                     .setWidth(ICON_WIDTH)                               //设置控件宽高
                     .setHeight(ICON_HEIGHT)
-                    .setX(SCREEN_WIDTH - ICON_WIDTH) //设置控件初始位置
+                    .setX(SCREEN_WIDTH - ICON_WIDTH - 10) //设置控件初始位置
                     .setY(SCREEN_HEIGHT / 4)
                     .setDesktopShow(true)                        //桌面显示
                     .setViewStateListener(mViewStateListener)    //监听悬浮控件状态改变

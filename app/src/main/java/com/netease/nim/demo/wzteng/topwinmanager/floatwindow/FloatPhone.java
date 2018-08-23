@@ -3,6 +3,7 @@ package com.netease.nim.demo.wzteng.topwinmanager.floatwindow;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -118,7 +119,11 @@ class FloatPhone extends FloatView {
     @Override
     public void dismiss() {
         isRemove = true;
-        mWindowManager.removeView(mView);
+        try {
+            mWindowManager.removeView(mView);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -126,21 +131,36 @@ class FloatPhone extends FloatView {
         if (isRemove) return;
         mLayoutParams.x = mX = x;
         mLayoutParams.y = mY = y;
-        mWindowManager.updateViewLayout(mView, mLayoutParams);
+        try {
+            mWindowManager.updateViewLayout(mView, mLayoutParams);
+        } catch (Exception e) {
+            e.printStackTrace();
+//            Log.d("wzt", "updateXY");
+        }
     }
 
     @Override
     void updateX(int x) {
         if (isRemove) return;
         mLayoutParams.x = mX = x;
-        mWindowManager.updateViewLayout(mView, mLayoutParams);
+        try {
+            mWindowManager.updateViewLayout(mView, mLayoutParams);
+        } catch (Exception e) {
+            e.printStackTrace();
+//            Log.d("wzt", "updateX");
+        }
     }
 
     @Override
     void updateY(int y) {
         if (isRemove) return;
         mLayoutParams.y = mY = y;
-        mWindowManager.updateViewLayout(mView, mLayoutParams);
+        try {
+            mWindowManager.updateViewLayout(mView, mLayoutParams);
+        } catch (Exception e) {
+            e.printStackTrace();
+//            Log.d("wzt", "updateY");
+        }
     }
 
     @Override
