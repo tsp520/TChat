@@ -24,10 +24,10 @@
 
 当前编辑版本与编译环境：
 
-- Android Studio 3.0.1
-- Gradle Version 4.1
-- Android Plugin Version 3.0.1
-- Android SDK Platform-Tools 26.0.2
+- Android Studio 3.1.2
+- Gradle Version 4.4
+- Android Plugin Version 3.1.2
+- Android SDK Platform-Tools 27.0.3
 - Android 7.1.1 API25
 - 真机原生7.1.2
 
@@ -58,6 +58,7 @@
    > 9. 2018/05/15<br/>  >> :art:改进Toolbar返回按钮与标题间隙<br/>
    > 10. 2018/08/21<br/>  >> :art:修改朋友圈发表界面。微信使用GridView，本项目使用RecyclerView与微信效果有点区别，主要在微信效果为覆盖，本项目为透传。<br/>
    > 11. 2018/08/22<br/>  >> :sparkles:增加类似公众号侧滑悬浮球效果，与微信有一点区别（还有点小bug）。同时在SwipeBackHelper中增加触摸回调实现位置判断来处理。<br/>
+   > 12. 2018/11/23<br/>  >> :art:修改朋友圈图片浏览效果，具有点击放大与返回缩小效果。<br/>
 
 :art: 截图<br/>
 <div>
