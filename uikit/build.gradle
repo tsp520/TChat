@@ -53,4 +53,5 @@ dependencies {
     compile project(path: ':swipebackhelper')//wzteng
 
     compile 'me.everything:overscroll-decor-android:1.0.4'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 }
