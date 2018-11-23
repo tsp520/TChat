@@ -8,3 +8,5 @@ include ':qrcodecore'
 include ':awesomeqrcode'
 include ':recovery'
 include ':logreport'
+include ':Transferee'
+
