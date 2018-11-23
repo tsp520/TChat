@@ -47,6 +47,8 @@ public final class TransferConfig {
     private ImageView imageView;
     private AbsListView listView;
     private RecyclerView recyclerView;
+    //teng
+    private List<ImageView> imageViewList;
 
     private Transferee.OnTransfereeLongClickListener longClickListener;
 
@@ -242,6 +244,14 @@ public final class TransferConfig {
         this.recyclerView = recyclerView;
     }
 
+    public List<ImageView> getImageViewList() {
+        return imageViewList;
+    }
+
+    public void setImageViewList(List<ImageView> imageViewList) {
+        this.imageViewList = imageViewList;
+    }
+
     public static class Builder {
         private int nowThumbnailIndex;
         private int offscreenPageLimit;
@@ -265,6 +275,8 @@ public final class TransferConfig {
         private ImageView imageView;
         private AbsListView listView;
         private RecyclerView recyclerView;
+        //teng
+        private List<ImageView> imageViewList;
 
         private Transferee.OnTransfereeLongClickListener longClickListener;
 
@@ -436,6 +448,13 @@ public final class TransferConfig {
             return create();
         }
 
+        //teng
+        public TransferConfig bindImageViewList(List<ImageView> imageViewList, List<String> sourceImageList) {
+            this.imageViewList = imageViewList;
+            this.sourceImageList = sourceImageList;
+            return create();
+        }
+
         private TransferConfig create() {
             TransferConfig config = new TransferConfig();
 
@@ -461,6 +480,8 @@ public final class TransferConfig {
             config.setImageView(imageView);
             config.setListView(listView);
             config.setRecyclerView(recyclerView);
+            //teng
+            config.setImageViewList(imageViewList);
 
             config.setLongClickListener(longClickListener);
 

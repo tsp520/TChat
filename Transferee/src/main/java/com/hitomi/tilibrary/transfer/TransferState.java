@@ -43,9 +43,11 @@ abstract class TransferState {
      * @return
      */
     protected int getTransImageLocalY(int oldY) {
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-            return oldY;
-        }
+//        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+//            return oldY;
+//        }
+//        return oldY - getStatusBarHeight();
+        //状态栏会抖动先显示状态栏
         return oldY - getStatusBarHeight();
     }
 

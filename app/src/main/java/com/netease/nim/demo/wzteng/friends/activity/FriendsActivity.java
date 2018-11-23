@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,6 +27,8 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.hitomi.tilibrary.transfer.TransferConfig;
+import com.hitomi.tilibrary.transfer.Transferee;
 import com.luck.picture.lib.model.FunctionConfig;
 import com.luck.picture.lib.model.LocalMediaLoader;
 import com.luck.picture.lib.model.PictureConfig;
@@ -46,6 +49,9 @@ import com.netease.nim.demo.wzteng.friends.widgets.dialog.UpLoadDialog;
 import com.netease.nim.uikit.common.activity.UI;
 import com.netease.nim.uikit.common.ui.dialog.CustomAlertDialog;
 import com.netease.nim.uikit.model.ToolBarOptions;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer;
@@ -84,6 +90,11 @@ public class FriendsActivity extends UI implements CircleContract.View {
 
     boolean mFull = false;
 
+    //图片浏览器
+    public DisplayImageOptions options;
+    public Transferee transferee;
+    public TransferConfig config;
+
     public static void start(Context context) {
         start(context, null);
     }
@@ -120,6 +131,21 @@ public class FriendsActivity extends UI implements CircleContract.View {
             }
         });
 
+        initTransferee();
+
+    }
+
+    private void initTransferee() {
+        options = new DisplayImageOptions
+                .Builder()
+                .showImageOnLoading(R.drawable.sdk_share_dialog_thumb_default)
+                .bitmapConfig(Bitmap.Config.RGB_565)
+                .cacheInMemory(true)
+                .cacheOnDisk(true)
+                .resetViewBeforeLoading(true)
+                .build();
+        transferee = Transferee.getDefault(this);
+        ImageLoader.getInstance().init(ImageLoaderConfiguration.createDefault(this));
     }
 
     private void initUI() {

@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.hitomi.tilibrary.style.index.NumberIndexIndicator;
+import com.hitomi.tilibrary.style.progress.ProgressBarIndicator;
+import com.hitomi.tilibrary.transfer.TransferConfig;
 import com.jude.swipbackhelper.SwipeBackHelper;
 import com.netease.nim.demo.R;
 import com.netease.nim.demo.wzteng.friends.activity.FriendsActivity;
@@ -356,15 +359,23 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                                 @Override
                                 public void onItemClick(View view, int position) {
                                     //imagesize是作为loading时的图片size
-                                    ImagePagerActivity.ImageSize imageSize = new ImagePagerActivity.ImageSize(view.getMeasuredWidth(), view.getMeasuredHeight());
-
                                     List<String> photoUrls = new ArrayList<String>();
                                     for (PhotoInfo photoInfo : photos) {
                                         photoUrls.add(photoInfo.url);
                                     }
-                                    ImagePagerActivity.startImagePagerActivity(((FriendsActivity) context), photoUrls, position, imageSize);
+//                                    ImagePagerActivity.ImageSize imageSize = new ImagePagerActivity.ImageSize(view.getMeasuredWidth(), view.getMeasuredHeight());
+//                                    ImagePagerActivity.startImagePagerActivity(((FriendsActivity) context), photoUrls, position, imageSize);
 
-
+                                    //新的图片浏览器
+                                    ((FriendsActivity) context).config = TransferConfig.build()
+//                                            .setThumbnailImageList(ImageConfig.getThumbnailPicUrlList())
+                                            .setSourceImageList(photoUrls)
+                                            .setProgressIndicator(new ProgressBarIndicator())
+                                            .setIndexIndicator(new NumberIndexIndicator())
+                                            .setJustLoadHitImage(true)
+                                            .bindImageViewList(((ImageViewHolder) holder).multiImageView.getImageViewList(), photoUrls);
+                                    ((FriendsActivity) context).config.setNowThumbnailIndex(position);
+                                    ((FriendsActivity) context).transferee.apply(((FriendsActivity) context).config).show();
                                 }
                             });
                         } else {

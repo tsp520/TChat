@@ -85,11 +85,13 @@ public class Transferee implements DialogInterface.OnShowListener,
      */
     private int getDialogStyle() {
         int dialogStyle;
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-            dialogStyle = android.R.style.Theme_Translucent_NoTitleBar_Fullscreen;
-        } else {
-            dialogStyle = android.R.style.Theme_Translucent_NoTitleBar;
-        }
+//        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+//            dialogStyle = android.R.style.Theme_Translucent_NoTitleBar_Fullscreen;
+//        } else {
+//            dialogStyle = android.R.style.Theme_Translucent_NoTitleBar;
+//        }
+//        return dialogStyle;
+        dialogStyle = android.R.style.Theme_Translucent_NoTitleBar;//状态栏会抖动先改这种主题
         return dialogStyle;
     }
 
@@ -128,6 +130,8 @@ public class Transferee implements DialogInterface.OnShowListener,
             fillByListView(originImageList);
         } else if(transConfig.getImageView() != null) {
             originImageList.add(transConfig.getImageView());
+        } else if (transConfig.getImageViewList() != null) {//teng
+            originImageList.addAll(transConfig.getImageViewList());
         }
         transConfig.setOriginImageList(originImageList);
     }

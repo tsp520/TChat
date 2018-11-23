@@ -13,6 +13,7 @@ import com.netease.nim.demo.R;
 import com.netease.nim.demo.wzteng.friends.bean.PhotoInfo;
 import com.netease.nim.demo.wzteng.friends.utils.DensityUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +28,8 @@ public class MultiImageView extends LinearLayout {
 
 	// 照片的Url列表
 	private List<PhotoInfo> imagesList;
+	//teng
+	private List<ImageView> imageViewList = new ArrayList<>();
 
 	/** 长度 单位为Pixel **/
 	private int pxOneMaxWandH;  // 单张图最大允许宽高
@@ -50,6 +53,10 @@ public class MultiImageView extends LinearLayout {
 
 	public MultiImageView(Context context, AttributeSet attrs) {
 		super(context, attrs);
+	}
+
+	public List<ImageView> getImageViewList() {
+		return imageViewList;
 	}
 
 	public void setList(List<PhotoInfo> lists) throws IllegalArgumentException{
@@ -137,7 +144,9 @@ public class MultiImageView extends LinearLayout {
 		}
 
 		if (imagesList.size() == 1) {
-			addView(createImageView(0, false));
+			ImageView imageView = createImageView(0, false);
+			addView(imageView);
+			imageViewList.add(imageView);
 		} else {
 			int allCount = imagesList.size();
 			if(allCount == 4){
@@ -166,7 +175,9 @@ public class MultiImageView extends LinearLayout {
 				int rowOffset = rowCursor * MAX_PER_ROW_COUNT;// 行偏移
 				for (int columnCursor = 0; columnCursor < columnCount; columnCursor++) {
 					int position = columnCursor + rowOffset;
-					rowLayout.addView(createImageView(position, true));
+					ImageView imageView = createImageView(position, true);
+					rowLayout.addView(imageView);
+					imageViewList.add(imageView);
 				}
 			}
 		}
