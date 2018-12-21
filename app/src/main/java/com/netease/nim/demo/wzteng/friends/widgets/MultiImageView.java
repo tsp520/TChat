@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * @ClassName MultiImageView.java
  * @author shoyu
- * @version 
+ * @version
  * @Description: 显示1~N张图片的View
  */
 
@@ -64,7 +64,7 @@ public class MultiImageView extends LinearLayout {
 			throw new IllegalArgumentException("imageList is null...");
 		}
 		imagesList = lists;
-		
+
 		if(MAX_WIDTH > 0){
 			pxMoreWandH = (MAX_WIDTH - pxImagePadding*2 )/3; //解决右侧图片和内容对不齐问题
 			pxOneMaxWandH = MAX_WIDTH * 2 / 3;
@@ -90,7 +90,7 @@ public class MultiImageView extends LinearLayout {
 
 	/**
 	 * Determines the width of this view
-	 * 
+	 *
 	 * @param measureSpec
 	 *            A measureSpec packed into an int
 	 * @return The width of the view, honoring constraints from measureSpec
@@ -138,11 +138,12 @@ public class MultiImageView extends LinearLayout {
 			addView(new View(getContext()));
 			return;
 		}
-		
+
 		if (imagesList == null || imagesList.size() == 0) {
 			return;
 		}
 
+		imageViewList.clear();
 		if (imagesList.size() == 1) {
 			ImageView imageView = createImageView(0, false);
 			addView(imageView);
