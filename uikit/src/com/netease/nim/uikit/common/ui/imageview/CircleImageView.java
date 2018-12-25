@@ -30,6 +30,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -135,13 +136,25 @@ public class CircleImageView extends ImageView {
 
         if (mFillColor != Color.TRANSPARENT) {
 //            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, mDrawableRadius, mFillPaint);
-            canvas.drawRect(0, 0, getWidth(), getHeight(), mFillPaint);//teng
+            if (Build.VERSION.SDK_INT < 21) {
+                canvas.drawRect(0, 0, getWidth(), getHeight(), mFillPaint);//teng
+            } else {
+                canvas.drawRoundRect(0, 0, getWidth(), getHeight(), 4, 4, mFillPaint);
+            }
         }
 //        canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, mDrawableRadius, mBitmapPaint);
-        canvas.drawRect(0, 0, getWidth(), getHeight(), mBitmapPaint);//teng
+        if (Build.VERSION.SDK_INT < 21) {
+            canvas.drawRect(0, 0, getWidth(), getHeight(), mBitmapPaint);//teng
+        } else {
+            canvas.drawRoundRect(0, 0, getWidth(), getHeight(), 4, 4, mBitmapPaint);
+        }
         if (mBorderWidth != 0) {
 //            canvas.drawCircle(getWidth() / 2.0f, getHeight() / 2.0f, mBorderRadius, mBorderPaint);
-            canvas.drawRect(0, 0, getWidth(), getHeight(), mBorderPaint);//teng
+            if (Build.VERSION.SDK_INT < 21) {
+                canvas.drawRect(0, 0, getWidth(), getHeight(), mBorderPaint);//teng
+            } else {
+                canvas.drawRoundRect(0, 0, getWidth(), getHeight(), 4, 4, mBorderPaint);
+            }
         }
     }
 
