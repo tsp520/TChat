@@ -3,7 +3,6 @@ package com.netease.nim.demo.wzteng.topwinmanager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -18,10 +17,13 @@ import com.netease.nim.demo.wzteng.topwinmanager.floatwindow.MoveType;
 import com.netease.nim.demo.wzteng.topwinmanager.floatwindow.PermissionListener;
 import com.netease.nim.demo.wzteng.topwinmanager.floatwindow.ViewStateListener;
 import com.netease.nim.uikit.common.activity.UI;
+import com.netease.nim.uikit.common.util.sys.ScreenUtil;
 import com.netease.nim.uikit.model.ToolBarOptions;
 import com.yalantis.ucrop.util.ScreenUtils;
 
 public class TopWinManagerTestActivity extends UI {
+
+    //没有进行封装，只是学习相关的技巧
 
     SwipeBackPage swipeBackPage;
     SwipeListener swipeListener;
@@ -31,8 +33,8 @@ public class TopWinManagerTestActivity extends UI {
     private int ICON_WIDTH = 100;
     private int ICON_HEIGHT = 100;
 
-    private int TIP_WIDTH = 300;
-    private int TIP_HEIGHT = 300;
+    private int TIP_WIDTH = ScreenUtil.dip2px(150);
+    private int TIP_HEIGHT = ScreenUtil.dip2px(150);
 
     private boolean startShowTip = false;
     private float curPercent;
@@ -40,15 +42,15 @@ public class TopWinManagerTestActivity extends UI {
     private int SCREEN_WIDTH;
     private int SCREEN_HEIGHT;
 
-    private final String TIP_TAG = "tip";
-
     private View tipView;
     private View iconView;
 
-    private int curViewX = Integer.MAX_VALUE;
-    private int curViewY = Integer.MAX_VALUE;
+    private int curViewWidth = Integer.MAX_VALUE;
+    private int curViewHeight = Integer.MAX_VALUE;
 
     private boolean permissionOk = true;
+
+    private PopTipDialog popTipDialog;
 
     public static void start(Context context) {
         start(context, null);
@@ -98,8 +100,9 @@ public class TopWinManagerTestActivity extends UI {
                 startShowTip = percent >= 0.2f;
                 curPercent = percent;
                 if (percent <= 0 || px <= 0) {
-                    if (FloatWindow.get(TIP_TAG) != null) {
-                        FloatWindow.destroy(TIP_TAG);
+                    //删除提示
+                    if (popTipDialog != null && popTipDialog.isShowing()) {
+                        popTipDialog.dismiss();
                     }
                 }
             }
@@ -113,8 +116,9 @@ public class TopWinManagerTestActivity extends UI {
             @Override
             public void onScrollToClose() {
 //                Log.d("wzt", "onScrollToClose");
-                if (FloatWindow.get(TIP_TAG) != null) {
-                    FloatWindow.destroy(TIP_TAG);
+                //删除提示
+                if (popTipDialog != null && popTipDialog.isShowing()) {
+                    popTipDialog.dismiss();
                 }
             }
         };
@@ -131,91 +135,93 @@ public class TopWinManagerTestActivity extends UI {
                 float x = event.getX();
                 float y = event.getY();
                 if (startShowTip) {
+                    //显示提示
                     startShowTip(curPercent);
                 } else {
-                    if (FloatWindow.get(TIP_TAG) != null) {
-                        FloatWindow.destroy(TIP_TAG);
+                    //删除提示
+                    if (popTipDialog != null && popTipDialog.isShowing()) {
+                        popTipDialog.dismiss();
                     }
                 }
-                if (x > curViewX && y > curViewY) {
+                if (x > (SCREEN_WIDTH - curViewWidth) && y > (SCREEN_HEIGHT - curViewHeight)) {
                     if (event.getAction() == MotionEvent.ACTION_UP) {//范围内抬起
-                        if (toShowBydistance(SCREEN_WIDTH, SCREEN_HEIGHT, x, y, curViewX, curViewY)) {
+                        if (toShowBydistance(SCREEN_WIDTH, SCREEN_HEIGHT, x, y, curViewWidth, curViewHeight)) {
                             buildAndShowIconFloat();
                             return;
                         }
                     }
                     //在范围内变红
-                    if (toShowBydistance(SCREEN_WIDTH, SCREEN_HEIGHT, x, y, curViewX, curViewY)) {
-                        if (tipView != null) {
-                            tipView.setBackgroundResource(R.drawable.tip_red_bg);
+                    if (toShowBydistance(SCREEN_WIDTH, SCREEN_HEIGHT, x, y, curViewWidth, curViewHeight)) {
+                        if (popTipDialog != null && popTipDialog.isShowing()) {
+                            popTipDialog.setBackgroundColorByPosition(true);
                         }
                     } else {
-                        if (tipView != null) {
-                            tipView.setBackgroundResource(R.drawable.tip_light_gray_bg);
+                        if (popTipDialog != null && popTipDialog.isShowing()) {
+                            popTipDialog.setBackgroundColorByPosition(false);
                         }
                     }
                 } else {//速度太快会有问题，还是加上
-                    if (tipView != null) {
-                        tipView.setBackgroundResource(R.drawable.tip_light_gray_bg);
+                    if (popTipDialog != null && popTipDialog.isShowing()) {
+                        popTipDialog.setBackgroundColorByPosition(false);
                     }
                 }
-
+                //抬起时立即消失
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (popTipDialog != null && popTipDialog.isShowing()) {
+                        popTipDialog.dismiss();
+                    }
+                }
             }
         };
         swipeBackPage.getSwipeBackLayout().setTouchListener(touchListener);
     }
 
-    private boolean toShowBydistance(int screenWidth, int screenHeight, float touchX, float touchY, float curViewX, float curViewY) {
+    private boolean toShowBydistance(int screenWidth, int screenHeight, float touchX, float touchY, float curViewWidth, float curViewHeight) {
         float touchDis = (float) Math.sqrt(Math.pow(screenWidth - touchX, 2) + Math.pow(screenHeight - touchY, 2));
-//        float viewDis = (float) (Math.pow(screenWidth - curViewX, 2) + Math.pow(screenHeight - curViewY, 2));
-        float viewDis = TIP_WIDTH;
+        float viewDis = curViewWidth;
         return viewDis >= touchDis;
     }
 
     private void startShowTip(float percent) {//0.05-0.5
         if (percent < 0.05f) {
-            if (FloatWindow.get(TIP_TAG) != null) {
-                FloatWindow.get(TIP_TAG).hide();
-                FloatWindow.destroy(TIP_TAG);
+            //删除提示
+            if (popTipDialog != null && popTipDialog.isShowing()) {
+                popTipDialog.dismiss();
             }
             return;
         }
         if (percent > 0.5f) {
-            if (FloatWindow.get(TIP_TAG) != null) {
-                FloatWindow.get(TIP_TAG).show();
-                FloatWindow.get(TIP_TAG).updateX(SCREEN_WIDTH - TIP_WIDTH);
-                FloatWindow.get(TIP_TAG).updateY(SCREEN_HEIGHT - TIP_HEIGHT);
+            //更新大小，固定值
+            if (popTipDialog != null) {
+                if (!popTipDialog.isShowing()) {
+                    popTipDialog.show();
+                }
+                popTipDialog.changeSize(TIP_WIDTH);
             }
             return;
         }
-        float p = (percent - 0.05f) * (1 / (0.5f - 0.05f));
 
-        if (FloatWindow.get(TIP_TAG) != null) {
-            curViewX = SCREEN_WIDTH - (int) (TIP_WIDTH * p);
-            curViewY = SCREEN_HEIGHT - (int) (TIP_HEIGHT * p);
-            FloatWindow.get(TIP_TAG).show();
-            FloatWindow.get(TIP_TAG).updateX(curViewX);
-            FloatWindow.get(TIP_TAG).updateY(curViewY);
-        } else {
-            if (tipView == null) {
-                tipView = View.inflate(this, R.layout.tip_winmanager, null);
+        float p = percent + 0.5f;
+        if (popTipDialog != null) {
+            //根据位置调整
+            curViewWidth = (int) (TIP_WIDTH * p);
+            curViewHeight = (int) (TIP_WIDTH * p);
+            if (!popTipDialog.isShowing()) {
+                popTipDialog.show();
             }
-            FloatWindow
-                    .with(getApplicationContext())
-                    .setView(tipView)
-                    .setWidth(TIP_WIDTH)                               //设置控件宽高
-                    .setHeight(TIP_HEIGHT)
-                    .setX(SCREEN_WIDTH) //设置控件初始位置
-                    .setY(SCREEN_HEIGHT)
-                    .setDesktopShow(false)                        //桌面显示
-                    .setViewStateListener(mViewStateListener)    //监听悬浮控件状态改变
-                    .setPermissionListener(mPermissionListener)  //监听权限申请结果
-                    .setMoveType(MoveType.inactive)
-                    .setTag(TIP_TAG)
-                    .build();
+            popTipDialog.changeSize(curViewWidth);
+        } else {
+            //创建
+            popTipDialog = new PopTipDialog(this);
+            if (!popTipDialog.isShowing()) {
+                popTipDialog.show();
+            }
         }
     }
 
+    /**
+     * 小圆点
+     */
     private void buildAndShowIconFloat() {
         if (FloatWindow.get() != null) {
             FloatWindow.get().show();
