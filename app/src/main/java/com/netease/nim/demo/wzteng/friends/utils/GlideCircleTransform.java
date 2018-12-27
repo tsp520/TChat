@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Build;
 
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
@@ -42,8 +44,14 @@ public class GlideCircleTransform extends BitmapTransformation {
         Paint paint = new Paint();
         paint.setShader(new BitmapShader(squared, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP));
         paint.setAntiAlias(true);
-        float r = size / 2f;
-        canvas.drawCircle(r, r, r, paint);
+//        float r = size / 2f;
+//        canvas.drawCircle(r, r, r, paint);
+
+        if (Build.VERSION.SDK_INT < 21) {
+            canvas.drawRect(0, 0, size, size, paint);//teng
+        } else {
+            canvas.drawRoundRect(0, 0, size, size, 4, 4, paint);
+        }
         return result;
 
     }
