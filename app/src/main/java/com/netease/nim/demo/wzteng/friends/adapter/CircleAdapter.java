@@ -171,7 +171,7 @@ public class CircleAdapter extends BaseRecycleViewAdapter {
                     .load(headImg)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .placeholder(R.color.bg_no_photo)
-//                    .transform(new GlideCircleTransform(context))//圆形
+                    .transform(new GlideCircleTransform(context))
                     .into(holder.headIv);
 
             holder.nameTv.setText(name);
